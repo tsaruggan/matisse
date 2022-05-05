@@ -1380,7 +1380,7 @@ export function randoms(num) {
  * Generate a monochromatic palette from a given base colour
  * @param {Colour} colour
  * @param {number} num
- * @param {function(Colour, number):Colour} callback - 
+ * @param {function(Colour, number):Colour} callback
  * @returns {Colour[]}
  */
 function _monochromatic(colour, num, callback) {
