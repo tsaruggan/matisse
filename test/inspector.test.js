@@ -1,4 +1,4 @@
-const { Colour, Inspector} = require("../matisse");
+const { Colour, Inspector} = require("../index");
 
 var black;
 var white;

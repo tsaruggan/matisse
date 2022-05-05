@@ -1,5 +1,5 @@
 const { boolean } = require('mathjs');
-const { Colour, Bartender } = require('../matisse');
+const { Colour, Bartender } = require('../index');
 
 var colour1;
 var colour2;
