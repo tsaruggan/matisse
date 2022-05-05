@@ -1,4 +1,4 @@
-const { Colour, Artist } = require('../index');
+import { Colour, Artist } from "../index.js";
 
 var colour1;
 

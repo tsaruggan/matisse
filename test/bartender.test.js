@@ -1,5 +1,4 @@
-const { boolean } = require('mathjs');
-const { Colour, Bartender } = require('../index');
+import { Colour, Bartender } from "../index.js";
 
 var colour1;
 var colour2;

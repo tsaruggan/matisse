@@ -1,4 +1,4 @@
-const { Colour } = require('../index');
+import { Colour } from "../index.js";
 
 var white;
 var black;
@@ -6,6 +6,8 @@ var colour1;
 var colour2;
 var colour3;
 var colour4;
+var colourA;
+var colourB;
 
 beforeEach(() => {
     white = new Colour("#FFFFFF");

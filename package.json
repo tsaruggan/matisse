@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "description": "JavaScript library for mutable colour conversion and manipulation 🎨",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "test": "jest --coverage"
+    "test": "node --experimental-vm-modules node_modules/.bin/jest --coverage"
   },
   "repository": {
     "type": "git",

@@ -1,13 +1,13 @@
 'use strict';
 
-const colorString = require('color-string');
-const math = require("mathjs");
+import colorString from 'color-string';
+import { mean, std, sqrt } from 'mathjs';
 
 /**
  * An abstract data type representating mutable colour entities for RGB, HSV, HSL, CMYK, and HWB colour models.
  * @class Colour
  */
-class Colour {
+export class Colour {
     #red = 0;
     #green = 0;
     #blue = 0;
@@ -750,7 +750,7 @@ class Colour {
  * @class Scientist
  * @hideconstructor
  */
-class Scientist {
+export class Scientist {
     /**
      * Determine the inverse colour or the colour on the opposite side of the colour wheel.
      * @param {Colour} colour - The colour to invert
@@ -812,13 +812,13 @@ class Scientist {
         let rg = Math.abs(colour.red - colour.green);
         let yb = Math.abs(0.5 * (colour.red + colour.green) - colour.blue);
 
-        let rg_mean = math.mean(rg);
-        let rg_std = math.std(rg);
-        let yb_mean = math.mean(yb);
-        let yb_std = math.std(yb);
+        let rg_mean = mean(rg);
+        let rg_std = std(rg);
+        let yb_mean = mean(yb);
+        let yb_std = std(yb);
 
-        let std_root = math.sqrt((rg_std ** 2) + (yb_std ** 2));
-        let mean_root = math.sqrt((rg_mean ** 2) + (yb_mean ** 2));
+        let std_root = sqrt((rg_std ** 2) + (yb_std ** 2));
+        let mean_root = sqrt((rg_mean ** 2) + (yb_mean ** 2));
 
         return std_root + (0.3 * mean_root);
     }
@@ -867,7 +867,7 @@ class Scientist {
  * @class Bartender
  * @hideconstructor
  */
-class Bartender {
+export class Bartender {
     /**
      * Evenly interpolate two colours and produce the resulting midpoint colour.
      * @param {Colour} colour1 - The first colour to include in the mix
@@ -1299,7 +1299,7 @@ class Bartender {
  * @class Artist
  * @hideconstructor
  */
-class Artist {
+export class Artist {
     /**
      * Generate a colour palette containing all shades of the provided colour.
      * @param {Colour} colour - The colour to generate shades for.
@@ -1441,7 +1441,7 @@ class Artist {
  * @class Inspector
  * @hideconstructor
  */
-class Inspector {
+export class Inspector {
     /**
      * Validate that the contrast between the provided text colour and background colour meets the standard for the [WCAG contrast ratio](http://www.w3.org/TR/WCAG20/#contrast-ratiodef).
      * @param {Colour} textColour - The colour of the text
@@ -1491,5 +1491,3 @@ class Inspector {
         return colours;
     }
 }
-
-module.exports = { Colour, Scientist, Bartender, Artist, Inspector };
