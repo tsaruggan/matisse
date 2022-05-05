@@ -1,0 +1,19 @@
+{
+  "name": "matisse",
+  "version": "1.0.0",
+  "description": "JavaScript library for mutable colour conversion and manipulation 🎨",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tsaruggan/matisse.git"
+  },
+  "author": "tsaruggan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tsaruggan/matisse/issues"
+  },
+  "homepage": "https://github.com/tsaruggan/matisse#readme"
+}
