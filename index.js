@@ -1,5 +1,3 @@
-'use strict';
-
 import colorString from 'color-string';
 import { mean, std, sqrt } from 'mathjs';
 
@@ -1436,58 +1434,52 @@ export class Artist {
     }
 }
 
+
 /**
- * A static library containing methods to validate colours against the [Web Content Accessibility Guidelines (WCAG)](https://webaim.org/articles/contrast/) requirements.
- * @class Inspector
- * @hideconstructor
+ * Validate that the contrast between the provided text colour and background colour meets the standard for the [WCAG contrast ratio](http://www.w3.org/TR/WCAG20/#contrast-ratiodef).
+ * @param {Colour} textColour - The colour of the text
+ * @param {Colour} backgroundColour - The colour of the background
+ * @param {boolean} [largeText=false] - True if text size is large. By default, text is assumed to be regular size.
+ * @param {boolean} [enhanced=false] - True if the enhanced contrast ratio is to be used. By default, the minimum contrast ratio is used.
+ * @returns {boolean} True if the provided text colour and background colour have sufficient contrast.
  */
-export class Inspector {
-    /**
-     * Validate that the contrast between the provided text colour and background colour meets the standard for the [WCAG contrast ratio](http://www.w3.org/TR/WCAG20/#contrast-ratiodef).
-     * @param {Colour} textColour - The colour of the text
-     * @param {Colour} backgroundColour - The colour of the background
-     * @param {boolean} [largeText=false] - True if text size is large. By default, text is assumed to be regular size.
-     * @param {boolean} [enhanced=false] - True if the enhanced contrast ratio is to be used. By default, the minimum contrast ratio is used.
-     * @returns {boolean} True if the provided text colour and background colour have sufficient contrast.
-     */
-    static validateContrast(textColour, backgroundColour, largeText = false, enhanced = false) {
-        let contrast = Scientist.contrast(textColour, backgroundColour);
-        //enhanced contrast requirements 
-        if (enhanced && largeText) {
-            return contrast >= 4.5;
-        }
-        if (enhanced) {
-            return contrast >= 7;
-        }
-        //minimum contrast requirements 
-        if (largeText) {
-            return contrast >= 3;
-        }
+export function validateContrast(textColour, backgroundColour, largeText = false, enhanced = false) {
+    let contrast = Scientist.contrast(textColour, backgroundColour);
+    //enhanced contrast requirements 
+    if (enhanced && largeText) {
         return contrast >= 4.5;
     }
-
-    /**
-     * Check if the provided text colour and background colour meet the [WCAG contrast ratio](http://www.w3.org/TR/WCAG20/#contrast-ratiodef) standards and if not, produce an equivalent text colour and background colour with sufficient contrast. The given text colour will be darkened and the given background colour will be lightened (and vice versa for dark mode).
-     * @param {Colour} textColour - The colour of the text
-     * @param {Colour} backgroundColour - The colour of the background
-     * @param {boolean} [largeText=false] - True if text size is large. By default, text is assumed to be regular size.
-     * @param {boolean} [enhanced=false] - True if the enhanced contrast ratio is to be used. By default, the minimum contrast ratio is used.
-     * @param {boolean} [darkMode=false] - True if the provided colours are for a "dark mode" design (i.e. light text on a dark background). By default, a "light mode" design is assumed.
-     * @returns {Colour[]} An array of colours with the first item being the new text colour and the second item being the new background colour.
-     */
-    static fixContrast(textColour, backgroundColour, largeText = false, enhanced = false) {
-        const colours = [textColour.copy(), backgroundColour.copy()];
-        if (Scientist.luminosity(colours[0]) > Scientist.luminosity(colours[1])) {
-            while (!this.validateContrast(colours[0], colours[1], largeText, enhanced)) {
-                colours[0] = Bartender.tint(colours[0], 0.05);
-                colours[1] = Bartender.shade(colours[1], 0.05);
-            }
-        } else {
-            while (!this.validateContrast(colours[0], colours[1], largeText, enhanced)) {
-                colours[0] = Bartender.shade(colours[0], 0.05);
-                colours[1] = Bartender.tint(colours[1], 0.05);
-            }
-        }
-        return colours;
+    if (enhanced) {
+        return contrast >= 7;
     }
+    //minimum contrast requirements 
+    if (largeText) {
+        return contrast >= 3;
+    }
+    return contrast >= 4.5;
+}
+
+/**
+ * Check if the provided text colour and background colour meet the [WCAG contrast ratio](http://www.w3.org/TR/WCAG20/#contrast-ratiodef) standards and if not, produce an equivalent text colour and background colour with sufficient contrast. The given text colour will be darkened and the given background colour will be lightened (and vice versa for dark mode).
+ * @param {Colour} textColour - The colour of the text
+ * @param {Colour} backgroundColour - The colour of the background
+ * @param {boolean} [largeText=false] - True if text size is large. By default, text is assumed to be regular size.
+ * @param {boolean} [enhanced=false] - True if the enhanced contrast ratio is to be used. By default, the minimum contrast ratio is used.
+ * @param {boolean} [darkMode=false] - True if the provided colours are for a "dark mode" design (i.e. light text on a dark background). By default, a "light mode" design is assumed.
+ * @returns {Colour[]} An array of colours with the first item being the new text colour and the second item being the new background colour.
+ */
+export function fixContrast(textColour, backgroundColour, largeText = false, enhanced = false) {
+    const colours = [textColour.copy(), backgroundColour.copy()];
+    if (Scientist.luminosity(colours[0]) > Scientist.luminosity(colours[1])) {
+        while (!validateContrast(colours[0], colours[1], largeText, enhanced)) {
+            colours[0] = Bartender.tint(colours[0], 0.05);
+            colours[1] = Bartender.shade(colours[1], 0.05);
+        }
+    } else {
+        while (!validateContrast(colours[0], colours[1], largeText, enhanced)) {
+            colours[0] = Bartender.shade(colours[0], 0.05);
+            colours[1] = Bartender.tint(colours[1], 0.05);
+        }
+    }
+    return colours;
 }
