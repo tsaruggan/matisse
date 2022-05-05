@@ -744,120 +744,113 @@ export class Colour {
 }
 
 /**
- * A static library containing various colour measurements, calculations, and operations.
- * @class Scientist
- * @hideconstructor
+ * Determine the inverse colour or the colour on the opposite side of the colour wheel.
+ * @param {Colour} colour - The colour to invert
+ * @returns {Colour} The colour resulting from the negation
  */
-export class Scientist {
-    /**
-     * Determine the inverse colour or the colour on the opposite side of the colour wheel.
-     * @param {Colour} colour - The colour to invert
-     * @returns {Colour} The colour resulting from the negation
-     */
-    static negate(colour) {
-        let red = 255 - colour.red;
-        let green = 255 - colour.green;
-        let blue = 255 - colour.blue;
-        let alpha = colour.alpha;
-        return Colour.RGB(red, green, blue, alpha);
+export function negate(colour) {
+    let red = 255 - colour.red;
+    let green = 255 - colour.green;
+    let blue = 255 - colour.blue;
+    let alpha = colour.alpha;
+    return Colour.RGB(red, green, blue, alpha);
+}
+
+/**
+ * Rotate a given colour a certain number of degrees in 3-dimensional space.
+ * @param {Colour} colour - The colour to rotate
+ * @param {number} degrees - The number of degrees to rotate the colour
+ * @returns {Colour} - The colour resulting from the rotation
+ */
+ export function rotate(colour, degrees) {
+    let hue = colour.hue;
+    hue = (hue + degrees) % 360;
+    hue = hue < 0 ? 360 + hue : hue;
+    return Colour.HSL(hue, colour.saturationl, colour.light, colour.alpha);
+}
+
+/**
+ * Determine the equivalent [grayscale colour of a given colour](https://www.tutorialspoint.com/dip/grayscale_to_rgb_conversion.htm).
+ * @param {Colour} colour - The colour to grayscale
+ * @returns {Colour} The resulting colour from the grayscale transformation
+ */
+ export function grayscale(colour) {
+    let weightedTotal = Math.round(0.3 * colour.red + 0.59 * colour.green + 0.11 * colour.blue);
+    return Colour.RGB(weightedTotal, weightedTotal, weightedTotal, colour.alpha);
+}
+
+/**
+ * Calculate the [WCAG contrast ratio](http://www.w3.org/TR/WCAG20/#contrast-ratiodef)
+ * between two colours. (Note: The order of the colours does not matter!)
+ * @param {Colour} colour1 - The first colour to be compared
+ * @param {Colour} colour2 - The second colour to be compared
+ * @returns {number} The WCAG contrast ratio of the two colours (values ranging between 1 and 21)
+ */
+ export function contrast(colour1, colour2) {
+    const lum1 = luminosity(colour1);
+    const lum2 = luminosity(colour2);
+    if (lum1 > lum2) {
+        return Math.round(((lum1 + 0.05) / (lum2 + 0.05)) * 100) / 100;
     }
+    return Math.round(((lum2 + 0.05) / (lum1 + 0.05)) * 100) / 100;
+}
 
-    /**
-     * Rotate a given colour a certain number of degrees in 3-dimensional space.
-     * @param {Colour} colour - The colour to rotate
-     * @param {number} degrees - The number of degrees to rotate the colour
-     * @returns {Colour} - The colour resulting from the rotation
-     */
-    static rotate(colour, degrees) {
-        let hue = colour.hue;
-        hue = (hue + degrees) % 360;
-        hue = hue < 0 ? 360 + hue : hue;
-        return Colour.HSL(hue, colour.saturationl, colour.light, colour.alpha);
+/**
+ * Calculate the [colourfulness index](https://infoscience.epfl.ch/record/33994/files/HaslerS03.pdf) of a given colour as defined by Hasler and Süsstrunk (2003).
+ * @param {Colour} colour - The colour to calculate colourfulness of.
+ * @returns {number} The resulting colourfulness grading
+ */
+ export function colourfulness(colour) {
+    let rg = Math.abs(colour.red - colour.green);
+    let yb = Math.abs(0.5 * (colour.red + colour.green) - colour.blue);
+
+    let rg_mean = mean(rg);
+    let rg_std = std(rg);
+    let yb_mean = mean(yb);
+    let yb_std = std(yb);
+
+    let std_root = sqrt((rg_std ** 2) + (yb_std ** 2));
+    let mean_root = sqrt((rg_mean ** 2) + (yb_mean ** 2));
+
+    return std_root + (0.3 * mean_root);
+}
+
+/**
+ * Calculate the [temperature](https://ams.com/documents/20143/80162/TCS34xx_AN000517_1-00.pdf) of a given colour.
+ * @param {Colour} colour - The colour to calculate temperature of.
+ * @returns {number} The resulting temperature grading
+ */
+ export function temperature(colour) {
+    // Get XYZ values (CIE tristimulus values)
+    let X = -0.14282 * colour.red + 1.54924 * colour.green + -0.95641 * colour.blue;
+    let Y = -0.32466 * colour.red + 1.57837 * colour.green + -0.73191 * colour.blue;
+    let Z = -0.68202 * colour.red + 0.77073 * colour.green + 0.56332 * colour.blue;
+
+    // Normalize values
+    let x = X / (X + Y + Z);
+    let y = Y / (X + Y + Z);
+
+    // CCT - correlated colour temperature
+    let n = (x - 0.3320) / (0.1858 - y);
+    let CCT = 449 * (n ** 3) + 3525 * (n ** 2) + 6823.3 * n + 5520.33;
+
+    return CCT;
+}
+
+/**
+ * Calculate the [relative luminance](https://www.w3.org/WAI/GL/wiki/Relative_luminance) of a given colour as defined by the WCAG.
+ * @param {Colour} colour - The colour to calculate luminence of.
+ * @returns {number} The resulting luminence grading
+ */
+ export function luminosity(colour) {
+    const lum = [];
+    const rgb = [colour.red, colour.green, colour.blue];
+
+    for (let i = 0; i < rgb.length; i++) {
+        const chan = rgb[i] / 255;
+        lum[i] = (chan <= 0.03928) ? (chan / 12.92) : ((chan + 0.055) / 1.055) ** 2.4;
     }
-
-    /**
-     * Determine the equivalent [grayscale colour of a given colour](https://www.tutorialspoint.com/dip/grayscale_to_rgb_conversion.htm).
-     * @param {Colour} colour - The colour to grayscale
-     * @returns {Colour} The resulting colour from the grayscale transformation
-     */
-    static grayscale(colour) {
-        let weightedTotal = Math.round(0.3 * colour.red + 0.59 * colour.green + 0.11 * colour.blue);
-        return Colour.RGB(weightedTotal, weightedTotal, weightedTotal, colour.alpha);
-    }
-
-    /**
-     * Calculate the [WCAG contrast ratio](http://www.w3.org/TR/WCAG20/#contrast-ratiodef)
-     * between two colours. (Note: The order of the colours does not matter!)
-     * @param {Colour} colour1 - The first colour to be compared
-     * @param {Colour} colour2 - The second colour to be compared
-     * @returns {number} The WCAG contrast ratio of the two colours (values ranging between 1 and 21)
-     */
-    static contrast(colour1, colour2) {
-        const lum1 = this.luminosity(colour1);
-        const lum2 = this.luminosity(colour2);
-        if (lum1 > lum2) {
-            return Math.round(((lum1 + 0.05) / (lum2 + 0.05)) * 100) / 100;
-        }
-        return Math.round(((lum2 + 0.05) / (lum1 + 0.05)) * 100) / 100;
-    }
-
-    /**
-     * Calculate the [colourfulness index](https://infoscience.epfl.ch/record/33994/files/HaslerS03.pdf) of a given colour as defined by Hasler and Süsstrunk (2003).
-     * @param {Colour} colour - The colour to calculate colourfulness of.
-     * @returns {number} The resulting colourfulness grading
-     */
-    static colourfulness(colour) {
-        let rg = Math.abs(colour.red - colour.green);
-        let yb = Math.abs(0.5 * (colour.red + colour.green) - colour.blue);
-
-        let rg_mean = mean(rg);
-        let rg_std = std(rg);
-        let yb_mean = mean(yb);
-        let yb_std = std(yb);
-
-        let std_root = sqrt((rg_std ** 2) + (yb_std ** 2));
-        let mean_root = sqrt((rg_mean ** 2) + (yb_mean ** 2));
-
-        return std_root + (0.3 * mean_root);
-    }
-
-    /**
-     * Calculate the [temperature](https://ams.com/documents/20143/80162/TCS34xx_AN000517_1-00.pdf) of a given colour.
-     * @param {Colour} colour - The colour to calculate temperature of.
-     * @returns {number} The resulting temperature grading
-     */
-    static temperature(colour) {
-        // Get XYZ values (CIE tristimulus values)
-        let X = -0.14282 * colour.red + 1.54924 * colour.green + -0.95641 * colour.blue;
-        let Y = -0.32466 * colour.red + 1.57837 * colour.green + -0.73191 * colour.blue;
-        let Z = -0.68202 * colour.red + 0.77073 * colour.green + 0.56332 * colour.blue;
-
-        // Normalize values
-        let x = X / (X + Y + Z);
-        let y = Y / (X + Y + Z);
-
-        // CCT - correlated colour temperature
-        let n = (x - 0.3320) / (0.1858 - y);
-        let CCT = 449 * (n ** 3) + 3525 * (n ** 2) + 6823.3 * n + 5520.33;
-
-        return CCT;
-    }
-
-    /**
-     * Calculate the [relative luminance](https://www.w3.org/WAI/GL/wiki/Relative_luminance) of a given colour as defined by the WCAG.
-     * @param {Colour} colour - The colour to calculate luminence of.
-     * @returns {number} The resulting luminence grading
-     */
-    static luminosity(colour) {
-        const lum = [];
-        const rgb = [colour.red, colour.green, colour.blue];
-
-        for (let i = 0; i < rgb.length; i++) {
-            const chan = rgb[i] / 255;
-            lum[i] = (chan <= 0.03928) ? (chan / 12.92) : ((chan + 0.055) / 1.055) ** 2.4;
-        }
-        return 0.2126 * lum[0] + 0.7152 * lum[1] + 0.0722 * lum[2];
-    }
+    return 0.2126 * lum[0] + 0.7152 * lum[1] + 0.0722 * lum[2];
 }
 
 /**
@@ -1335,8 +1328,8 @@ export class Artist {
      */
     static analogous(colour) {
         const degSeparation = 40;
-        const leftAnalogous = Scientist.rotate(colour, -degSeparation);
-        const rightAnalogous = Scientist.rotate(colour, degSeparation);
+        const leftAnalogous = rotate(colour, -degSeparation);
+        const rightAnalogous = rotate(colour, degSeparation);
         return [leftAnalogous, colour, rightAnalogous];
     }
 
@@ -1346,7 +1339,7 @@ export class Artist {
      * @returns {Colour[]} The resulting colour palette
      */
     static complementary(colour) {
-        const complement = Scientist.rotate(colour, 180);
+        const complement = rotate(colour, 180);
         return [colour, complement];
     }
 
@@ -1356,10 +1349,10 @@ export class Artist {
      * @returns {Colour[]} The resulting colour palette
      */
     static splitComplementary(colour) {
-        const complement = Scientist.rotate(colour, 180);
+        const complement = rotate(colour, 180);
         const degSeparation = 20;
-        const leftAnalogous = Scientist.rotate(complement, -degSeparation);
-        const rightAnalogous = Scientist.rotate(complement, degSeparation);
+        const leftAnalogous = rotate(complement, -degSeparation);
+        const rightAnalogous = rotate(complement, degSeparation);
         return [colour, leftAnalogous, rightAnalogous];
     }
 
@@ -1369,8 +1362,8 @@ export class Artist {
      * @returns {Colour[]} The resulting colour palette
      */
     static triadic(colour) {
-        const secondColour = Scientist.rotate(colour, 360 / 3);
-        const thirdColour = Scientist.rotate(secondColour, 360 / 3);
+        const secondColour = rotate(colour, 360 / 3);
+        const thirdColour = rotate(secondColour, 360 / 3);
         return [colour, secondColour, thirdColour];
     }
 
@@ -1381,9 +1374,9 @@ export class Artist {
      */
     static tetradic(colour) {
         const degSeparation = 60;
-        const secondColour = Scientist.rotate(colour, degSeparation);
-        const thirdColour = Scientist.rotate(colour, 180);
-        const fourthColour = Scientist.rotate(secondColour, 180);
+        const secondColour = rotate(colour, degSeparation);
+        const thirdColour = rotate(colour, 180);
+        const fourthColour = rotate(secondColour, 180);
         return [colour, secondColour, thirdColour, fourthColour];
     }
 
@@ -1393,9 +1386,9 @@ export class Artist {
      * @returns {Colour[]} The resulting colour palette
      */
     static square(colour) {
-        const secondColour = Scientist.rotate(colour, 360 / 4);
-        const thirdColour = Scientist.rotate(secondColour, 360 / 4);
-        const fourthColour = Scientist.rotate(thirdColour, 360 / 4);
+        const secondColour = rotate(colour, 360 / 4);
+        const thirdColour = rotate(secondColour, 360 / 4);
+        const fourthColour = rotate(thirdColour, 360 / 4);
         return [colour, secondColour, thirdColour, fourthColour];
     }
 
@@ -1444,19 +1437,19 @@ export class Artist {
  * @returns {boolean} True if the provided text colour and background colour have sufficient contrast.
  */
 export function validateContrast(textColour, backgroundColour, largeText = false, enhanced = false) {
-    let contrast = Scientist.contrast(textColour, backgroundColour);
+    let contrastRatio = contrast(textColour, backgroundColour);
     //enhanced contrast requirements 
     if (enhanced && largeText) {
-        return contrast >= 4.5;
+        return contrastRatio >= 4.5;
     }
     if (enhanced) {
-        return contrast >= 7;
+        return contrastRatio >= 7;
     }
     //minimum contrast requirements 
     if (largeText) {
-        return contrast >= 3;
+        return contrastRatio >= 3;
     }
-    return contrast >= 4.5;
+    return contrastRatio >= 4.5;
 }
 
 /**
@@ -1470,7 +1463,7 @@ export function validateContrast(textColour, backgroundColour, largeText = false
  */
 export function fixContrast(textColour, backgroundColour, largeText = false, enhanced = false) {
     const colours = [textColour.copy(), backgroundColour.copy()];
-    if (Scientist.luminosity(colours[0]) > Scientist.luminosity(colours[1])) {
+    if (luminosity(colours[0]) > luminosity(colours[1])) {
         while (!validateContrast(colours[0], colours[1], largeText, enhanced)) {
             colours[0] = Bartender.tint(colours[0], 0.05);
             colours[1] = Bartender.shade(colours[1], 0.05);

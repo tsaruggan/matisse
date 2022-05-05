@@ -1,4 +1,4 @@
-import { Colour, Scientist } from "../index.js";
+import { Colour, negate, rotate, grayscale, contrast, colourfulness, temperature, luminosity } from "../index.js";
 
 var black;
 var white;
@@ -23,28 +23,28 @@ beforeEach(() => {
 });
 
 test('black and white contrast', () => {
-    expect(Scientist.contrast(black, white)).toBe(21);
-    expect(Scientist.contrast(white, black)).toBe(21);
+    expect(contrast(black, white)).toBe(21);
+    expect(contrast(white, black)).toBe(21);
 });
 
 test('colour1 and white contrast', () => {
-    expect(Scientist.contrast(colour1, white)).toBe(7.94);
-    expect(Scientist.contrast(white, colour1)).toBe(7.94);
+    expect(contrast(colour1, white)).toBe(7.94);
+    expect(contrast(white, colour1)).toBe(7.94);
 });
 
 test('colour1 and black contrast', () => {
-    expect(Scientist.contrast(colour1, black)).toBe(2.64);
-    expect(Scientist.contrast(black, colour1)).toBe(2.64);
+    expect(contrast(colour1, black)).toBe(2.64);
+    expect(contrast(black, colour1)).toBe(2.64);
 });
 
 test('contrast with same colour', () => {
-    expect(Scientist.contrast(white, white)).toBe(1.00);
-    expect(Scientist.contrast(black, black)).toBe(1.00);
-    expect(Scientist.contrast(colour1, colour1)).toBe(1.00);
+    expect(contrast(white, white)).toBe(1.00);
+    expect(contrast(black, black)).toBe(1.00);
+    expect(contrast(colour1, colour1)).toBe(1.00);
 });
 
 test('check negation with black', () => {
-    let actual = Scientist.negate(black);
+    let actual = negate(black);
     let expected = white;
     expect(actual.red).toBe(expected.red);
     expect(actual.green).toBe(expected.green);
@@ -53,8 +53,8 @@ test('check negation with black', () => {
 });
 
 test('correct luminosity value', () => {
-    let actual_black = Scientist.luminosity(black);
-    let actual_white = Scientist.luminosity(white);
+    let actual_black = luminosity(black);
+    let actual_white = luminosity(white);
     let expected_black = 0;
     let expected_white = 1;
     expect(actual_black).toBe(expected_black);
@@ -62,7 +62,7 @@ test('correct luminosity value', () => {
 });
 
 test('grayscale of black', () => {
-    let actual = Scientist.grayscale(black);
+    let actual = grayscale(black);
     let expected = black;
     expect(actual.red).toBe(expected.red);
     expect(actual.green).toBe(expected.green);
@@ -71,7 +71,7 @@ test('grayscale of black', () => {
 });
 
 test('grayscale of white', () => {
-    let actual = Scientist.grayscale(white);
+    let actual = grayscale(white);
     let expected = white;
     expect(actual.red).toBe(expected.red);
     expect(actual.green).toBe(expected.green);
@@ -80,7 +80,7 @@ test('grayscale of white', () => {
 });
 
 test('grayscale of colour', () => {
-    let actual = Scientist.grayscale(colour1);
+    let actual = grayscale(colour1);
     let expected = Colour.RGB(72, 72, 72);
     expect(actual.red).toBe(expected.red);
     expect(actual.green).toBe(expected.green);
@@ -91,7 +91,7 @@ test('grayscale of colour', () => {
 test('temperature of black', () => {
     let [x, y] = RGB_to_XYZ(black);
     let n = (x - 0.3320) / (0.1858 - y);
-    let actual = Scientist.temperature(black);
+    let actual = temperature(black);
     let expected = 449 * (n ** 3) + 3525 * (n ** 2) + 6823.3 * n + 5520.33;
     expect(actual).toBe(expected);
 });
@@ -99,7 +99,7 @@ test('temperature of black', () => {
 test('temperature of white', () => {
     let [x, y] = RGB_to_XYZ(white);
     let n = (x - 0.3320) / (0.1858 - y);
-    let actual = Scientist.temperature(white);
+    let actual = temperature(white);
     let expected = 449 * (n ** 3) + 3525 * (n ** 2) + 6823.3 * n + 5520.33;
     expect(actual).toBe(expected);
 });
@@ -107,31 +107,31 @@ test('temperature of white', () => {
 test('temperature of colour', () => {
     let [x, y] = RGB_to_XYZ(colour1);
     let n = (x - 0.3320) / (0.1858 - y);
-    let actual = Scientist.temperature(colour1);
+    let actual = temperature(colour1);
     let expected = 449 * (n ** 3) + 3525 * (n ** 2) + 6823.3 * n + 5520.33;
     expect(actual).toBe(expected);
 });
 
 test('colourfulness of black', () => {
-    let actual = Scientist.colourfulness(black);
+    let actual = colourfulness(black);
     let expected = 0
     expect(actual).toBe(expected);
 });
 
 test('colourfulness of white', () => {
-    let actual = Scientist.colourfulness(white);
+    let actual = colourfulness(white);
     let expected = 0
     expect(actual).toBe(expected);
 });
 
 test('coloufulness of a colour', () => {
-    let actual = Scientist.colourfulness(colour1);
+    let actual = colourfulness(colour1);
     let expected = 37.03663726636099
     expect(actual).toBe(expected);
 });
 
 test('rotate black 360deg', () => {
-    let actual = Scientist.rotate(black, 360)
+    let actual = rotate(black, 360)
     let expected = black;
     expect(actual.hue).toBe(expected.hue);
     expect(actual.saturationl).toBe(expected.saturationl);
@@ -140,7 +140,7 @@ test('rotate black 360deg', () => {
 });
 
 test('rotate black -180deg', () => {
-    let actual = Scientist.rotate(black, -180);
+    let actual = rotate(black, -180);
     let expected = Colour.HSL(184, 0, 0);
     expect(actual.hue).toBe(expected.hue);
     expect(actual.saturationl).toBe(expected.saturationl);
