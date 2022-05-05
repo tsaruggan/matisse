@@ -6,20 +6,22 @@ import { mean, std, sqrt } from 'mathjs';
  * @class Colour
  */
 export class Colour {
-    #red = 0;
-    #green = 0;
-    #blue = 0;
-    #hue = 0;
-    #saturationv = 0;
-    #value = 0;
-    #cyan = 0;
-    #magenta = 0;
-    #yellow = 0;
-    #saturationl = 0;
-    #light = 0;
-    #white = 0;
-    #black = 0;
-    #alpha = 0;
+    attributes = {
+        red: 0,
+        green: 0,
+        blue: 0,
+        hue: 0,
+        saturationv: 0,
+        value: 0,
+        cyan: 0,
+        magenta: 0,
+        yellow: 0,
+        saturationl: 0,
+        light: 0,
+        white: 0,
+        black: 0,
+        alpha: 0
+    }
 
     /**
      * @constant {number}
@@ -228,10 +230,10 @@ export class Colour {
             throw new RangeError("RGB attributes must be in the following acceptable ranges...red:[0, 255], green:[0, 255], blue:[0, 255], alpha:[0, 1].");
         }
         let colour = new Colour();
-        colour.#red = this.#roundInt(red);
-        colour.#green = this.#roundInt(green);
-        colour.#blue = this.#roundInt(blue);
-        colour.#alpha = this.#roundFloat(alpha);
+        colour.attributes.red = this.#roundInt(red);
+        colour.attributes.green = this.#roundInt(green);
+        colour.attributes.blue = this.#roundInt(blue);
+        colour.attributes.alpha = this.#roundFloat(alpha);
         colour.#updateHSV();
         colour.#updateHSL();
         colour.#updateCMYK();
@@ -254,10 +256,10 @@ export class Colour {
             throw new RangeError("HSV attributes must be in the following acceptable ranges...hue:[0, 360], saturationv:[0, 1], value:[0, 1], alpha:[0, 1].");
         }
         let colour = new Colour();
-        colour.#hue = this.#roundInt(hue);
-        colour.#saturationv = this.#roundFloat(saturationv);
-        colour.#value = this.#roundFloat(value);
-        colour.#alpha = this.#roundFloat(alpha);
+        colour.attributes.hue = this.#roundInt(hue);
+        colour.attributes.saturationv = this.#roundFloat(saturationv);
+        colour.attributes.value = this.#roundFloat(value);
+        colour.attributes.alpha = this.#roundFloat(alpha);
         colour.#updateRGB_HSV();
         colour.#updateCMYK();
         colour.#updateHSL();
@@ -282,11 +284,11 @@ export class Colour {
             throw new RangeError("CMYK attributes must be in the following acceptable range...cyan:[0, 1], magenta:[0, 1], yellow:[0, 1], black:[0, 1], alpha:[0, 1].");
         }
         let colour = new Colour();
-        colour.#cyan = this.#roundFloat(cyan);
-        colour.#magenta = this.#roundFloat(magenta);
-        colour.#yellow = this.#roundFloat(yellow);
-        colour.#black = this.#roundFloat(black);
-        colour.#alpha = this.#roundFloat(alpha);
+        colour.attributes.cyan = this.#roundFloat(cyan);
+        colour.attributes.magenta = this.#roundFloat(magenta);
+        colour.attributes.yellow = this.#roundFloat(yellow);
+        colour.attributes.black = this.#roundFloat(black);
+        colour.attributes.alpha = this.#roundFloat(alpha);
         colour.#updateRGB_CMYK();
         colour.#updateHSV();
         colour.#updateHSL();
@@ -310,10 +312,10 @@ export class Colour {
             throw new RangeError("HSL attributes must be in the following acceptable ranges...hue:[0, 360], saturationl:[0, 1], light:[0, 1], alpha:[0, 1].");
         }
         let colour = new Colour();
-        colour.#hue = this.#roundInt(hue);
-        colour.#saturationl = this.#roundFloat(saturationl);
-        colour.#light = this.#roundFloat(light);
-        colour.#alpha = this.#roundFloat(alpha);
+        colour.attributes.hue = this.#roundInt(hue);
+        colour.attributes.saturationl = this.#roundFloat(saturationl);
+        colour.attributes.light = this.#roundFloat(light);
+        colour.attributes.alpha = this.#roundFloat(alpha);
         colour.#updateRGB_HSL();
         colour.#updateCMYK();
         colour.#updateHSV();
@@ -337,10 +339,10 @@ export class Colour {
             throw new RangeError("HWB attributes must be in the following acceptable ranges...hue:[0, 360], white:[0, 1], black:[0, 1], alpha:[0, 1].");
         }
         let colour = new Colour();
-        colour.#hue = this.#roundInt(hue);
-        colour.#white = this.#roundFloat(white);
-        colour.#black = this.#roundFloat(black);
-        colour.#alpha = this.#roundFloat(alpha);
+        colour.attributes.hue = this.#roundInt(hue);
+        colour.attributes.white = this.#roundFloat(white);
+        colour.attributes.black = this.#roundFloat(black);
+        colour.attributes.alpha = this.#roundFloat(alpha);
         colour.#updateHSV_HWB();
         colour.#updateRGB_HSV();
         colour.#updateCMYK();
@@ -351,13 +353,13 @@ export class Colour {
     /**
      * @type {number}
      */
-    get red() { return this.#red; }
+    get red() { return this.attributes.red; }
 
     set red(newRed) {
         if (newRed < Colour.redMin || newRed > Colour.redMax) {
             throw new RangeError("The red attribute must be in the following acceptable range: [0, 255].");
         }
-        this.#red = Colour.#roundInt(newRed);
+        this.attributes.red = Colour.#roundInt(newRed);
         this.#updateHSV();
         this.#updateHSL();
         this.#updateCMYK();
@@ -368,13 +370,13 @@ export class Colour {
     /**
      * @type {number}
      */
-    get green() { return this.#green; }
+    get green() { return this.attributes.green; }
 
     set green(newGreen) {
         if (newGreen < Colour.greenMin || newGreen > Colour.greenMax) {
             throw new RangeError("The blue attribute must be in the following acceptable range: [0, 255].");
         }
-        this.#green = Colour.#roundInt(newGreen);
+        this.attributes.green = Colour.#roundInt(newGreen);
         this.#updateHSV();
         this.#updateHSL();
         this.#updateCMYK();
@@ -384,13 +386,13 @@ export class Colour {
     /**
      * @type {number}
      */
-    get blue() { return this.#blue; }
+    get blue() { return this.attributes.blue; }
 
     set blue(newBlue) {
         if (newBlue < Colour.blueMin || newBlue > Colour.blueMax) {
             throw new RangeError("The green attribute must be in the following acceptable range: [0, 255].");
         }
-        this.#blue = Colour.#roundInt(newBlue);
+        this.attributes.blue = Colour.#roundInt(newBlue);
         this.#updateHSV();
         this.#updateHSL();
         this.#updateCMYK();
@@ -400,13 +402,13 @@ export class Colour {
     /**
      * @type {number}
      */
-    get hue() { return this.#hue; }
+    get hue() { return this.attributes.hue; }
 
     set hue(newHue) {
         if (newHue < Colour.hueMin || newHue >= Colour.hueMax) {
             throw new RangeError("The hue attribute must be in the following acceptable range: [0, 360].");
         }
-        this.#hue = Colour.#roundInt(newHue);
+        this.attributes.hue = Colour.#roundInt(newHue);
         this.#updateRGB_HSV();
         this.#updateCMYK();
         this.#updateHSL();
@@ -416,13 +418,13 @@ export class Colour {
     /**
      * @type {number}
      */
-    get saturationv() { return this.#saturationv; }
+    get saturationv() { return this.attributes.saturationv; }
 
     set saturationv(newSaturationv) {
         if (newSaturationv < Colour.saturationvMin || newSaturationv > Colour.saturationvMax) {
             throw new RangeError("The saturationv attribute must be in the following acceptable range: [0, 1].");
         }
-        this.#saturationv = Colour.#roundFloat(newSaturationv);
+        this.attributes.saturationv = Colour.#roundFloat(newSaturationv);
         this.#updateRGB_HSV();
         this.#updateCMYK();
         this.#updateHSL();
@@ -432,13 +434,13 @@ export class Colour {
     /**
      * @type {number}
      */
-    get value() { return this.#value; }
+    get value() { return this.attributes.value; }
 
     set value(newValue) {
         if (newValue < Colour.valueMin || newValue > Colour.valueMax) {
             throw new RangeError("The value attribute must be in the following acceptable range: [0, 1].");
         }
-        this.#value = Colour.#roundFloat(newValue);
+        this.attributes.value = Colour.#roundFloat(newValue);
         this.#updateRGB_HSV();
         this.#updateCMYK();
         this.#updateHSL();
@@ -448,13 +450,13 @@ export class Colour {
     /**
      * @type {number}
      */
-    get cyan() { return this.#cyan; }
+    get cyan() { return this.attributes.cyan; }
 
     set cyan(newCyan) {
         if (newCyan < Colour.cyanMin || newCyan > Colour.cyanMax) {
             throw new RangeError("The cyan attribute must be in the following acceptable range: [0, 1].");
         }
-        this.#cyan = Colour.#roundFloat(newCyan);
+        this.attributes.cyan = Colour.#roundFloat(newCyan);
         this.#updateRGB_CMYK();
         this.#updateHSL();
         this.#updateHSV();
@@ -464,13 +466,13 @@ export class Colour {
     /**
      * @type {number}
      */
-    get magenta() { return this.#magenta; }
+    get magenta() { return this.attributes.magenta; }
 
     set magenta(newMagenta) {
         if (newMagenta < Colour.magentaMin || newMagenta > Colour.magentaMax) {
             throw new RangeError("The magenta attribute must be in the following acceptable range: [0, 1].");
         }
-        this.#magenta = Colour.#roundFloat(newMagenta);
+        this.attributes.magenta = Colour.#roundFloat(newMagenta);
         this.#updateRGB_CMYK();
         this.#updateHSL();
         this.#updateHSV();
@@ -480,13 +482,13 @@ export class Colour {
     /**
      * @type {number}
      */
-    get yellow() { return this.#yellow; }
+    get yellow() { return this.attributes.yellow; }
 
     set yellow(newYellow) {
         if (newYellow < Colour.yellowMin || newYellow > Colour.yellowMax) {
             throw new RangeError("The yellow attribute must be in the following acceptable range: [0, 1].");
         }
-        this.#yellow = Colour.#roundFloat(newYellow);
+        this.attributes.yellow = Colour.#roundFloat(newYellow);
         this.#updateRGB_CMYK();
         this.#updateHSL();
         this.#updateHSV();
@@ -496,13 +498,13 @@ export class Colour {
     /**
      * @type {number}
      */
-    get saturationl() { return this.#saturationl; }
+    get saturationl() { return this.attributes.saturationl; }
 
     set saturationl(newSaturationl) {
         if (newSaturationl < Colour.saturationlMin || newSaturationl > Colour.saturationlMax) {
             throw new RangeError("The saturationl attribute must be in the following acceptable range: [0, 1].");
         }
-        this.#saturationl = Colour.#roundFloat(newSaturationl);
+        this.attributes.saturationl = Colour.#roundFloat(newSaturationl);
         this.#updateRGB_HSL();
         this.#updateHSV();
         this.#updateCMYK();
@@ -512,13 +514,13 @@ export class Colour {
     /**
      * @type {number}
      */
-    get light() { return this.#light; }
+    get light() { return this.attributes.light; }
 
     set light(newLight) {
         if (newLight < Colour.lightMin || newLight > Colour.lightMax) {
             throw new RangeError("The light attribute must be in the following acceptable range: [0, 1].");
         }
-        this.#light = Colour.#roundFloat(newLight);
+        this.attributes.light = Colour.#roundFloat(newLight);
         this.#updateRGB_HSL();
         this.#updateHSV();
         this.#updateCMYK();
@@ -528,13 +530,13 @@ export class Colour {
     /**
      * @type {number}
      */
-    get white() { return this.#white; }
+    get white() { return this.attributes.white; }
 
     set white(newWhite) {
         if (newWhite < Colour.whiteMin || newWhite > Colour.whiteMax) {
             throw new RangeError("The white attribute must be in the following acceptable range: [0, 1].");
         }
-        this.#white = Colour.#roundFloat(newWhite);
+        this.attributes.white = Colour.#roundFloat(newWhite);
         this.#updateHSV_HWB();
         this.#updateRGB_HSV();
         this.#updateCMYK();
@@ -544,13 +546,13 @@ export class Colour {
     /**
      * @type {number}
      */
-    get black() { return this.#black; }
+    get black() { return this.attributes.black; }
 
     set black(newBlack) {
         if (newBlack < Colour.blackMin || newBlack > Colour.blackMax) {
             throw new RangeError("The black attribute must be in the following acceptable range: [0, 1].");
         }
-        this.#black = Colour.#roundFloat(newBlack);
+        this.attributes.black = Colour.#roundFloat(newBlack);
         this.#updateHSV_HWB();
         this.#updateRGB_HSV();
         this.#updateCMYK();
@@ -560,35 +562,13 @@ export class Colour {
     /**
      * @type {number}
      */
-    get alpha() { return this.#alpha; }
+    get alpha() { return this.attributes.alpha; }
 
     set alpha(newAlpha) {
         if (newAlpha < Colour.alphaMin || newAlpha > Colour.alphaMax) {
             throw new RangeError("The alpha attribute must be in the following acceptable range: [0, 1].");
         }
-        this.#alpha = Colour.#roundFloat(newAlpha);
-    }
-
-    /**
-     * Converts the Colour instance into a traditional JavaScript object.
-     */
-    object() {
-        return {
-            red: this.red,
-            green: this.green,
-            blue: this.blue,
-            hue: this.hue,
-            saturationv: this.saturationv,
-            value: this.value,
-            cyan: this.cyan,
-            magenta: this.magenta,
-            yellow: this.yellow,
-            saturationl: this.saturationl,
-            light: this.light,
-            white: this.white,
-            black: this.black,
-            alpha: this.alpha
-        };
+        this.attributes.alpha = Colour.#roundFloat(newAlpha);
     }
 
     /**
@@ -607,130 +587,130 @@ export class Colour {
 
     #updateHSV() {
         //https://www.rapidtables.com/convert/color/rgb-to-hsv.html
-        let cMax = Math.max(this.#red, this.#green, this.#blue) / 255;
-        let cMin = Math.min(this.#red, this.#green, this.#blue) / 255;
+        let cMax = Math.max(this.attributes.red, this.attributes.green, this.attributes.blue) / 255;
+        let cMin = Math.min(this.attributes.red, this.attributes.green, this.attributes.blue) / 255;
         let delta = cMax - cMin;
         //Updating hue 
         if (delta == 0) {
-            this.#hue = 0;
-        } else if (cMax == this.#red / 255) {
-            this.#hue = Colour.#roundInt(60 * (((this.#green / 255 - this.#blue / 255) / delta) % 6));
-        } else if (cMax == this.#green / 255) {
-            this.#hue = Colour.#roundInt(60 * (((this.#blue / 255 - this.#red / 255) / delta) + 2));
-        } else if (cMax == this.#blue / 255) {
-            this.#hue = Colour.#roundInt(60 * (((this.#red / 255 - this.#green / 255) / delta) + 4));
+            this.attributes.hue = 0;
+        } else if (cMax == this.attributes.red / 255) {
+            this.attributes.hue = Colour.#roundInt(60 * (((this.attributes.green / 255 - this.attributes.blue / 255) / delta) % 6));
+        } else if (cMax == this.attributes.green / 255) {
+            this.attributes.hue = Colour.#roundInt(60 * (((this.attributes.blue / 255 - this.attributes.red / 255) / delta) + 2));
+        } else if (cMax == this.attributes.blue / 255) {
+            this.attributes.hue = Colour.#roundInt(60 * (((this.attributes.red / 255 - this.attributes.green / 255) / delta) + 4));
         }
 
         // hue loop bug fix
-        if (this.#hue < 0) { this.#hue += 360; }
+        if (this.attributes.hue < 0) { this.attributes.hue += 360; }
 
         //Updating saturation 
         if (cMax == 0) {
-            this.#saturationv = 0;
+            this.attributes.saturationv = 0;
         } else {
-            this.#saturationv = Colour.#roundFloat(delta / cMax);
+            this.attributes.saturationv = Colour.#roundFloat(delta / cMax);
         }
         //Updating Value 
-        this.#value = Colour.#roundFloat(cMax);
+        this.attributes.value = Colour.#roundFloat(cMax);
     }
 
     #updateRGB_HSV() {
         //https://www.rapidtables.com/convert/color/hsv-to-rgb.html
-        let c = this.#value * this.#saturationv;
-        let x = c * (1 - Math.abs((this.#hue / 60) % 2 - 1));
-        let m = this.#value - c;
-        if (this.#hue >= 0 && this.#hue < 60) {
-            this.#red = Colour.#roundInt((c + m) * 255);
-            this.#green = Colour.#roundInt((x + m) * 255);
-            this.#blue = Colour.#roundInt((0 + m) * 255);
-        } else if (this.#hue >= 60 && this.#hue < 120) {
-            this.#red = Colour.#roundInt((x + m) * 255);
-            this.#green = Colour.#roundInt((c + m) * 255);
-            this.#blue = Colour.#roundInt((0 + m) * 255);
-        } else if (this.#hue >= 120 && this.#hue < 180) {
-            this.#red = Colour.#roundInt((0 + m) * 255);
-            this.#green = Colour.#roundInt((c + m) * 255);
-            this.#blue = Colour.#roundInt((x + m) * 255);
-        } else if (this.#hue >= 180 && this.#hue < 240) {
-            this.#red = Colour.#roundInt((0 + m) * 255);
-            this.#green = Colour.#roundInt((x + m) * 255);
-            this.#blue = Colour.#roundInt((c + m) * 255);
-        } else if (this.#hue >= 240 && this.#hue < 300) {
-            this.#red = Colour.#roundInt((x + m) * 255);
-            this.#green = Colour.#roundInt((0 + m) * 255);
-            this.#blue = Colour.#roundInt((c + m) * 255);
-        } else if (this.#hue >= 300 && this.#hue < 360) {
-            this.#red = Colour.#roundInt((c + m) * 255);
-            this.#green = Colour.#roundInt((0 + m) * 255);
-            this.#blue = Colour.#roundInt((x + m) * 255);
+        let c = this.attributes.value * this.attributes.saturationv;
+        let x = c * (1 - Math.abs((this.attributes.hue / 60) % 2 - 1));
+        let m = this.attributes.value - c;
+        if (this.attributes.hue >= 0 && this.attributes.hue < 60) {
+            this.attributes.red = Colour.#roundInt((c + m) * 255);
+            this.attributes.green = Colour.#roundInt((x + m) * 255);
+            this.attributes.blue = Colour.#roundInt((0 + m) * 255);
+        } else if (this.attributes.hue >= 60 && this.attributes.hue < 120) {
+            this.attributes.red = Colour.#roundInt((x + m) * 255);
+            this.attributes.green = Colour.#roundInt((c + m) * 255);
+            this.attributes.blue = Colour.#roundInt((0 + m) * 255);
+        } else if (this.attributes.hue >= 120 && this.attributes.hue < 180) {
+            this.attributes.red = Colour.#roundInt((0 + m) * 255);
+            this.attributes.green = Colour.#roundInt((c + m) * 255);
+            this.attributes.blue = Colour.#roundInt((x + m) * 255);
+        } else if (this.attributes.hue >= 180 && this.attributes.hue < 240) {
+            this.attributes.red = Colour.#roundInt((0 + m) * 255);
+            this.attributes.green = Colour.#roundInt((x + m) * 255);
+            this.attributes.blue = Colour.#roundInt((c + m) * 255);
+        } else if (this.attributes.hue >= 240 && this.attributes.hue < 300) {
+            this.attributes.red = Colour.#roundInt((x + m) * 255);
+            this.attributes.green = Colour.#roundInt((0 + m) * 255);
+            this.attributes.blue = Colour.#roundInt((c + m) * 255);
+        } else if (this.attributes.hue >= 300 && this.attributes.hue < 360) {
+            this.attributes.red = Colour.#roundInt((c + m) * 255);
+            this.attributes.green = Colour.#roundInt((0 + m) * 255);
+            this.attributes.blue = Colour.#roundInt((x + m) * 255);
         }
     }
     #updateRGB_CMYK() {
-        this.#red = Colour.#roundInt(255 * (1 - this.#cyan) * (1 - this.#black));
-        this.#green = Colour.#roundInt(255 * (1 - this.#magenta) * (1 - this.#black));
-        this.#blue = Colour.#roundInt(255 * (1 - this.#yellow) * (1 - this.#black));
+        this.attributes.red = Colour.#roundInt(255 * (1 - this.attributes.cyan) * (1 - this.attributes.black));
+        this.attributes.green = Colour.#roundInt(255 * (1 - this.attributes.magenta) * (1 - this.attributes.black));
+        this.attributes.blue = Colour.#roundInt(255 * (1 - this.attributes.yellow) * (1 - this.attributes.black));
 
     }
     #updateRGB_HSL() {
         //https://www.rapidtables.com/convert/color/hsl-to-rgb.html
-        let c = (1 - Math.abs(2 * this.#light - 1)) * this.#saturationl;
-        let x = c * (1 - Math.abs((this.#hue / 60) % 2 - 1));
-        let m = this.#light - c / 2;
-        if (this.#hue >= 0 && this.#hue < 60) {
-            this.#red = Colour.#roundInt((c + m) * 255);
-            this.#green = Colour.#roundInt((x + m) * 255);
-            this.#blue = Colour.#roundInt((0 + m) * 255);
-        } else if (this.#hue >= 60 && this.#hue < 120) {
-            this.#red = Colour.#roundInt((x + m) * 255);
-            this.#green = Colour.#roundInt((c + m) * 255);
-            this.#blue = Colour.#roundInt((0 + m) * 255);
-        } else if (this.#hue >= 120 && this.#hue < 180) {
-            this.#red = Colour.#roundInt((0 + m) * 255);
-            this.#green = Colour.#roundInt((c + m) * 255);
-            this.#blue = Colour.#roundInt((x + m) * 255);
-        } else if (this.#hue >= 180 && this.#hue < 240) {
-            this.#red = Colour.#roundInt((0 + m) * 255);
-            this.#green = Colour.#roundInt((x + m) * 255);
-            this.#blue = Colour.#roundInt((c + m) * 255);
-        } else if (this.#hue >= 240 && this.#hue < 300) {
-            this.#red = Colour.#roundInt((x + m) * 255);
-            this.#green = Colour.#roundInt((0 + m) * 255);
-            this.#blue = Colour.#roundInt((c + m) * 255);
-        } else if (this.#hue >= 300 && this.#hue < 360) {
-            this.#red = Colour.#roundInt((c + m) * 255);
-            this.#green = Colour.#roundInt((0 + m) * 255);
-            this.#blue = Colour.#roundInt((x + m) * 255);
+        let c = (1 - Math.abs(2 * this.attributes.light - 1)) * this.attributes.saturationl;
+        let x = c * (1 - Math.abs((this.attributes.hue / 60) % 2 - 1));
+        let m = this.attributes.light - c / 2;
+        if (this.attributes.hue >= 0 && this.attributes.hue < 60) {
+            this.attributes.red = Colour.#roundInt((c + m) * 255);
+            this.attributes.green = Colour.#roundInt((x + m) * 255);
+            this.attributes.blue = Colour.#roundInt((0 + m) * 255);
+        } else if (this.attributes.hue >= 60 && this.attributes.hue < 120) {
+            this.attributes.red = Colour.#roundInt((x + m) * 255);
+            this.attributes.green = Colour.#roundInt((c + m) * 255);
+            this.attributes.blue = Colour.#roundInt((0 + m) * 255);
+        } else if (this.attributes.hue >= 120 && this.attributes.hue < 180) {
+            this.attributes.red = Colour.#roundInt((0 + m) * 255);
+            this.attributes.green = Colour.#roundInt((c + m) * 255);
+            this.attributes.blue = Colour.#roundInt((x + m) * 255);
+        } else if (this.attributes.hue >= 180 && this.attributes.hue < 240) {
+            this.attributes.red = Colour.#roundInt((0 + m) * 255);
+            this.attributes.green = Colour.#roundInt((x + m) * 255);
+            this.attributes.blue = Colour.#roundInt((c + m) * 255);
+        } else if (this.attributes.hue >= 240 && this.attributes.hue < 300) {
+            this.attributes.red = Colour.#roundInt((x + m) * 255);
+            this.attributes.green = Colour.#roundInt((0 + m) * 255);
+            this.attributes.blue = Colour.#roundInt((c + m) * 255);
+        } else if (this.attributes.hue >= 300 && this.attributes.hue < 360) {
+            this.attributes.red = Colour.#roundInt((c + m) * 255);
+            this.attributes.green = Colour.#roundInt((0 + m) * 255);
+            this.attributes.blue = Colour.#roundInt((x + m) * 255);
         }
     }
     #updateHSV_HWB() {
-        this.#saturationv = Colour.#roundFloat(1 - this.#white / (1 - this.#black));
-        this.#value = Colour.#roundFloat(1 - this.#black);
+        this.attributes.saturationv = Colour.#roundFloat(1 - this.attributes.white / (1 - this.attributes.black));
+        this.attributes.value = Colour.#roundFloat(1 - this.attributes.black);
     }
 
     #updateHWB() {
-        this.#white = Colour.#roundFloat(Math.min(this.#red, this.#green, this.#blue) / 255);
-        this.#black = Colour.#roundFloat(1 - Math.max(this.#red, this.#green, this.#blue) / 255);
+        this.attributes.white = Colour.#roundFloat(Math.min(this.attributes.red, this.attributes.green, this.attributes.blue) / 255);
+        this.attributes.black = Colour.#roundFloat(1 - Math.max(this.attributes.red, this.attributes.green, this.attributes.blue) / 255);
     }
     #updateCMYK() {
-        let black = 1 - Math.max(this.#red, this.#green, this.#blue) / 255;
-        this.#black = Colour.#roundFloat(black);
-        this.#cyan = Colour.#roundFloat((1 - this.#red / 255 - black) / (1 - black));
-        this.#magenta = Colour.#roundFloat((1 - this.#green / 255 - black) / (1 - black));
-        this.#yellow = Colour.#roundFloat((1 - this.#blue / 255 - black) / (1 - black));
+        let black = 1 - Math.max(this.attributes.red, this.attributes.green, this.attributes.blue) / 255;
+        this.attributes.black = Colour.#roundFloat(black);
+        this.attributes.cyan = Colour.#roundFloat((1 - this.attributes.red / 255 - black) / (1 - black));
+        this.attributes.magenta = Colour.#roundFloat((1 - this.attributes.green / 255 - black) / (1 - black));
+        this.attributes.yellow = Colour.#roundFloat((1 - this.attributes.blue / 255 - black) / (1 - black));
     }
     #updateHSL() {
-        let r = this.#red / 255;
-        let g = this.#green / 255;
-        let b = this.#blue / 255;
+        let r = this.attributes.red / 255;
+        let g = this.attributes.green / 255;
+        let b = this.attributes.blue / 255;
         let cMax = Math.max(r, g, b);
         let cMin = Math.min(r, g, b);
         let delta = cMax - cMin;
-        this.#light = Colour.#roundFloat((cMax + cMin) / 2);
+        this.attributes.light = Colour.#roundFloat((cMax + cMin) / 2);
         if (delta == 0) {
-            this.#saturationl = 0.00;
+            this.attributes.saturationl = 0.00;
         }
         else {
-            this.#saturationl = Colour.#roundFloat(delta / (1 - Math.abs(cMax + cMin - 1)));
+            this.attributes.saturationl = Colour.#roundFloat(delta / (1 - Math.abs(cMax + cMin - 1)));
         }
     }
 
