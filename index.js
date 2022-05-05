@@ -762,7 +762,7 @@ export function negate(colour) {
  * @param {number} degrees - The number of degrees to rotate the colour
  * @returns {Colour} - The colour resulting from the rotation
  */
- export function rotate(colour, degrees) {
+export function rotate(colour, degrees) {
     let hue = colour.hue;
     hue = (hue + degrees) % 360;
     hue = hue < 0 ? 360 + hue : hue;
@@ -774,7 +774,7 @@ export function negate(colour) {
  * @param {Colour} colour - The colour to grayscale
  * @returns {Colour} The resulting colour from the grayscale transformation
  */
- export function grayscale(colour) {
+export function grayscale(colour) {
     let weightedTotal = Math.round(0.3 * colour.red + 0.59 * colour.green + 0.11 * colour.blue);
     return Colour.RGB(weightedTotal, weightedTotal, weightedTotal, colour.alpha);
 }
@@ -786,7 +786,7 @@ export function negate(colour) {
  * @param {Colour} colour2 - The second colour to be compared
  * @returns {number} The WCAG contrast ratio of the two colours (values ranging between 1 and 21)
  */
- export function contrast(colour1, colour2) {
+export function contrast(colour1, colour2) {
     const lum1 = luminosity(colour1);
     const lum2 = luminosity(colour2);
     if (lum1 > lum2) {
@@ -800,7 +800,7 @@ export function negate(colour) {
  * @param {Colour} colour - The colour to calculate colourfulness of.
  * @returns {number} The resulting colourfulness grading
  */
- export function colourfulness(colour) {
+export function colourfulness(colour) {
     let rg = Math.abs(colour.red - colour.green);
     let yb = Math.abs(0.5 * (colour.red + colour.green) - colour.blue);
 
@@ -820,7 +820,7 @@ export function negate(colour) {
  * @param {Colour} colour - The colour to calculate temperature of.
  * @returns {number} The resulting temperature grading
  */
- export function temperature(colour) {
+export function temperature(colour) {
     // Get XYZ values (CIE tristimulus values)
     let X = -0.14282 * colour.red + 1.54924 * colour.green + -0.95641 * colour.blue;
     let Y = -0.32466 * colour.red + 1.57837 * colour.green + -0.73191 * colour.blue;
@@ -842,7 +842,7 @@ export function negate(colour) {
  * @param {Colour} colour - The colour to calculate luminence of.
  * @returns {number} The resulting luminence grading
  */
- export function luminosity(colour) {
+export function luminosity(colour) {
     const lum = [];
     const rgb = [colour.red, colour.green, colour.blue];
 
@@ -1286,147 +1286,139 @@ export class Bartender {
 }
 
 /**
- * A static library for creating colour palettes.
- * @class Artist
- * @hideconstructor
+ * Generate a colour palette containing all shades of the provided colour.
+ * @param {Colour} colour - The colour to generate shades for.
+ * @param {number} num - The number of steps or intervals to produce colours for across the range of possible shades.
+ * @returns {Colour[]} The resulting colour palette
  */
-export class Artist {
-    /**
-     * Generate a colour palette containing all shades of the provided colour.
-     * @param {Colour} colour - The colour to generate shades for.
-     * @param {number} num - The number of steps or intervals to produce colours for across the range of possible shades.
-     * @returns {Colour[]} The resulting colour palette
-     */
-    static shades(colour, num) {
-        return this.#monochromatic(colour, num, Bartender.shade);
-    }
-
-    /**
-     * Generate a colour palette containing all tints of the provided colour.
-     * @param {Colour} colour - The colour to generate tints for.
-     * @param {number} num - The number of steps or intervals to produce colours for across the range of possible tints.
-     * @returns {Colour[]} The resulting colour palette
-     */
-    static tints(colour, num) {
-        return this.#monochromatic(colour, num, Bartender.tint);
-    }
-
-    /**
-     * Generate a colour palette containing all tones of the provided colour.
-     * @param {Colour} colour - The colour to generate tones for.
-     * @param {number} num - The number of steps or intervals to produce colours for across the range of possible tones.
-     * @returns {Colour[]} The resulting colour palette
-     */
-    static tones(colour, num) {
-        return this.#monochromatic(colour, num, Bartender.tone);
-    }
-
-    /**
-     * Generate a colour palette containing the analogous colours of the provided colour. Analogous colours are next to each other on the colour wheel.
-     * @param {Colour} colour - The colour to generate a palette for
-     * @returns {Colour[]} The resulting colour palette
-     */
-    static analogous(colour) {
-        const degSeparation = 40;
-        const leftAnalogous = rotate(colour, -degSeparation);
-        const rightAnalogous = rotate(colour, degSeparation);
-        return [leftAnalogous, colour, rightAnalogous];
-    }
-
-    /**
-     * Generate a colour palette containing the complementary colours of the provided colour. Complementary colours are opposite on the colour wheel.
-     * @param {Colour} colour - The colour to generate a palette for
-     * @returns {Colour[]} The resulting colour palette
-     */
-    static complementary(colour) {
-        const complement = rotate(colour, 180);
-        return [colour, complement];
-    }
-
-    /**
-     * Generate a colour palette containing the split complementary colours of the provided colour. Split complementary colours contain the two adjacent colours of the complement.
-     * @param {Colour} colour - The colour to generate a palette for
-     * @returns {Colour[]} The resulting colour palette
-     */
-    static splitComplementary(colour) {
-        const complement = rotate(colour, 180);
-        const degSeparation = 20;
-        const leftAnalogous = rotate(complement, -degSeparation);
-        const rightAnalogous = rotate(complement, degSeparation);
-        return [colour, leftAnalogous, rightAnalogous];
-    }
-
-    /**
-     * Generate a colour palette containing the triadic colours of the provided colour. Triadic colours a three equally spaced colours on the colour wheel.
-     * @param {Colour} colour - The colour to generate a palette for
-     * @returns {Colour[]} The resulting colour palette
-     */
-    static triadic(colour) {
-        const secondColour = rotate(colour, 360 / 3);
-        const thirdColour = rotate(secondColour, 360 / 3);
-        return [colour, secondColour, thirdColour];
-    }
-
-    /**
-     * Generate a colour palette containing the tetradic colours of the provided colour.
-     * @param {Colour} colour - The colour to generate a palette for
-     * @returns {Colour[]} The resulting colour palette
-     */
-    static tetradic(colour) {
-        const degSeparation = 60;
-        const secondColour = rotate(colour, degSeparation);
-        const thirdColour = rotate(colour, 180);
-        const fourthColour = rotate(secondColour, 180);
-        return [colour, secondColour, thirdColour, fourthColour];
-    }
-
-    /**
-     * Generate a colour palette containing the square colours of the provided colour.
-     * @param {Colour} colour - The colour to generate a palette for
-     * @returns {Colour[]} The resulting colour palette
-     */
-    static square(colour) {
-        const secondColour = rotate(colour, 360 / 4);
-        const thirdColour = rotate(secondColour, 360 / 4);
-        const fourthColour = rotate(thirdColour, 360 / 4);
-        return [colour, secondColour, thirdColour, fourthColour];
-    }
-
-    /**
-     * Generate a palette containing random colours.
-     * @param {number} num - The length of the palette
-     * @returns {Colour[]} The resulting colour palette
-     */
-    static randoms(num) {
-        let colours = [];
-        for (let i = 0; i < num; i++) {
-            let red = Math.floor(Math.random() * Colour.redMax);
-            let green = Math.floor(Math.random() * Colour.blueMax);
-            let blue = Math.floor(Math.random() * Colour.greenMax);
-            let colour = Colour.RGB(red, green, blue);
-            colours.push(colour);
-        }
-        return colours;
-    }
-
-    /**
-     * Generate a monochromatic palette from a given base colour
-     * @param {Colour} colour
-     * @param {number} num
-     * @param {function(Colour, number):Colour} callback - 
-     * @returns {Colour[]}
-     */
-    static #monochromatic(colour, num, callback) {
-        let palette = [];
-        for (let i = 0; i < num; i++) {
-            let percent = (1 / (num - 1)) * i;
-            let mixture = callback(colour, percent);
-            palette.push(mixture);
-        }
-        return palette;
-    }
+export function shades(colour, num) {
+    return _monochromatic(colour, num, Bartender.shade);
 }
 
+/**
+ * Generate a colour palette containing all tints of the provided colour.
+ * @param {Colour} colour - The colour to generate tints for.
+ * @param {number} num - The number of steps or intervals to produce colours for across the range of possible tints.
+ * @returns {Colour[]} The resulting colour palette
+ */
+export function tints(colour, num) {
+    return _monochromatic(colour, num, Bartender.tint);
+}
+
+/**
+ * Generate a colour palette containing all tones of the provided colour.
+ * @param {Colour} colour - The colour to generate tones for.
+ * @param {number} num - The number of steps or intervals to produce colours for across the range of possible tones.
+ * @returns {Colour[]} The resulting colour palette
+ */
+export function tones(colour, num) {
+    return _monochromatic(colour, num, Bartender.tone);
+}
+
+/**
+ * Generate a colour palette containing the analogous colours of the provided colour. Analogous colours are next to each other on the colour wheel.
+ * @param {Colour} colour - The colour to generate a palette for
+ * @returns {Colour[]} The resulting colour palette
+ */
+export function analogous(colour) {
+    const degSeparation = 40;
+    const leftAnalogous = rotate(colour, -degSeparation);
+    const rightAnalogous = rotate(colour, degSeparation);
+    return [leftAnalogous, colour, rightAnalogous];
+}
+
+/**
+ * Generate a colour palette containing the complementary colours of the provided colour. Complementary colours are opposite on the colour wheel.
+ * @param {Colour} colour - The colour to generate a palette for
+ * @returns {Colour[]} The resulting colour palette
+ */
+export function complementary(colour) {
+    const complement = rotate(colour, 180);
+    return [colour, complement];
+}
+
+/**
+ * Generate a colour palette containing the split complementary colours of the provided colour. Split complementary colours contain the two adjacent colours of the complement.
+ * @param {Colour} colour - The colour to generate a palette for
+ * @returns {Colour[]} The resulting colour palette
+ */
+export function splitComplementary(colour) {
+    const complement = rotate(colour, 180);
+    const degSeparation = 20;
+    const leftAnalogous = rotate(complement, -degSeparation);
+    const rightAnalogous = rotate(complement, degSeparation);
+    return [colour, leftAnalogous, rightAnalogous];
+}
+
+/**
+ * Generate a colour palette containing the triadic colours of the provided colour. Triadic colours a three equally spaced colours on the colour wheel.
+ * @param {Colour} colour - The colour to generate a palette for
+ * @returns {Colour[]} The resulting colour palette
+ */
+export function triadic(colour) {
+    const secondColour = rotate(colour, 360 / 3);
+    const thirdColour = rotate(secondColour, 360 / 3);
+    return [colour, secondColour, thirdColour];
+}
+
+/**
+ * Generate a colour palette containing the tetradic colours of the provided colour.
+ * @param {Colour} colour - The colour to generate a palette for
+ * @returns {Colour[]} The resulting colour palette
+ */
+export function tetradic(colour) {
+    const degSeparation = 60;
+    const secondColour = rotate(colour, degSeparation);
+    const thirdColour = rotate(colour, 180);
+    const fourthColour = rotate(secondColour, 180);
+    return [colour, secondColour, thirdColour, fourthColour];
+}
+
+/**
+ * Generate a colour palette containing the square colours of the provided colour.
+ * @param {Colour} colour - The colour to generate a palette for
+ * @returns {Colour[]} The resulting colour palette
+ */
+export function square(colour) {
+    const secondColour = rotate(colour, 360 / 4);
+    const thirdColour = rotate(secondColour, 360 / 4);
+    const fourthColour = rotate(thirdColour, 360 / 4);
+    return [colour, secondColour, thirdColour, fourthColour];
+}
+
+/**
+ * Generate a palette containing random colours.
+ * @param {number} num - The length of the palette
+ * @returns {Colour[]} The resulting colour palette
+ */
+export function randoms(num) {
+    let colours = [];
+    for (let i = 0; i < num; i++) {
+        let red = Math.floor(Math.random() * Colour.redMax);
+        let green = Math.floor(Math.random() * Colour.blueMax);
+        let blue = Math.floor(Math.random() * Colour.greenMax);
+        let colour = Colour.RGB(red, green, blue);
+        colours.push(colour);
+    }
+    return colours;
+}
+
+/**
+ * Generate a monochromatic palette from a given base colour
+ * @param {Colour} colour
+ * @param {number} num
+ * @param {function(Colour, number):Colour} callback - 
+ * @returns {Colour[]}
+ */
+function _monochromatic(colour, num, callback) {
+    let palette = [];
+    for (let i = 0; i < num; i++) {
+        let percent = (1 / (num - 1)) * i;
+        let mixture = callback(colour, percent);
+        palette.push(mixture);
+    }
+    return palette;
+}
 
 /**
  * Validate that the contrast between the provided text colour and background colour meets the standard for the [WCAG contrast ratio](http://www.w3.org/TR/WCAG20/#contrast-ratiodef).
