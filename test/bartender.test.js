@@ -1,4 +1,4 @@
-import { Colour, Bartender } from "../index.js";
+import { Colour, mix, tint, shade, tone, normal, multiply, screen, overlay, darken, lighten, colourDodge, colourBurn, hardLight, softLight, difference, exclusion } from "../index.js";
 
 var colour1;
 var colour2;
@@ -15,7 +15,7 @@ beforeEach(() => {
 });
 
 test('normal blend', () => {
-    let actual = Bartender.normal(colour1, colour2);
+    let actual = normal(colour1, colour2);
     let expected = Colour.RGB(145, 174, 39, 0.76);
 
     expect(actual.red).toBe(expected.red);
@@ -24,7 +24,7 @@ test('normal blend', () => {
 });
 
 test('multiply blend', () => {
-    let actual = Bartender.multiply(colour1, colour2);
+    let actual = multiply(colour1, colour2);
     let expected = Colour.RGB(144, 164, 16, 0.76);
 
     expect(actual.red).toBe(expected.red);
@@ -33,7 +33,7 @@ test('multiply blend', () => {
 });
 
 test('screen blend', () => {
-    let actual = Bartender.screen(colour1, colour2);
+    let actual = screen(colour1, colour2);
     let expected = Colour.RGB(208, 199, 39, 0.76);
 
     expect(actual.red).toBe(expected.red);
@@ -42,7 +42,7 @@ test('screen blend', () => {
 });
 
 test('overlay blend', () => {
-    let actual = Bartender.overlay(colour1, colour2);
+    let actual = overlay(colour1, colour2);
     let expected = Colour.RGB(207, 193, 16, 0.76);
 
     expect(actual.red).toBe(expected.red);
@@ -51,7 +51,7 @@ test('overlay blend', () => {
 });
 
 test('darken blend', () => {
-    let actual = Bartender.darken(colour1, colour2);
+    let actual = darken(colour1, colour2);
     let expected = Colour.RGB(145, 174, 16, 0.76);
 
     expect(actual.red).toBe(expected.red);
@@ -60,7 +60,7 @@ test('darken blend', () => {
 });
 
 test('lighten blend', () => {
-    let actual = Bartender.lighten(colour1, colour2);
+    let actual = lighten(colour1, colour2);
     let expected = Colour.RGB(208, 189, 39, 0.76);
 
     expect(actual.red).toBe(expected.red);
@@ -69,7 +69,7 @@ test('lighten blend', () => {
 });
 
 test('colourDodge blend', () => {
-    let actual = Bartender.colourDodge(colour1, colour2);
+    let actual = colourDodge(colour1, colour2);
     let expected = Colour.RGB(209, 207, 16, 0.76);
 
     expect(actual.red).toBe(expected.red);
@@ -78,7 +78,7 @@ test('colourDodge blend', () => {
 });
 
 test('colourBurn blend', () => {
-    let actual = Bartender.colourBurn(colour1, colour2);
+    let actual = colourBurn(colour1, colour2);
     let expected = Colour.RGB(201, 177, 16, 0.76);
 
     expect(actual.red).toBeCloseTo(expected.red, 2);
@@ -87,7 +87,7 @@ test('colourBurn blend', () => {
 });
 
 test('hardLight blend', () => {
-    let actual = Bartender.hardLight(colour1, colour2);
+    let actual = hardLight(colour1, colour2);
     let expected = Colour.RGB(160, 193, 16, 0.76);
 
     expect(actual.red).toBe(expected.red);
@@ -96,7 +96,7 @@ test('hardLight blend', () => {
 });
 
 test('softLight blend', () => {
-    let actual = Bartender.softLight(colour1, colour2);
+    let actual = softLight(colour1, colour2);
     let expected = Colour.RGB(207, 191, 16, 0.76);
 
     expect(actual.red).toBe(expected.red);
@@ -105,7 +105,7 @@ test('softLight blend', () => {
 });
 
 test('difference blend', () => {
-    let actual = Bartender.difference(colour1, colour2);
+    let actual = difference(colour1, colour2);
     let expected = Colour.RGB(192, 142, 39, 0.76);
 
     expect(actual.red).toBe(expected.red);
@@ -114,7 +114,7 @@ test('difference blend', () => {
 });
 
 test('exclusion blend', () => {
-    let actual = Bartender.exclusion(colour1, colour2);
+    let actual = exclusion(colour1, colour2);
     let expected = Colour.RGB(193, 163, 39, 0.76);
 
     expect(actual.red).toBe(expected.red);
@@ -123,7 +123,7 @@ test('exclusion blend', () => {
 });
 
 test('mix', () => {
-  let actual = Bartender.mix(new Colour("cyan"), new Colour("yellow"), 0.3);
+  let actual = mix(new Colour("cyan"), new Colour("yellow"), 0.3);
   let expected = Colour.RGB(77, 255, 179);
 
   expect(actual.red).toBe(expected.red);
@@ -132,7 +132,7 @@ test('mix', () => {
 });
 
 test('tint', () => {
-  let actual = Bartender.tint(colour3, 1);
+  let actual = tint(colour3, 1);
   let expected = new Colour("#FFFFFF");
 
   expect(actual.red).toBe(expected.red);
@@ -141,7 +141,7 @@ test('tint', () => {
 });
 
 test('shade', () => {
-  let actual = Bartender.shade(colour3, 1);
+  let actual = shade(colour3, 1);
   let expected = new Colour("#000000");
 
   expect(actual.red).toBe(expected.red);
@@ -150,7 +150,7 @@ test('shade', () => {
 });
 
 test('tone', () => {
-  let actual = Bartender.tone(colour3, 1);
+  let actual = tone(colour3, 1);
   let expected = new Colour("#808080");
 
   expect(actual.red).toBe(expected.red);
@@ -159,7 +159,7 @@ test('tone', () => {
 });
 
 test('colourDodge white', () => {
-    let actual = Bartender.colourDodge(colour2, white);
+    let actual = colourDodge(colour2, white);
     let expected = white;
 
     expect(actual.red).toBe(expected.red);
@@ -168,7 +168,7 @@ test('colourDodge white', () => {
 });
 
 test('colourBurn white', () => {
-    let actual = Bartender.colourBurn(white, colour2);
+    let actual = colourBurn(white, colour2);
     let expected = white;
 
     expect(actual.red).toBe(expected.red);
@@ -177,7 +177,7 @@ test('colourBurn white', () => {
 });
 
 test('colourBurn black', () => {
-    let actual = Bartender.colourBurn(colour2, black);
+    let actual = colourBurn(colour2, black);
     let expected = black;
 
     expect(actual.red).toBe(expected.red);
@@ -186,7 +186,7 @@ test('colourBurn black', () => {
 });
 
 test('softLight blargh', () => {
-    let actual = Bartender.softLight(black, white);
+    let actual = softLight(black, white);
     let expected = black;
 
     expect(actual.red).toBe(expected.red);

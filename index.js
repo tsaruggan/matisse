@@ -854,435 +854,428 @@ export function luminosity(colour) {
 }
 
 /**
- * A static library for mixing, blending, toning, tinting, and shading colours.
- * @class Bartender
- * @hideconstructor
+ * Evenly interpolate two colours and produce the resulting midpoint colour.
+ * @param {Colour} colour1 - The first colour to include in the mix
+ * @param {Colour} colour2 - The second colour to include in the mix
+ * @param {number} percent - The percentage of the blend colour to mix
+ * @returns {Colour} The colour resulting from the mix
  */
-export class Bartender {
-    /**
-     * Evenly interpolate two colours and produce the resulting midpoint colour.
-     * @param {Colour} colour1 - The first colour to include in the mix
-     * @param {Colour} colour2 - The second colour to include in the mix
-     * @param {number} percent - The percentage of the blend colour to mix
-     * @returns {Colour} The colour resulting from the mix
-     */
-    static mix(colour1, colour2, percent) {
-        const weight = 2 * percent - 1;
-        const alpha = colour2.alpha - colour1.alpha;
+export function mix(colour1, colour2, percent) {
+    const weight = 2 * percent - 1;
+    const alpha = colour2.alpha - colour1.alpha;
 
-        const weight1 = (((weight * alpha === -1) ? weight : (weight + alpha) / (1 + weight * alpha)) + 1) / 2;
-        const weight2 = 1 - weight1;
+    const weight1 = (((weight * alpha === -1) ? weight : (weight + alpha) / (1 + weight * alpha)) + 1) / 2;
+    const weight2 = 1 - weight1;
 
-        return Colour.RGB(
-            weight1 * colour2.red + weight2 * colour1.red,
-            weight1 * colour2.green + weight2 * colour1.green,
-            weight1 * colour2.blue + weight2 * colour1.blue,
-            colour2.alpha * percent + colour1.alpha * (1 - percent)
-        );
+    return Colour.RGB(
+        weight1 * colour2.red + weight2 * colour1.red,
+        weight1 * colour2.green + weight2 * colour1.green,
+        weight1 * colour2.blue + weight2 * colour1.blue,
+        colour2.alpha * percent + colour1.alpha * (1 - percent)
+    );
+}
+
+/**
+ * Interpolate a given colour with white to create a tint.
+ * @param {Colour} colour - A colour to tint
+ * @param {number} percent - The percentage of white to mix; setting 100% results in #FFFFFF
+ * @returns The colour resulting from tinting the original colour
+ */
+export function tint(colour, percent) {
+    return mix(
+        colour,
+        new Colour("#FFFFFF"),
+        percent
+    );
+}
+
+/**
+ * Interpolate a given colour with black to create a shade.
+ * @param {Colour} colour - A colour to shade
+ * @param {number} percent - The percentage of black to mix; setting 100% results in #000000
+ * @returns The colour resulting from shading the original colour
+ */
+export function shade(colour, percent) {
+    return mix(
+        colour,
+        new Colour("#000000"),
+        percent
+    );
+}
+
+/**
+ * Interpolate a given colour with gray to create a tone.
+ * @param {Colour} colour - A colour to tone
+ * @param {number} percent - The percentage of gray to mix; setting 100% results in #808080
+ * @returns The colour resulting from toning the original colour
+ */
+export function tone(colour, percent) {
+    return mix(
+        colour,
+        new Colour("#808080"),
+        percent
+    );
+}
+
+/**
+ * This is the blend mode which specifies no blending. The blending formula simply selects the blend color.
+ * @param {Colour} baseColour - The base colour being blended
+ * @param {Colour} blendColour - The colour being applied with the designated blend mode
+ * @returns {Colour} The colour resulting from the blend
+ */
+export function normal(baseColour, blendColour) {
+    return _blend(
+        baseColour,
+        blendColour,
+        _separableBlend,
+        _normal
+    );
+}
+
+/**
+ * Looks at the colour information in each channel and multiplies the base colour by the blend colour. The result colour is always a darker colour. Multiplying any colour with black produces black. Multiplying any colour with white leaves the colour unchanged.
+ * @param {Colour} baseColour - The base colour being blended
+ * @param {Colour} blendColour - The colour being applied with the designated blend mode
+ * @returns {Colour} The colour resulting from the blend
+ */
+export function multiply(baseColour, blendColour) {
+    return _blend(
+        baseColour,
+        blendColour,
+        _separableBlend,
+        _multiply
+    );
+}
+
+/**
+ * Looks at each channel’s colour information and multiplies the inverse of the blend and base colours. The result colour is always a lighter colour. Screening with black leaves the colour unchanged. Screening with white produces white. The effect is similar to projecting multiple photographic slides on top of each other.
+ * @param {Colour} baseColour - The base colour being blended
+ * @param {Colour} blendColour - The colour being applied with the designated blend mode
+ * @returns {Colour} The colour resulting from the blend
+ */
+export function screen(baseColour, blendColour) {
+    return _blend(
+        baseColour,
+        blendColour,
+        _separableBlend,
+        _screen
+    );
+}
+
+/**
+ * Multiplies or screens the colors, depending on the base color. The base color is not replaced, but mixed with the blend color to reflect the lightness or darkness of the original color.
+ * @param {Colour} baseColour - The base colour being blended
+ * @param {Colour} blendColour - The colour being applied with the designated blend mode
+ * @returns {Colour} The colour resulting from the blend
+ */
+export function overlay(baseColour, blendColour) {
+    return _blend(
+        baseColour,
+        blendColour,
+        _separableBlend,
+        _overlay
+    );
+}
+
+/**
+ * Looks at the colour information in each channel and selects the base or blend colour—whichever is darker—as the result colour.
+ * @param {Colour} baseColour - The base colour being blended
+ * @param {Colour} blendColour - The colour being applied with the designated blend mode
+ * @returns {Colour} The colour resulting from the blend
+ */
+export function darken(baseColour, blendColour) {
+    return _blend(
+        baseColour,
+        blendColour,
+        _separableBlend,
+        _darken
+    );
+}
+
+/**
+ * Looks at the colour information in each channel and selects the base or blend colour—whichever is lighter—as the result colour.
+ * @param {Colour} baseColour - The base colour being blended
+ * @param {Colour} blendColour - The colour being applied with the designated blend mode
+ * @returns {Colour} The colour resulting from the blend
+ */
+export function lighten(baseColour, blendColour) {
+    return _blend(
+        baseColour,
+        blendColour,
+        _separableBlend,
+        _lighten
+    );
+}
+
+/**
+ * Looks at the color information in each channel and brightens the base color to reflect the blend color by decreasing contrast between the two. Blending with black produces no change.
+ * @param {Colour} baseColour - The base colour being blended
+ * @param {Colour} blendColour - The colour being applied with the designated blend mode
+ * @returns {Colour} The colour resulting from the blend
+ */
+export function colourDodge(baseColour, blendColour) {
+    return _blend(
+        baseColour,
+        blendColour,
+        _separableBlend,
+        _colourDodge
+    );
+}
+
+/**
+ * Looks at the colour information in each channel and darkens the base colour to reflect the blend colour by increasing the contrast between the two. Blending with white produces no change.
+ * @param {Colour} baseColour - The base colour being blended
+ * @param {Colour} blendColour - The colour being applied with the designated blend mode
+ * @returns {Colour} The colour resulting from the blend
+ */
+export function colourBurn(baseColour, blendColour) {
+    return _blend(
+        baseColour,
+        blendColour,
+        _separableBlend,
+        _colourBurn
+    );
+}
+
+/**
+ * Multiplies or screens the colours, depending on the blend colour. The effect is similar to shining a harsh spotlight on the colour. If the blend colour (light source) is lighter than 50% gray, the colour is lightened, as if it were screened. This is useful for adding highlights to an colour. If the blend colour is darker than 50% gray, the colour is darkened, as if it were multiplied. This is useful for adding shadows to an colour. Painting with pure black or white results in pure black or white.
+ * @param {Colour} baseColour - The base colour being blended
+ * @param {Colour} blendColour - The colour being applied with the designated blend mode
+ * @returns {Colour} The colour resulting from the blend
+ */
+export function hardLight(baseColour, blendColour) {
+    return _blend(
+        baseColour,
+        blendColour,
+        _separableBlend,
+        _hardLight
+    );
+}
+
+/**
+ * Darkens or lightens the colours, depending on the blend colour. The effect is similar to shining a diffused spotlight on the colour. If the blend colour (light source) is lighter than 50% gray, the colour is lightened as if it were dodged. If the blend colour is darker than 50% gray, the colour is darkened as if it were burned in. Painting with pure black or white produces a distinctly darker or lighter area, but does not result in pure black or white.
+ * @param {Colour} baseColour - The base colour being blended
+ * @param {Colour} blendColour - The colour being applied with the designated blend mode
+ * @returns {Colour} The colour resulting from the blend
+ */
+export function softLight(baseColour, blendColour) {
+    return _blend(
+        baseColour,
+        blendColour,
+        _separableBlend,
+        _softLight
+    );
+}
+
+/**
+ * Looks at the colour information in each channel and subtracts either the blend colour from the base colour or the base colour from the blend colour, depending on which has the greater brightness value. Blending with white inverts the base colour values; blending with black produces no change.
+ * @param {Colour} baseColour - The base colour being blended
+ * @param {Colour} blendColour - The colour being applied with the designated blend mode
+ * @returns {Colour} The colour resulting from the blend
+ */
+export function difference(baseColour, blendColour) {
+    return _blend(
+        baseColour,
+        blendColour,
+        _separableBlend,
+        _difference
+    );
+}
+
+/**
+ * Creates an effect similar to but lower in contrast than the Difference mode. Blending with white inverts the base colour values. Blending with black produces no change.
+ * @param {Colour} baseColour - The base colour being blended
+ * @param {Colour} blendColour - The colour being applied with the designated blend mode
+ * @returns {Colour} The colour resulting from the blend
+ */
+export function exclusion(baseColour, blendColour) {
+    return _blend(
+        baseColour,
+        blendColour,
+        _separableBlend,
+        _exclusion
+    );
+}
+
+/**
+ * Apply a separable or non-separable blend mode to a given base colour and blend colour.
+ * @param {Colour} baseColour 
+ * @param {Colour} blendColour 
+ * @param {function(Colour, Colour, function(number, number):number):Colour} abstractModeCallback 
+ * @param {function(number, number):number} concreteModeCallback 
+ * @returns {Colour} The colour resulting from the blend
+ */
+function _blend(baseColour, blendColour, abstractModeCallback, concreteModeCallback) {
+    let compositeColour = abstractModeCallback(
+        baseColour,
+        blendColour,
+        concreteModeCallback
+    );
+
+    let compositeAlpha = _constrain(
+        blendColour.alpha + baseColour.alpha - blendColour.alpha * baseColour.alpha,
+        Colour.alphaMin,
+        Colour.alphaMax
+    );
+
+    let red = _constrain(
+        _alphaComposition(
+            baseColour.alpha,
+            blendColour.alpha,
+            compositeAlpha,
+            baseColour.red,
+            blendColour.red,
+            compositeColour.red
+        ),
+        Colour.redMin,
+        Colour.redMax
+    );
+
+    let green = _constrain(
+        _alphaComposition(
+            baseColour.alpha,
+            blendColour.alpha,
+            compositeAlpha,
+            baseColour.green,
+            blendColour.green,
+            compositeColour.green
+        ),
+        Colour.greenMin,
+        Colour.greenMax
+    );
+
+    let blue = _constrain(
+        _alphaComposition(
+            baseColour.alpha,
+            blendColour.alpha,
+            compositeAlpha,
+            baseColour.blue,
+            blendColour.blue,
+            compositeColour.blue
+        ),
+        Colour.blueMin,
+        Colour.blueMax
+    );
+
+    return Colour.RGB(red, green, blue, compositeAlpha);
+}
+
+/**
+ * Apply a separable blend mode callback function to a given base colour and blend colour.
+ * @param {Colour} baseColour 
+ * @param {Colour} blendColour 
+ * @param {function(number, number):number} callback 
+ * @returns {Colour} The colour resulting from the separable blend
+ */
+function _separableBlend(baseColour, blendColour, callback) {
+    const red = callback(baseColour.red / 255, blendColour.red / 255) * 255;
+    const green = callback(baseColour.green / 255, blendColour.green / 255) * 255;
+    const blue = callback(baseColour.blue / 255, blendColour.blue / 255) * 255;
+    return Colour.RGB(red, green, blue);
+}
+
+/**
+ * Applies the appropriate alpha blending to a blend process using [alpha compositing](https://www.w3.org/TR/compositing-1/#blending).
+ * @param {number} baseAlpha 
+ * @param {number} blendAlpha 
+ * @param {number} compositeAlpha 
+ * @param {number} baseChannel 
+ * @param {number} blendChannel 
+ * @param {number} compositeChannel 
+ * @returns {number}
+ */
+function _alphaComposition(baseAlpha, blendAlpha, compositeAlpha, baseChannel, blendChannel, compositeChannel) {
+    const resultChannel = Math.round((1 - baseAlpha) * blendChannel + baseAlpha * compositeChannel);
+    return (1 - blendAlpha / compositeAlpha) * baseChannel + (blendAlpha / compositeAlpha) * resultChannel;
+}
+
+/**
+ * Force a number to fit between a desired minimum or maximim value.
+ * @param {number} num - The value to be constrained
+ * @param {number} min - The minimum value it should be constrained to
+ * @param {number} max - The maximum value it should be constrained to
+ * @returns {number} Returns min if num is less than min. Returns max if num is greater than max. Otherwise, it returns back num.
+ */
+function _constrain(num, min, max) {
+    return Math.min(Math.max(num, min), max);
+}
+
+function _normal(baseChannel, blendChannel) {
+    return blendChannel;
+}
+
+function _multiply(baseChannel, blendChannel) {
+    return baseChannel * blendChannel;
+}
+
+function _screen(baseChannel, blendChannel) {
+    return baseChannel + blendChannel - baseChannel * blendChannel;
+}
+
+function _overlay(baseChannel, blendChannel) {
+    if (baseChannel <= 0.5) {
+        return _multiply(blendChannel, 2 * baseChannel);
+    } else {
+        return _screen(blendChannel, 2 * baseChannel - 1);
     }
+}
 
-    /**
-     * Interpolate a given colour with white to create a tint.
-     * @param {Colour} colour - A colour to tint
-     * @param {number} percent - The percentage of white to mix; setting 100% results in #FFFFFF
-     * @returns The colour resulting from tinting the original colour
-     */
-    static tint(colour, percent) {
-        return Bartender.mix(
-            colour,
-            new Colour("#FFFFFF"),
-            percent
-        );
+function _darken(baseChannel, blendChannel) {
+    return Math.min(baseChannel, blendChannel);
+}
+
+function _lighten(baseChannel, blendChannel) {
+    return Math.max(baseChannel, blendChannel);
+}
+
+function _colourDodge(baseChannel, blendChannel) {
+    if (baseChannel == 0) {
+        return 0;
     }
-
-    /**
-     * Interpolate a given colour with black to create a shade.
-     * @param {Colour} colour - A colour to shade
-     * @param {number} percent - The percentage of black to mix; setting 100% results in #000000
-     * @returns The colour resulting from shading the original colour
-     */
-    static shade(colour, percent) {
-        return Bartender.mix(
-            colour,
-            new Colour("#000000"),
-            percent
-        );
+    if (blendChannel == 1) {
+        return 1;
     }
+    return Math.min(1, baseChannel / (1 - blendChannel));
+}
 
-    /**
-     * Interpolate a given colour with gray to create a tone.
-     * @param {Colour} colour - A colour to tone
-     * @param {number} percent - The percentage of gray to mix; setting 100% results in #808080
-     * @returns The colour resulting from toning the original colour
-     */
-    static tone(colour, percent) {
-        return Bartender.mix(
-            colour,
-            new Colour("#808080"),
-            percent
-        );
+function _colourBurn(baseChannel, blendChannel) {
+    if (baseChannel == 1) {
+        return 1;
+    } else if (blendChannel == 0) {
+        return 0;
+    } else {
+        return 1 - Math.min(1, (1 - baseChannel) / blendChannel);
     }
+}
 
-    /**
-     * This is the blend mode which specifies no blending. The blending formula simply selects the blend color.
-     * @param {Colour} baseColour - The base colour being blended
-     * @param {Colour} blendColour - The colour being applied with the designated blend mode
-     * @returns {Colour} The colour resulting from the blend
-     */
-    static normal(baseColour, blendColour) {
-        return this.#blend(
-            baseColour,
-            blendColour,
-            this.#separableBlend,
-            this.#normal
-        );
+function _hardLight(baseChannel, blendChannel) {
+    if (blendChannel <= 0.5) {
+        return _multiply(baseChannel, 2 * blendChannel);
+    } else {
+        return _screen(baseChannel, 2 * blendChannel - 1);
     }
+}
 
-    /**
-     * Looks at the colour information in each channel and multiplies the base colour by the blend colour. The result colour is always a darker colour. Multiplying any colour with black produces black. Multiplying any colour with white leaves the colour unchanged.
-     * @param {Colour} baseColour - The base colour being blended
-     * @param {Colour} blendColour - The colour being applied with the designated blend mode
-     * @returns {Colour} The colour resulting from the blend
-     */
-    static multiply(baseColour, blendColour) {
-        return this.#blend(
-            baseColour,
-            blendColour,
-            this.#separableBlend,
-            this.#multiply
-        );
-    }
-
-    /**
-     * Looks at each channel’s colour information and multiplies the inverse of the blend and base colours. The result colour is always a lighter colour. Screening with black leaves the colour unchanged. Screening with white produces white. The effect is similar to projecting multiple photographic slides on top of each other.
-     * @param {Colour} baseColour - The base colour being blended
-     * @param {Colour} blendColour - The colour being applied with the designated blend mode
-     * @returns {Colour} The colour resulting from the blend
-     */
-    static screen(baseColour, blendColour) {
-        return this.#blend(
-            baseColour,
-            blendColour,
-            this.#separableBlend,
-            this.#screen
-        );
-    }
-
-    /**
-     * Multiplies or screens the colors, depending on the base color. The base color is not replaced, but mixed with the blend color to reflect the lightness or darkness of the original color.
-     * @param {Colour} baseColour - The base colour being blended
-     * @param {Colour} blendColour - The colour being applied with the designated blend mode
-     * @returns {Colour} The colour resulting from the blend
-     */
-    static overlay(baseColour, blendColour) {
-        return this.#blend(
-            baseColour,
-            blendColour,
-            this.#separableBlend,
-            this.#overlay
-        );
-    }
-
-    /**
-     * Looks at the colour information in each channel and selects the base or blend colour—whichever is darker—as the result colour.
-     * @param {Colour} baseColour - The base colour being blended
-     * @param {Colour} blendColour - The colour being applied with the designated blend mode
-     * @returns {Colour} The colour resulting from the blend
-     */
-    static darken(baseColour, blendColour) {
-        return this.#blend(
-            baseColour,
-            blendColour,
-            this.#separableBlend,
-            this.#darken
-        );
-    }
-
-    /**
-     * Looks at the colour information in each channel and selects the base or blend colour—whichever is lighter—as the result colour.
-     * @param {Colour} baseColour - The base colour being blended
-     * @param {Colour} blendColour - The colour being applied with the designated blend mode
-     * @returns {Colour} The colour resulting from the blend
-     */
-    static lighten(baseColour, blendColour) {
-        return this.#blend(
-            baseColour,
-            blendColour,
-            this.#separableBlend,
-            this.#lighten
-        );
-    }
-
-    /**
-     * Looks at the color information in each channel and brightens the base color to reflect the blend color by decreasing contrast between the two. Blending with black produces no change.
-     * @param {Colour} baseColour - The base colour being blended
-     * @param {Colour} blendColour - The colour being applied with the designated blend mode
-     * @returns {Colour} The colour resulting from the blend
-     */
-    static colourDodge(baseColour, blendColour) {
-        return this.#blend(
-            baseColour,
-            blendColour,
-            this.#separableBlend,
-            this.#colourDodge
-        );
-    }
-
-    /**
-     * Looks at the colour information in each channel and darkens the base colour to reflect the blend colour by increasing the contrast between the two. Blending with white produces no change.
-     * @param {Colour} baseColour - The base colour being blended
-     * @param {Colour} blendColour - The colour being applied with the designated blend mode
-     * @returns {Colour} The colour resulting from the blend
-     */
-    static colourBurn(baseColour, blendColour) {
-        return this.#blend(
-            baseColour,
-            blendColour,
-            this.#separableBlend,
-            this.#colourBurn
-        );
-    }
-
-    /**
-     * Multiplies or screens the colours, depending on the blend colour. The effect is similar to shining a harsh spotlight on the colour. If the blend colour (light source) is lighter than 50% gray, the colour is lightened, as if it were screened. This is useful for adding highlights to an colour. If the blend colour is darker than 50% gray, the colour is darkened, as if it were multiplied. This is useful for adding shadows to an colour. Painting with pure black or white results in pure black or white.
-     * @param {Colour} baseColour - The base colour being blended
-     * @param {Colour} blendColour - The colour being applied with the designated blend mode
-     * @returns {Colour} The colour resulting from the blend
-     */
-    static hardLight(baseColour, blendColour) {
-        return this.#blend(
-            baseColour,
-            blendColour,
-            this.#separableBlend,
-            this.#hardLight
-        );
-    }
-
-    /**
-     * Darkens or lightens the colours, depending on the blend colour. The effect is similar to shining a diffused spotlight on the colour. If the blend colour (light source) is lighter than 50% gray, the colour is lightened as if it were dodged. If the blend colour is darker than 50% gray, the colour is darkened as if it were burned in. Painting with pure black or white produces a distinctly darker or lighter area, but does not result in pure black or white.
-     * @param {Colour} baseColour - The base colour being blended
-     * @param {Colour} blendColour - The colour being applied with the designated blend mode
-     * @returns {Colour} The colour resulting from the blend
-     */
-    static softLight(baseColour, blendColour) {
-        return this.#blend(
-            baseColour,
-            blendColour,
-            this.#separableBlend,
-            this.#softLight
-        );
-    }
-
-    /**
-     * Looks at the colour information in each channel and subtracts either the blend colour from the base colour or the base colour from the blend colour, depending on which has the greater brightness value. Blending with white inverts the base colour values; blending with black produces no change.
-     * @param {Colour} baseColour - The base colour being blended
-     * @param {Colour} blendColour - The colour being applied with the designated blend mode
-     * @returns {Colour} The colour resulting from the blend
-     */
-    static difference(baseColour, blendColour) {
-        return this.#blend(
-            baseColour,
-            blendColour,
-            this.#separableBlend,
-            this.#difference
-        );
-    }
-
-    /**
-     * Creates an effect similar to but lower in contrast than the Difference mode. Blending with white inverts the base colour values. Blending with black produces no change.
-     * @param {Colour} baseColour - The base colour being blended
-     * @param {Colour} blendColour - The colour being applied with the designated blend mode
-     * @returns {Colour} The colour resulting from the blend
-     */
-    static exclusion(baseColour, blendColour) {
-        return this.#blend(
-            baseColour,
-            blendColour,
-            this.#separableBlend,
-            this.#exclusion
-        );
-    }
-
-    /**
-     * Apply a separable or non-separable blend mode to a given base colour and blend colour.
-     * @param {Colour} baseColour 
-     * @param {Colour} blendColour 
-     * @param {function(Colour, Colour, function(number, number):number):Colour} abstractModeCallback 
-     * @param {function(number, number):number} concreteModeCallback 
-     * @returns {Colour} The colour resulting from the blend
-     */
-    static #blend(baseColour, blendColour, abstractModeCallback, concreteModeCallback) {
-        let compositeColour = abstractModeCallback(
-            baseColour,
-            blendColour,
-            concreteModeCallback
-        );
-
-        let compositeAlpha = this.#constrain(
-            blendColour.alpha + baseColour.alpha - blendColour.alpha * baseColour.alpha,
-            Colour.alphaMin,
-            Colour.alphaMax
-        );
-
-        let red = this.#constrain(
-            this.#alphaComposition(
-                baseColour.alpha,
-                blendColour.alpha,
-                compositeAlpha,
-                baseColour.red,
-                blendColour.red,
-                compositeColour.red
-            ),
-            Colour.redMin,
-            Colour.redMax
-        );
-
-        let green = this.#constrain(
-            this.#alphaComposition(
-                baseColour.alpha,
-                blendColour.alpha,
-                compositeAlpha,
-                baseColour.green,
-                blendColour.green,
-                compositeColour.green
-            ),
-            Colour.greenMin,
-            Colour.greenMax
-        );
-
-        let blue = this.#constrain(
-            this.#alphaComposition(
-                baseColour.alpha,
-                blendColour.alpha,
-                compositeAlpha,
-                baseColour.blue,
-                blendColour.blue,
-                compositeColour.blue
-            ),
-            Colour.blueMin,
-            Colour.blueMax
-        );
-
-        return Colour.RGB(red, green, blue, compositeAlpha);
-    }
-
-    /**
-     * Apply a separable blend mode callback function to a given base colour and blend colour.
-     * @param {Colour} baseColour 
-     * @param {Colour} blendColour 
-     * @param {function(number, number):number} callback 
-     * @returns {Colour} The colour resulting from the separable blend
-     */
-    static #separableBlend(baseColour, blendColour, callback) {
-        const red = callback(baseColour.red / 255, blendColour.red / 255) * 255;
-        const green = callback(baseColour.green / 255, blendColour.green / 255) * 255;
-        const blue = callback(baseColour.blue / 255, blendColour.blue / 255) * 255;
-        return Colour.RGB(red, green, blue);
-    }
-
-    /**
-     * Applies the appropriate alpha blending to a blend process using [alpha compositing](https://www.w3.org/TR/compositing-1/#blending).
-     * @param {number} baseAlpha 
-     * @param {number} blendAlpha 
-     * @param {number} compositeAlpha 
-     * @param {number} baseChannel 
-     * @param {number} blendChannel 
-     * @param {number} compositeChannel 
-     * @returns {number}
-     */
-    static #alphaComposition(baseAlpha, blendAlpha, compositeAlpha, baseChannel, blendChannel, compositeChannel) {
-        const resultChannel = Math.round((1 - baseAlpha) * blendChannel + baseAlpha * compositeChannel);
-        return (1 - blendAlpha / compositeAlpha) * baseChannel + (blendAlpha / compositeAlpha) * resultChannel;
-    }
-
-    /**
-     * Force a number to fit between a desired minimum or maximim value.
-     * @param {number} num - The value to be constrained
-     * @param {number} min - The minimum value it should be constrained to
-     * @param {number} max - The maximum value it should be constrained to
-     * @returns {number} Returns min if num is less than min. Returns max if num is greater than max. Otherwise, it returns back num.
-     */
-    static #constrain(num, min, max) {
-        return Math.min(Math.max(num, min), max);
-    }
-
-    static #normal(baseChannel, blendChannel) {
-        return blendChannel;
-    }
-
-    static #multiply(baseChannel, blendChannel) {
-        return baseChannel * blendChannel;
-    }
-
-    static #screen(baseChannel, blendChannel) {
-        return baseChannel + blendChannel - baseChannel * blendChannel;
-    }
-
-    static #overlay(baseChannel, blendChannel) {
-        if (baseChannel <= 0.5) {
-            return Bartender.#multiply(blendChannel, 2 * baseChannel);
+function _softLight(baseChannel, blendChannel) {
+    if (blendChannel <= 0.5) {
+        return baseChannel - (1 - 2 * blendChannel) * baseChannel * (1 - baseChannel);
+    } else {
+        let D_baseChannel = 0;
+        if (baseChannel <= 0.25) {
+            D_baseChannel = ((16 * baseChannel - 12) * baseChannel + 4) * baseChannel;
         } else {
-            return Bartender.#screen(blendChannel, 2 * baseChannel - 1);
+            D_baseChannel = Math.sqrt(baseChannel);
         }
+        return baseChannel + (2 * blendChannel - 1) * (D_baseChannel - baseChannel);
     }
+}
 
-    static #darken(baseChannel, blendChannel) {
-        return Math.min(baseChannel, blendChannel);
-    }
+function _difference(baseChannel, blendChannel) {
+    return Math.abs(baseChannel - blendChannel);
+}
 
-    static #lighten(baseChannel, blendChannel) {
-        return Math.max(baseChannel, blendChannel);
-    }
-
-    static #colourDodge(baseChannel, blendChannel) {
-        if (baseChannel == 0) {
-            return 0;
-        }
-        if (blendChannel == 1) {
-            return 1;
-        }
-        return Math.min(1, baseChannel / (1 - blendChannel));
-    }
-
-    static #colourBurn(baseChannel, blendChannel) {
-        if (baseChannel == 1) {
-            return 1;
-        } else if (blendChannel == 0) {
-            return 0;
-        } else {
-            return 1 - Math.min(1, (1 - baseChannel) / blendChannel);
-        }
-    }
-
-    static #hardLight(baseChannel, blendChannel) {
-        if (blendChannel <= 0.5) {
-            return Bartender.#multiply(baseChannel, 2 * blendChannel);
-        } else {
-            return Bartender.#screen(baseChannel, 2 * blendChannel - 1);
-        }
-    }
-
-    static #softLight(baseChannel, blendChannel) {
-        if (blendChannel <= 0.5) {
-            return baseChannel - (1 - 2 * blendChannel) * baseChannel * (1 - baseChannel);
-        } else {
-            let D_baseChannel = 0;
-            if (baseChannel <= 0.25) {
-                D_baseChannel = ((16 * baseChannel - 12) * baseChannel + 4) * baseChannel;
-            } else {
-                D_baseChannel = Math.sqrt(baseChannel);
-            }
-            return baseChannel + (2 * blendChannel - 1) * (D_baseChannel - baseChannel);
-        }
-    }
-
-    static #difference(baseChannel, blendChannel) {
-        return Math.abs(baseChannel - blendChannel);
-    }
-
-    static #exclusion(baseChannel, blendChannel) {
-        return baseChannel + blendChannel - 2 * baseChannel * blendChannel;
-    }
+function _exclusion(baseChannel, blendChannel) {
+    return baseChannel + blendChannel - 2 * baseChannel * blendChannel;
 }
 
 /**
@@ -1292,7 +1285,7 @@ export class Bartender {
  * @returns {Colour[]} The resulting colour palette
  */
 export function shades(colour, num) {
-    return _monochromatic(colour, num, Bartender.shade);
+    return _monochromatic(colour, num, shade);
 }
 
 /**
@@ -1302,7 +1295,7 @@ export function shades(colour, num) {
  * @returns {Colour[]} The resulting colour palette
  */
 export function tints(colour, num) {
-    return _monochromatic(colour, num, Bartender.tint);
+    return _monochromatic(colour, num, tint);
 }
 
 /**
@@ -1312,7 +1305,7 @@ export function tints(colour, num) {
  * @returns {Colour[]} The resulting colour palette
  */
 export function tones(colour, num) {
-    return _monochromatic(colour, num, Bartender.tone);
+    return _monochromatic(colour, num, tone);
 }
 
 /**
@@ -1457,13 +1450,13 @@ export function fixContrast(textColour, backgroundColour, largeText = false, enh
     const colours = [textColour.copy(), backgroundColour.copy()];
     if (luminosity(colours[0]) > luminosity(colours[1])) {
         while (!validateContrast(colours[0], colours[1], largeText, enhanced)) {
-            colours[0] = Bartender.tint(colours[0], 0.05);
-            colours[1] = Bartender.shade(colours[1], 0.05);
+            colours[0] = tint(colours[0], 0.05);
+            colours[1] = shade(colours[1], 0.05);
         }
     } else {
         while (!validateContrast(colours[0], colours[1], largeText, enhanced)) {
-            colours[0] = Bartender.shade(colours[0], 0.05);
-            colours[1] = Bartender.tint(colours[1], 0.05);
+            colours[0] = shade(colours[0], 0.05);
+            colours[1] = tint(colours[1], 0.05);
         }
     }
     return colours;
