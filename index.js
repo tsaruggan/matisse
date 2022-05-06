@@ -374,7 +374,7 @@ export class Colour {
 
     set green(newGreen) {
         if (newGreen < Colour.greenMin || newGreen > Colour.greenMax) {
-            throw new RangeError("The blue attribute must be in the following acceptable range: [0, 255].");
+            throw new RangeError("The green attribute must be in the following acceptable range: [0, 255].");
         }
         this.attributes.green = roundInt(newGreen);
         this.#updateHSV();
@@ -390,7 +390,7 @@ export class Colour {
 
     set blue(newBlue) {
         if (newBlue < Colour.blueMin || newBlue > Colour.blueMax) {
-            throw new RangeError("The green attribute must be in the following acceptable range: [0, 255].");
+            throw new RangeError("The blue attribute must be in the following acceptable range: [0, 255].");
         }
         this.attributes.blue = roundInt(newBlue);
         this.#updateHSV();
@@ -573,6 +573,7 @@ export class Colour {
 
     /**
      * Returns a copy of the Colour instance.
+     * @returns {Colour} An identical Colour object
      */
     copy() {
         return Colour.RGB(this.red, this.green, this.blue, this.alpha);
@@ -580,6 +581,7 @@ export class Colour {
 
     /**
      * Return a valid hexadecimal colour code that represents the colour.
+     * @returns {Colour} A HEX code representing the colour.
      */
     toHEX() {
         return colorString.to.hex(this.red, this.green, this.blue, this.alpha);
@@ -859,7 +861,7 @@ export function mix(colour1, colour2, percent) {
  * Interpolate a given colour with white to create a tint.
  * @param {Colour} colour - A colour to tint
  * @param {number} percent - The percentage of white to mix; setting 100% results in #FFFFFF
- * @returns The colour resulting from tinting the original colour
+ * @returns {Colour} The colour resulting from tinting the original colour
  */
 export function tint(colour, percent) {
     return mix(
@@ -873,7 +875,7 @@ export function tint(colour, percent) {
  * Interpolate a given colour with black to create a shade.
  * @param {Colour} colour - A colour to shade
  * @param {number} percent - The percentage of black to mix; setting 100% results in #000000
- * @returns The colour resulting from shading the original colour
+ * @returns {Colour} The colour resulting from shading the original colour
  */
 export function shade(colour, percent) {
     return mix(
@@ -887,7 +889,7 @@ export function shade(colour, percent) {
  * Interpolate a given colour with gray to create a tone.
  * @param {Colour} colour - A colour to tone
  * @param {number} percent - The percentage of gray to mix; setting 100% results in #808080
- * @returns The colour resulting from toning the original colour
+ * @returns {Colour} The colour resulting from toning the original colour
  */
 export function tone(colour, percent) {
     return mix(
@@ -1423,7 +1425,6 @@ export function validateContrast(textColour, backgroundColour, largeText = false
  * @param {Colour} backgroundColour - The colour of the background
  * @param {boolean} [largeText=false] - True if text size is large. By default, text is assumed to be regular size.
  * @param {boolean} [enhanced=false] - True if the enhanced contrast ratio is to be used. By default, the minimum contrast ratio is used.
- * @param {boolean} [darkMode=false] - True if the provided colours are for a "dark mode" design (i.e. light text on a dark background). By default, a "light mode" design is assumed.
  * @returns {Colour[]} An array of colours with the first item being the new text colour and the second item being the new background colour.
  */
 export function fixContrast(textColour, backgroundColour, largeText = false, enhanced = false) {
