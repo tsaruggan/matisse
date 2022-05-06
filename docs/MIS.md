@@ -78,18 +78,6 @@ between two colours. (Note: The order of the colours does not matter!)</p>
 <dt><a href="#exclusion">exclusion(baseColour, blendColour)</a> ⇒ <code><a href="#Colour">Colour</a></code></dt>
 <dd><p>Creates an effect similar to but lower in contrast than the Difference mode. Blending with white inverts the base colour values. Blending with black produces no change.</p>
 </dd>
-<dt><a href="#_blend">_blend(baseColour, blendColour, abstractModeCallback, concreteModeCallback)</a> ⇒ <code><a href="#Colour">Colour</a></code></dt>
-<dd><p>Apply a separable or non-separable blend mode to a given base colour and blend colour.</p>
-</dd>
-<dt><a href="#_separableBlend">_separableBlend(baseColour, blendColour, callback)</a> ⇒ <code><a href="#Colour">Colour</a></code></dt>
-<dd><p>Apply a separable blend mode callback function to a given base colour and blend colour.</p>
-</dd>
-<dt><a href="#_alphaComposition">_alphaComposition(baseAlpha, blendAlpha, compositeAlpha, baseChannel, blendChannel, compositeChannel)</a> ⇒ <code>number</code></dt>
-<dd><p>Applies the appropriate alpha blending to a blend process using <a href="https://www.w3.org/TR/compositing-1/#blending">alpha compositing</a>.</p>
-</dd>
-<dt><a href="#_constrain">_constrain(num, min, max)</a> ⇒ <code>number</code></dt>
-<dd><p>Force a number to fit between a desired minimum or maximim value.</p>
-</dd>
 <dt><a href="#shades">shades(colour, num)</a> ⇒ <code><a href="#Colour">Array.&lt;Colour&gt;</a></code></dt>
 <dd><p>Generate a colour palette containing all shades of the provided colour.</p>
 </dd>
@@ -119,9 +107,6 @@ between two colours. (Note: The order of the colours does not matter!)</p>
 </dd>
 <dt><a href="#randoms">randoms(num)</a> ⇒ <code><a href="#Colour">Array.&lt;Colour&gt;</a></code></dt>
 <dd><p>Generate a palette containing random colours.</p>
-</dd>
-<dt><a href="#_monochromatic">_monochromatic(colour, num, callback)</a> ⇒ <code><a href="#Colour">Array.&lt;Colour&gt;</a></code></dt>
-<dd><p>Generate a monochromatic palette from a given base colour</p>
 </dd>
 <dt><a href="#validateContrast">validateContrast(textColour, backgroundColour, [largeText], [enhanced])</a> ⇒ <code>boolean</code></dt>
 <dd><p>Validate that the contrast between the provided text colour and background colour meets the standard for the <a href="http://www.w3.org/TR/WCAG20/#contrast-ratiodef">WCAG contrast ratio</a>.</p>
@@ -793,65 +778,6 @@ Creates an effect similar to but lower in contrast than the Difference mode. Ble
 | baseColour | [<code>Colour</code>](#Colour) | The base colour being blended |
 | blendColour | [<code>Colour</code>](#Colour) | The colour being applied with the designated blend mode |
 
-<a name="_blend"></a>
-
-## \_blend(baseColour, blendColour, abstractModeCallback, concreteModeCallback) ⇒ [<code>Colour</code>](#Colour)
-Apply a separable or non-separable blend mode to a given base colour and blend colour.
-
-**Kind**: global function  
-**Returns**: [<code>Colour</code>](#Colour) - The colour resulting from the blend  
-
-| Param | Type |
-| --- | --- |
-| baseColour | [<code>Colour</code>](#Colour) | 
-| blendColour | [<code>Colour</code>](#Colour) | 
-| abstractModeCallback | <code>function</code> | 
-| concreteModeCallback | <code>function</code> | 
-
-<a name="_separableBlend"></a>
-
-## \_separableBlend(baseColour, blendColour, callback) ⇒ [<code>Colour</code>](#Colour)
-Apply a separable blend mode callback function to a given base colour and blend colour.
-
-**Kind**: global function  
-**Returns**: [<code>Colour</code>](#Colour) - The colour resulting from the separable blend  
-
-| Param | Type |
-| --- | --- |
-| baseColour | [<code>Colour</code>](#Colour) | 
-| blendColour | [<code>Colour</code>](#Colour) | 
-| callback | <code>function</code> | 
-
-<a name="_alphaComposition"></a>
-
-## \_alphaComposition(baseAlpha, blendAlpha, compositeAlpha, baseChannel, blendChannel, compositeChannel) ⇒ <code>number</code>
-Applies the appropriate alpha blending to a blend process using [alpha compositing](https://www.w3.org/TR/compositing-1/#blending).
-
-**Kind**: global function  
-
-| Param | Type |
-| --- | --- |
-| baseAlpha | <code>number</code> | 
-| blendAlpha | <code>number</code> | 
-| compositeAlpha | <code>number</code> | 
-| baseChannel | <code>number</code> | 
-| blendChannel | <code>number</code> | 
-| compositeChannel | <code>number</code> | 
-
-<a name="_constrain"></a>
-
-## \_constrain(num, min, max) ⇒ <code>number</code>
-Force a number to fit between a desired minimum or maximim value.
-
-**Kind**: global function  
-**Returns**: <code>number</code> - Returns min if num is less than min. Returns max if num is greater than max. Otherwise, it returns back num.  
-
-| Param | Type | Description |
-| --- | --- | --- |
-| num | <code>number</code> | The value to be constrained |
-| min | <code>number</code> | The minimum value it should be constrained to |
-| max | <code>number</code> | The maximum value it should be constrained to |
-
 <a name="shades"></a>
 
 ## shades(colour, num) ⇒ [<code>Array.&lt;Colour&gt;</code>](#Colour)
@@ -974,19 +900,6 @@ Generate a palette containing random colours.
 | Param | Type | Description |
 | --- | --- | --- |
 | num | <code>number</code> | The length of the palette |
-
-<a name="_monochromatic"></a>
-
-## \_monochromatic(colour, num, callback) ⇒ [<code>Array.&lt;Colour&gt;</code>](#Colour)
-Generate a monochromatic palette from a given base colour
-
-**Kind**: global function  
-
-| Param | Type |
-| --- | --- |
-| colour | [<code>Colour</code>](#Colour) | 
-| num | <code>number</code> | 
-| callback | <code>function</code> | 
 
 <a name="validateContrast"></a>
 

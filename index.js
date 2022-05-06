@@ -1086,6 +1086,7 @@ export function exclusion(baseColour, blendColour) {
  * @param {function(Colour, Colour, function(number, number):number):Colour} abstractModeCallback 
  * @param {function(number, number):number} concreteModeCallback 
  * @returns {Colour} The colour resulting from the blend
+ * @ignore
  */
 function _blend(baseColour, blendColour, abstractModeCallback, concreteModeCallback) {
     let compositeColour = abstractModeCallback(
@@ -1148,6 +1149,7 @@ function _blend(baseColour, blendColour, abstractModeCallback, concreteModeCallb
  * @param {Colour} blendColour 
  * @param {function(number, number):number} callback 
  * @returns {Colour} The colour resulting from the separable blend
+ * @ignore
  */
 function _separableBlend(baseColour, blendColour, callback) {
     const red = callback(baseColour.red / 255, blendColour.red / 255) * 255;
@@ -1165,6 +1167,7 @@ function _separableBlend(baseColour, blendColour, callback) {
  * @param {number} blendChannel 
  * @param {number} compositeChannel 
  * @returns {number}
+ * @ignore
  */
 function _alphaComposition(baseAlpha, blendAlpha, compositeAlpha, baseChannel, blendChannel, compositeChannel) {
     const resultChannel = roundInt((1 - baseAlpha) * blendChannel + baseAlpha * compositeChannel);
@@ -1177,6 +1180,7 @@ function _alphaComposition(baseAlpha, blendAlpha, compositeAlpha, baseChannel, b
  * @param {number} min - The minimum value it should be constrained to
  * @param {number} max - The maximum value it should be constrained to
  * @returns {number} Returns min if num is less than min. Returns max if num is greater than max. Otherwise, it returns back num.
+ * @ignore
  */
 function _constrain(num, min, max) {
     return Math.min(Math.max(num, min), max);
@@ -1384,6 +1388,7 @@ export function randoms(num) {
  * @param {number} num
  * @param {function(Colour, number):Colour} callback
  * @returns {Colour[]}
+ * @ignore
  */
 function _monochromatic(colour, num, callback) {
     let palette = [];
