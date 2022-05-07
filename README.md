@@ -11,14 +11,12 @@ $ npm install matisse
 
 ## Usage
 ```javascript
-import * as matisse from "matisse";
+import Colour, * as matisse from "matisse";
 ```
 
 ### Constructors
 Traditional constructors are available for CSS colour strings and HEX codes as well as static factory contructors for RGB, HSV, HSL, CMYK, and HWB colour models. When the `Colour` object is initialized using a constructor, all other colour attributes from the other colour spaces are implicitly calculated and stored.
 ```javascript
-import { Colour } from "matisse";
-
 const colour = new Colour("rgba(32, 122, 166, 0.5)");
 const colour = new Colour("#207AA680");
 const colour = Colour.RGB(32, 122, 166, 0.5);
