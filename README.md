@@ -73,10 +73,37 @@ matisse.exclusion(baseColour, blendColour); // #895460
 
 Similarly, tones, tints, and shades can be produced from a given base colour.
 ```javascript
-const baseColour = Colour.HSV(277, 1.00, 0.50); // #4f0080
+const baseColour = Colour.HSV(277, 1.00, 0.50); // #4F0080
 
 matisse.tone(baseColour, 0.50); // #684080
 matisse.tint(baseColour, 0.50); // #A780C0
 matisse.shade(baseColour, 0.50); // #280040
+```
+
+### Colour Palettes
+Colour palettes can be generated according to various colour harmonies.
+```javascript
+const colour = Colour.RGB(235, 64, 52); // #EB4034
+
+matisse.analogous(colour); // [#EB33A1, #EB4034, #EBBA33]
+matisse.complementary(colour); // [#EB4034, #33DFEB]
+matisse.splitComplementary(colour); // [#EB4034, #33EBBA, #33A1EB]
+matisse.triadic(colour); // [#EB4034, #33EB3F, ##3F33EB]
+matisse.tetradic(colour); // [#EB4034, #33EB3F, #33DFEB, #3F33EB]
+matisse.square(colour); // [#EB4034, #83EB33, #33DFEB, #9B33EB]
+```
+
+Monochromatic colour palettes can also be generated for a given length.
+```javascript
+const baseColour = Colour.HSV(277, 1.00, 0.50); // #4F0080
+
+matisse.tones(baseColour, 5); // [#4F0080, #5B2080, #684080, #746080, #808080]
+matisse.tints(baseColour, 5); // [#4F0080, #7B40A0, #A780C0, #D3BFDF, #FFFFFF]
+matisse.shades(baseColour, 5); // [#4F0080, #3B0060, #280040, #140020, #000000]
+```
+
+You can also generate a palette of random colours.
+```javascript
+matisse.randoms(10);
 ```
 
