@@ -5,7 +5,7 @@ import { mean, std, sqrt } from 'mathjs';
  * An abstract data type representating mutable colour entities for RGB, HSV, HSL, CMYK, and HWB colour models.
  * @class Colour
  */
-export class Colour {
+export default class Colour {
     attributes = {
         red: 0,
         green: 0,
