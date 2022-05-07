@@ -133,4 +133,4 @@ For detailed documentation, refer to the project's [Module Interface Specificati
 matisse was inspired by and makes use of the following:
 - [Qix-/color](https://github.com/Qix-/color)
 - [Qix-/color-string](https://github.com/Qix-/color-string)
-- [coolers](https://coolors.co)
+- [coolors](https://coolors.co)
