@@ -126,3 +126,11 @@ const backgroundColour = new Colour("#1F8BFF"); // #1F8BFF
 
 matisse.fixContrast(textColour, backgroundColour); // [#FFE644, #1866BC]
 ```
+
+For detailed documentation, refer to the project's [Module Interface Specification (MIS)](https://github.com/tsaruggan/matisse/blob/master/docs/MIS.md).
+
+## Sources
+matisse was inspired by and makes use of the following:
+- [Qix-/color](https://github.com/Qix-/color)
+- [Qix-/color-string](https://github.com/Qix-/color-string)
+- [coolers](https://coolors.co)
