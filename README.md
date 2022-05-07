@@ -7,5 +7,8 @@ This project was originally developed as a team project for McMaster University'
 ## Installation
 The package can be installed using NPM:
 ```
-npm install matisse
+$ npm install matisse
 ```
+
+## Usage
+
