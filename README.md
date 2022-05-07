@@ -29,6 +29,7 @@ const colour = Colour.HWB(200, 0.12, 0.35, 0.5);
 ### Getters & Setters
 Getters and setters for the `Colour` class are defined using ES6 `get` and `set` properties. The following properties of `Colour` instances can be accessed and mutated: `red`, `green`, `blue`, `hue`, `saturationv`, `value`, `saturationl`, `light`, `cyan`, `magenta`, `yellow`, `white`, `black`, `alpha`. Error handling and useful range constants are also built in to support usability.
 ```javascript
+const colour = Colour.RGB(18, 64, 188);
 console.log(colour.hue);
 colour.hue = 69;
 colour.hue = Colour.hueMax + 1; // throws an error!
@@ -48,3 +49,34 @@ const x_luminosity = matisse.luminosity(x); // 0.06
 const y_temp = matisse.temperature(y); // 2812.14
 const contrast = matisse.contrast(x, y); // 4.24
 ```
+
+### Mixing & Blending
+Mixing and blending operations with different blend modes can be perfomed with a given base colour and a blend colour.
+```javascript
+const baseColour = Colour.CMYK(0.00, 0.95, 0.86, 0.38); // #9E0816
+const blendColour = Colour.HWB(285, 0.32, 0.65); // #58525A
+
+matisse.mix(baseColour, blendColour, 0.69); // #6D3A44
+matisse.normal(baseColour, blendColour); // #575159
+matisse.multiply(baseColour, blendColour); // #360308
+matisse.screen(baseColour, blendColour); // #BF5667
+matisse.overlay(baseColour, blendColour); // #7F050F
+matisse.darken(baseColour, blendColour); // #570816
+matisse.lighten(baseColour, blendColour); // #9E5159
+matisse.colourDodge(baseColour, blendColour); // #F00C22
+matisse.colourBurn(baseColour, blendColour); // #000000
+matisse.hardLight(baseColour, blendColour); // #6C050F
+matisse.softLight(baseColour, blendColour); // #8B0510
+matisse.difference(baseColour, blendColour); // #474943
+matisse.exclusion(baseColour, blendColour); // #895460
+```
+
+Similarly, tones, tints, and shades can be produced from a given base colour.
+```javascript
+const baseColour = Colour.HSV(277, 1.00, 0.50); // #4f0080
+
+matisse.tone(baseColour, 0.50); // #684080
+matisse.tint(baseColour, 0.50); // #A780C0
+matisse.shade(baseColour, 0.50); // #280040
+```
+
