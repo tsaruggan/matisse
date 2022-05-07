@@ -1,12 +1,31 @@
 {
   "name": "matisse",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "JavaScript library for mutable colour conversion and manipulation 🎨",
   "main": "index.js",
   "type": "module",
   "scripts": {
     "test": "node --experimental-vm-modules node_modules/.bin/jest --coverage"
   },
+  "keywords": [
+    "colour", 
+    "color", 
+    "conversion",
+    "manipulation", 
+    "mixing", 
+    "blending", 
+    "harmonies",
+    "accessiblity",
+    "wcag",
+    "contrast",
+    "temperature",
+    "rgb", 
+    "hsv", 
+    "hsl", 
+    "cmyk", 
+    "hwb", 
+    "css", 
+    "hex"],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/tsaruggan/matisse.git"
