@@ -1,6 +1,6 @@
 {
   "name": "matisse",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "JavaScript library for mutable colour conversion and manipulation 🎨",
   "main": "index.js",
   "type": "module",
