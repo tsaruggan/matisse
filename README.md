@@ -5,10 +5,29 @@ This project was originally developed as a team project for McMaster University'
 
 
 ## Installation
-The package can be installed using NPM:
 ```
 $ npm install matisse
 ```
 
 ## Usage
+```javascript
+import * as matisse from "matisse";
+```
 
+### Constructors
+Traditional constructors are available for CSS colour strings and HEX codes as well as static factory contructors for RGB, HSV, HSL, CMYK, and HWB colour models. When the `Colour` object is initialized using a constructor, all other colour attributes from the other colour spaces are implicitly calculated and stored.
+```javascript
+import { Colour } from "matisse";
+
+const colour = new Colour("rgba(32, 122, 166, 0.5)");
+const colour = new Colour("#207AA680");
+const colour = Colour.RGB(32, 122, 166, 0.5);
+const colour = Colour.HSV(200, 0.81, 0.65, 0.5);
+const colour = Colour.HSL(200, 0.69, 0.39, 0.5);
+const colour = Colour.CMYK(0.81, 0.27, 0, 0.35, 0.5);
+const colour = Colour.HWB(200, 0.12, 0.35, 0.5);
+```
+
+### Getters
+
+### Setters
