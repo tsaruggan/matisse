@@ -107,3 +107,22 @@ You can also generate a palette of random colours.
 matisse.randoms(10);
 ```
 
+### Accessibility
+matisse has the ability to check if a pair of colours have sufficient contrast according to the [WCAG](http://www.w3.org/TR/WCAG20/#contrast-ratiodef) standards. It can also be configured to compare enhanced and large text colours.
+```javascript
+const textColour = new Colour("#520404");
+const backgroundColour = new Colour("#D010EE");
+
+matisse.validateContrast(textColour, backgroundColour); // false
+matisse.validateContrast(textColour, backgroundColour, true); // true
+matisse.validateContrast(textColour, backgroundColour, false, true); // false
+matisse.validateContrast(textColour, backgroundColour, true, true); // false
+```
+
+A colour combination with insufficient contrast can be fixed as well. This works by whitening the lighter colour and blackening the darker colour!
+```javascript
+const textColour = new Colour("#FFDD00"); // #FFDD00
+const backgroundColour = new Colour("#1F8BFF"); // #1F8BFF
+
+matisse.fixContrast(textColour, backgroundColour); // [#FFE644, #1866BC]
+```
