@@ -33,3 +33,14 @@ console.log(colour.hue);
 colour.hue = 69;
 colour.hue = Colour.hueMax + 1; // throws an error!
 ```
+
+### Measurements & Manipulations
+matisse contains several static methods for colour measurements, calculations, and operations.
+```javascript
+const x = new Colour("#59396E");
+const y = new Colour("#A5B828");
+
+const x_inverse = Scientist.negate(x); // #A6C691
+const y_temp = Scientist.temperature(y); // 2812.14
+const contrast = Scientist.contrast(x, y); // 4.24
+```
