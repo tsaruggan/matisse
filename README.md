@@ -28,6 +28,10 @@ const colour = Colour.CMYK(0.81, 0.27, 0, 0.35, 0.5);
 const colour = Colour.HWB(200, 0.12, 0.35, 0.5);
 ```
 
-### Getters
-
-### Setters
+### Getters & Setters
+Getters and setters for the `Colour` class are defined using ES6 `get` and `set` properties. The following properties of `Colour` instances can be accessed and mutated: `red`, `green`, `blue`, `hue`, `saturationv`, `value`, `saturationl`, `light`, `cyan`, `magenta`, `yellow`, `white`, `black`, `alpha`. Error handling and useful range constants are also built in to support usability.
+```javascript
+console.log(colour.hue);
+colour.hue = 69;
+colour.hue = Colour.hueMax + 1; // throws an error!
+```
