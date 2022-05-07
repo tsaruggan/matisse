@@ -40,7 +40,11 @@ matisse contains several static methods for colour measurements, calculations, a
 const x = new Colour("#59396E");
 const y = new Colour("#A5B828");
 
-const x_inverse = Scientist.negate(x); // #A6C691
-const y_temp = Scientist.temperature(y); // 2812.14
-const contrast = Scientist.contrast(x, y); // 4.24
+const x_inverse = matisse.negate(x); // #A6C691
+const y_complement = matisse.rotate(y, 180); // #3C28B8
+const x_grayscale = matisse.grayscale(x); // #484848
+const y_colourfulness = matisse.colourfulness(y); // 40.75
+const x_luminosity = matisse.luminosity(x); // 0.06
+const y_temp = matisse.temperature(y); // 2812.14
+const contrast = matisse.contrast(x, y); // 4.24
 ```
