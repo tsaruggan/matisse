@@ -1,4 +1,4 @@
-import { Colour } from "../index.js";
+import Colour from "../index.js";
 
 var white;
 var black;

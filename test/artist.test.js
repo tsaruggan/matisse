@@ -1,4 +1,4 @@
-import { Colour, shades, tints, tones, analogous, complementary, splitComplementary, triadic, tetradic, square, randoms } from "../index.js";
+import Colour, { shades, tints, tones, analogous, complementary, splitComplementary, triadic, tetradic, square, randoms } from "../index.js";
 
 var colour1;
 

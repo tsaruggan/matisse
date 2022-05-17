@@ -1,4 +1,4 @@
-import { Colour, mix, tint, shade, tone, normal, multiply, screen, overlay, darken, lighten, colourDodge, colourBurn, hardLight, softLight, difference, exclusion } from "../index.js";
+import Colour, { mix, tint, shade, tone, normal, multiply, screen, overlay, darken, lighten, colourDodge, colourBurn, hardLight, softLight, difference, exclusion } from "../index.js";
 
 var colour1;
 var colour2;

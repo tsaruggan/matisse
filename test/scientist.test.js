@@ -1,4 +1,4 @@
-import { Colour, negate, rotate, grayscale, contrast, colourfulness, temperature, luminosity } from "../index.js";
+import Colour, { negate, rotate, grayscale, contrast, colourfulness, temperature, luminosity } from "../index.js";
 
 var black;
 var white;

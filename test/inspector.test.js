@@ -1,4 +1,4 @@
-import { Colour, validateContrast, fixContrast } from "../index.js";
+import Colour, { validateContrast, fixContrast } from "../index.js";
 
 var black;
 var white;
