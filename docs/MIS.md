@@ -1,5 +1,5 @@
 # matisse: Module Interface Specification
-May 5, 2022
+May 22, 2022
 
 ## Classes
 
@@ -8,9 +8,126 @@ May 5, 2022
 <dd></dd>
 </dl>
 
+## Members
+
+<dl>
+<dt><a href="#red">red</a> : <code>number</code></dt>
+<dd></dd>
+<dt><a href="#green">green</a> : <code>number</code></dt>
+<dd></dd>
+<dt><a href="#blue">blue</a> : <code>number</code></dt>
+<dd></dd>
+<dt><a href="#hue">hue</a> : <code>number</code></dt>
+<dd></dd>
+<dt><a href="#saturationv">saturationv</a> : <code>number</code></dt>
+<dd></dd>
+<dt><a href="#value">value</a> : <code>number</code></dt>
+<dd></dd>
+<dt><a href="#cyan">cyan</a> : <code>number</code></dt>
+<dd></dd>
+<dt><a href="#magenta">magenta</a> : <code>number</code></dt>
+<dd></dd>
+<dt><a href="#yellow">yellow</a> : <code>number</code></dt>
+<dd></dd>
+<dt><a href="#saturationl">saturationl</a> : <code>number</code></dt>
+<dd></dd>
+<dt><a href="#light">light</a> : <code>number</code></dt>
+<dd></dd>
+<dt><a href="#white">white</a> : <code>number</code></dt>
+<dd></dd>
+<dt><a href="#black">black</a> : <code>number</code></dt>
+<dd></dd>
+<dt><a href="#alpha">alpha</a> : <code>number</code></dt>
+<dd></dd>
+</dl>
+
+## Constants
+
+<dl>
+<dt><a href="#redMax">redMax</a> : <code>number</code></dt>
+<dd></dd>
+<dt><a href="#redMin">redMin</a> : <code>number</code></dt>
+<dd></dd>
+<dt><a href="#greenMax">greenMax</a> : <code>number</code></dt>
+<dd></dd>
+<dt><a href="#greenMin">greenMin</a> : <code>number</code></dt>
+<dd></dd>
+<dt><a href="#blueMax">blueMax</a> : <code>number</code></dt>
+<dd></dd>
+<dt><a href="#blueMin">blueMin</a> : <code>number</code></dt>
+<dd></dd>
+<dt><a href="#hueMax">hueMax</a> : <code>number</code></dt>
+<dd></dd>
+<dt><a href="#hueMin">hueMin</a> : <code>number</code></dt>
+<dd></dd>
+<dt><a href="#saturationvMax">saturationvMax</a> : <code>number</code></dt>
+<dd></dd>
+<dt><a href="#saturationvMin">saturationvMin</a> : <code>number</code></dt>
+<dd></dd>
+<dt><a href="#valueMax">valueMax</a> : <code>number</code></dt>
+<dd></dd>
+<dt><a href="#valueMin">valueMin</a> : <code>number</code></dt>
+<dd></dd>
+<dt><a href="#cyanMax">cyanMax</a> : <code>number</code></dt>
+<dd></dd>
+<dt><a href="#cyanMin">cyanMin</a> : <code>number</code></dt>
+<dd></dd>
+<dt><a href="#magentaMax">magentaMax</a> : <code>number</code></dt>
+<dd></dd>
+<dt><a href="#magentaMin">magentaMin</a> : <code>number</code></dt>
+<dd></dd>
+<dt><a href="#yellowMax">yellowMax</a> : <code>number</code></dt>
+<dd></dd>
+<dt><a href="#yellowMin">yellowMin</a> : <code>number</code></dt>
+<dd></dd>
+<dt><a href="#saturationlMax">saturationlMax</a> : <code>number</code></dt>
+<dd></dd>
+<dt><a href="#saturationlMin">saturationlMin</a> : <code>number</code></dt>
+<dd></dd>
+<dt><a href="#lightMax">lightMax</a> : <code>number</code></dt>
+<dd></dd>
+<dt><a href="#lightMin">lightMin</a> : <code>number</code></dt>
+<dd></dd>
+<dt><a href="#whiteMax">whiteMax</a> : <code>number</code></dt>
+<dd></dd>
+<dt><a href="#whiteMin">whiteMin</a> : <code>number</code></dt>
+<dd></dd>
+<dt><a href="#blackMax">blackMax</a> : <code>number</code></dt>
+<dd></dd>
+<dt><a href="#blackMin">blackMin</a> : <code>number</code></dt>
+<dd></dd>
+<dt><a href="#alphaMax">alphaMax</a> : <code>number</code></dt>
+<dd></dd>
+<dt><a href="#alphaMin">alphaMin</a> : <code>number</code></dt>
+<dd></dd>
+</dl>
+
 ## Functions
 
 <dl>
+<dt><a href="#RGB">RGB(red, green, blue, [alpha])</a> ⇒ <code><a href="#Colour">Colour</a></code></dt>
+<dd><p>Initialize a new Colour instance from RGB colour attributes</p>
+</dd>
+<dt><a href="#HSV">HSV(hue, saturationv, value, [alpha])</a> ⇒ <code><a href="#Colour">Colour</a></code></dt>
+<dd><p>Initialize a new Colour instance from HSV colour attributes</p>
+</dd>
+<dt><a href="#CMYK">CMYK(cyan, magenta, yellow, black, [alpha])</a> ⇒ <code><a href="#Colour">Colour</a></code></dt>
+<dd><p>Initialize a new Colour instance from CMYK colour attributes</p>
+</dd>
+<dt><a href="#HSL">HSL(hue, saturationl, light, [alpha])</a> ⇒ <code><a href="#Colour">Colour</a></code></dt>
+<dd><p>Initialize a new Colour instance from HSL colour attributes</p>
+</dd>
+<dt><a href="#HWB">HWB(hue, white, black, [alpha])</a> ⇒ <code><a href="#Colour">Colour</a></code></dt>
+<dd></dd>
+<dt><a href="#equals">equals(colour)</a> ⇒</dt>
+<dd><p>Check if another Colour instance is equivalent</p>
+</dd>
+<dt><a href="#copy">copy()</a> ⇒ <code><a href="#Colour">Colour</a></code></dt>
+<dd><p>Returns a copy of the Colour instance.</p>
+</dd>
+<dt><a href="#toHEX">toHEX()</a> ⇒ <code><a href="#Colour">Colour</a></code></dt>
+<dd><p>Return a valid hexadecimal colour code that represents the colour.</p>
+</dd>
 <dt><a href="#negate">negate(colour)</a> ⇒ <code><a href="#Colour">Colour</a></code></dt>
 <dd><p>Determine the inverse colour or the colour on the opposite side of the colour wheel.</p>
 </dd>
@@ -123,300 +240,213 @@ between two colours. (Note: The order of the colours does not matter!)</p>
 
 ## Colour
 **Kind**: global class  
-
-* [Colour](#Colour)
-    * [new Colour()](#new_Colour_new)
-    * _instance_
-        * [.Colour](#Colour+Colour)
-            * [new exports.Colour(colourString)](#new_Colour+Colour_new)
-        * [.red](#Colour+red) : <code>number</code>
-        * [.green](#Colour+green) : <code>number</code>
-        * [.blue](#Colour+blue) : <code>number</code>
-        * [.hue](#Colour+hue) : <code>number</code>
-        * [.saturationv](#Colour+saturationv) : <code>number</code>
-        * [.value](#Colour+value) : <code>number</code>
-        * [.cyan](#Colour+cyan) : <code>number</code>
-        * [.magenta](#Colour+magenta) : <code>number</code>
-        * [.yellow](#Colour+yellow) : <code>number</code>
-        * [.saturationl](#Colour+saturationl) : <code>number</code>
-        * [.light](#Colour+light) : <code>number</code>
-        * [.white](#Colour+white) : <code>number</code>
-        * [.black](#Colour+black) : <code>number</code>
-        * [.alpha](#Colour+alpha) : <code>number</code>
-        * [.copy()](#Colour+copy) ⇒ [<code>Colour</code>](#Colour)
-        * [.toHEX()](#Colour+toHEX) ⇒ [<code>Colour</code>](#Colour)
-    * _static_
-        * [.redMax](#Colour.redMax) : <code>number</code>
-        * [.redMin](#Colour.redMin) : <code>number</code>
-        * [.greenMax](#Colour.greenMax) : <code>number</code>
-        * [.greenMin](#Colour.greenMin) : <code>number</code>
-        * [.blueMax](#Colour.blueMax) : <code>number</code>
-        * [.blueMin](#Colour.blueMin) : <code>number</code>
-        * [.hueMax](#Colour.hueMax) : <code>number</code>
-        * [.hueMin](#Colour.hueMin) : <code>number</code>
-        * [.saturationvMax](#Colour.saturationvMax) : <code>number</code>
-        * [.saturationvMin](#Colour.saturationvMin) : <code>number</code>
-        * [.valueMax](#Colour.valueMax) : <code>number</code>
-        * [.valueMin](#Colour.valueMin) : <code>number</code>
-        * [.cyanMax](#Colour.cyanMax) : <code>number</code>
-        * [.cyanMin](#Colour.cyanMin) : <code>number</code>
-        * [.magentaMax](#Colour.magentaMax) : <code>number</code>
-        * [.magentaMin](#Colour.magentaMin) : <code>number</code>
-        * [.yellowMax](#Colour.yellowMax) : <code>number</code>
-        * [.yellowMin](#Colour.yellowMin) : <code>number</code>
-        * [.saturationlMax](#Colour.saturationlMax) : <code>number</code>
-        * [.saturationlMin](#Colour.saturationlMin) : <code>number</code>
-        * [.lightMax](#Colour.lightMax) : <code>number</code>
-        * [.lightMin](#Colour.lightMin) : <code>number</code>
-        * [.whiteMax](#Colour.whiteMax) : <code>number</code>
-        * [.whiteMin](#Colour.whiteMin) : <code>number</code>
-        * [.blackMax](#Colour.blackMax) : <code>number</code>
-        * [.blackMin](#Colour.blackMin) : <code>number</code>
-        * [.alphaMax](#Colour.alphaMax) : <code>number</code>
-        * [.alphaMin](#Colour.alphaMin) : <code>number</code>
-        * [.RGB(red, green, blue, [alpha])](#Colour.RGB) ⇒ [<code>Colour</code>](#Colour)
-        * [.HSV(hue, saturationv, value, [alpha])](#Colour.HSV) ⇒ [<code>Colour</code>](#Colour)
-        * [.CMYK(cyan, magenta, yellow, black, [alpha])](#Colour.CMYK) ⇒ [<code>Colour</code>](#Colour)
-        * [.HSL(hue, saturationl, light, [alpha])](#Colour.HSL) ⇒ [<code>Colour</code>](#Colour)
-        * [.HWB(hue, white, black, [alpha])](#Colour.HWB) ⇒ [<code>Colour</code>](#Colour)
-
 <a name="new_Colour_new"></a>
 
 ### new Colour()
 An abstract data type representating mutable colour entities for RGB, HSV, HSL, CMYK, and HWB colour models.
 
-<a name="Colour+Colour"></a>
+<a name="red"></a>
 
-### colour.Colour
-**Kind**: instance class of [<code>Colour</code>](#Colour)  
-**See**: [color-string](https://github.com/Qix-/color-string) handles all parsing of CSS colour strings.  
-<a name="new_Colour+Colour_new"></a>
+## red : <code>number</code>
+**Kind**: global variable  
+<a name="green"></a>
 
-#### new exports.Colour(colourString)
-Initialize a new Colour instance given a valid CSS colour string or HEX code
+## green : <code>number</code>
+**Kind**: global variable  
+<a name="blue"></a>
 
-**Returns**: [<code>Colour</code>](#Colour) - A new Colour instance generated from the CSS colour string.  
+## blue : <code>number</code>
+**Kind**: global variable  
+<a name="hue"></a>
 
-| Param | Type | Description |
-| --- | --- | --- |
-| colourString | <code>string</code> | A valid CSS colour string or HEX code to parse. |
+## hue : <code>number</code>
+**Kind**: global variable  
+<a name="saturationv"></a>
 
-<a name="Colour+red"></a>
+## saturationv : <code>number</code>
+**Kind**: global variable  
+<a name="value"></a>
 
-### colour.red : <code>number</code>
-**Kind**: instance property of [<code>Colour</code>](#Colour)  
-<a name="Colour+green"></a>
+## value : <code>number</code>
+**Kind**: global variable  
+<a name="cyan"></a>
 
-### colour.green : <code>number</code>
-**Kind**: instance property of [<code>Colour</code>](#Colour)  
-<a name="Colour+blue"></a>
+## cyan : <code>number</code>
+**Kind**: global variable  
+<a name="magenta"></a>
 
-### colour.blue : <code>number</code>
-**Kind**: instance property of [<code>Colour</code>](#Colour)  
-<a name="Colour+hue"></a>
+## magenta : <code>number</code>
+**Kind**: global variable  
+<a name="yellow"></a>
 
-### colour.hue : <code>number</code>
-**Kind**: instance property of [<code>Colour</code>](#Colour)  
-<a name="Colour+saturationv"></a>
+## yellow : <code>number</code>
+**Kind**: global variable  
+<a name="saturationl"></a>
 
-### colour.saturationv : <code>number</code>
-**Kind**: instance property of [<code>Colour</code>](#Colour)  
-<a name="Colour+value"></a>
+## saturationl : <code>number</code>
+**Kind**: global variable  
+<a name="light"></a>
 
-### colour.value : <code>number</code>
-**Kind**: instance property of [<code>Colour</code>](#Colour)  
-<a name="Colour+cyan"></a>
+## light : <code>number</code>
+**Kind**: global variable  
+<a name="white"></a>
 
-### colour.cyan : <code>number</code>
-**Kind**: instance property of [<code>Colour</code>](#Colour)  
-<a name="Colour+magenta"></a>
+## white : <code>number</code>
+**Kind**: global variable  
+<a name="black"></a>
 
-### colour.magenta : <code>number</code>
-**Kind**: instance property of [<code>Colour</code>](#Colour)  
-<a name="Colour+yellow"></a>
+## black : <code>number</code>
+**Kind**: global variable  
+<a name="alpha"></a>
 
-### colour.yellow : <code>number</code>
-**Kind**: instance property of [<code>Colour</code>](#Colour)  
-<a name="Colour+saturationl"></a>
+## alpha : <code>number</code>
+**Kind**: global variable  
+<a name="redMax"></a>
 
-### colour.saturationl : <code>number</code>
-**Kind**: instance property of [<code>Colour</code>](#Colour)  
-<a name="Colour+light"></a>
-
-### colour.light : <code>number</code>
-**Kind**: instance property of [<code>Colour</code>](#Colour)  
-<a name="Colour+white"></a>
-
-### colour.white : <code>number</code>
-**Kind**: instance property of [<code>Colour</code>](#Colour)  
-<a name="Colour+black"></a>
-
-### colour.black : <code>number</code>
-**Kind**: instance property of [<code>Colour</code>](#Colour)  
-<a name="Colour+alpha"></a>
-
-### colour.alpha : <code>number</code>
-**Kind**: instance property of [<code>Colour</code>](#Colour)  
-<a name="Colour+copy"></a>
-
-### colour.copy() ⇒ [<code>Colour</code>](#Colour)
-Returns a copy of the Colour instance.
-
-**Kind**: instance method of [<code>Colour</code>](#Colour)  
-**Returns**: [<code>Colour</code>](#Colour) - An identical Colour object  
-<a name="Colour+toHEX"></a>
-
-### colour.toHEX() ⇒ [<code>Colour</code>](#Colour)
-Return a valid hexadecimal colour code that represents the colour.
-
-**Kind**: instance method of [<code>Colour</code>](#Colour)  
-**Returns**: [<code>Colour</code>](#Colour) - A HEX code representing the colour.  
-<a name="Colour.redMax"></a>
-
-### Colour.redMax : <code>number</code>
-**Kind**: static constant of [<code>Colour</code>](#Colour)  
+## redMax : <code>number</code>
+**Kind**: global constant  
 **Default**: <code>255</code>  
-<a name="Colour.redMin"></a>
+<a name="redMin"></a>
 
-### Colour.redMin : <code>number</code>
-**Kind**: static constant of [<code>Colour</code>](#Colour)  
+## redMin : <code>number</code>
+**Kind**: global constant  
 **Default**: <code>0</code>  
-<a name="Colour.greenMax"></a>
+<a name="greenMax"></a>
 
-### Colour.greenMax : <code>number</code>
-**Kind**: static constant of [<code>Colour</code>](#Colour)  
+## greenMax : <code>number</code>
+**Kind**: global constant  
 **Default**: <code>255</code>  
-<a name="Colour.greenMin"></a>
+<a name="greenMin"></a>
 
-### Colour.greenMin : <code>number</code>
-**Kind**: static constant of [<code>Colour</code>](#Colour)  
+## greenMin : <code>number</code>
+**Kind**: global constant  
 **Default**: <code>0</code>  
-<a name="Colour.blueMax"></a>
+<a name="blueMax"></a>
 
-### Colour.blueMax : <code>number</code>
-**Kind**: static constant of [<code>Colour</code>](#Colour)  
+## blueMax : <code>number</code>
+**Kind**: global constant  
 **Default**: <code>255</code>  
-<a name="Colour.blueMin"></a>
+<a name="blueMin"></a>
 
-### Colour.blueMin : <code>number</code>
-**Kind**: static constant of [<code>Colour</code>](#Colour)  
+## blueMin : <code>number</code>
+**Kind**: global constant  
 **Default**: <code>0</code>  
-<a name="Colour.hueMax"></a>
+<a name="hueMax"></a>
 
-### Colour.hueMax : <code>number</code>
-**Kind**: static constant of [<code>Colour</code>](#Colour)  
+## hueMax : <code>number</code>
+**Kind**: global constant  
 **Default**: <code>360</code>  
-<a name="Colour.hueMin"></a>
+<a name="hueMin"></a>
 
-### Colour.hueMin : <code>number</code>
-**Kind**: static constant of [<code>Colour</code>](#Colour)  
+## hueMin : <code>number</code>
+**Kind**: global constant  
 **Default**: <code>0</code>  
-<a name="Colour.saturationvMax"></a>
+<a name="saturationvMax"></a>
 
-### Colour.saturationvMax : <code>number</code>
-**Kind**: static constant of [<code>Colour</code>](#Colour)  
+## saturationvMax : <code>number</code>
+**Kind**: global constant  
 **Default**: <code>1.00</code>  
-<a name="Colour.saturationvMin"></a>
+<a name="saturationvMin"></a>
 
-### Colour.saturationvMin : <code>number</code>
-**Kind**: static constant of [<code>Colour</code>](#Colour)  
+## saturationvMin : <code>number</code>
+**Kind**: global constant  
 **Default**: <code>0.00</code>  
-<a name="Colour.valueMax"></a>
+<a name="valueMax"></a>
 
-### Colour.valueMax : <code>number</code>
-**Kind**: static constant of [<code>Colour</code>](#Colour)  
+## valueMax : <code>number</code>
+**Kind**: global constant  
 **Default**: <code>1.00</code>  
-<a name="Colour.valueMin"></a>
+<a name="valueMin"></a>
 
-### Colour.valueMin : <code>number</code>
-**Kind**: static constant of [<code>Colour</code>](#Colour)  
+## valueMin : <code>number</code>
+**Kind**: global constant  
 **Default**: <code>0.00</code>  
-<a name="Colour.cyanMax"></a>
+<a name="cyanMax"></a>
 
-### Colour.cyanMax : <code>number</code>
-**Kind**: static constant of [<code>Colour</code>](#Colour)  
+## cyanMax : <code>number</code>
+**Kind**: global constant  
 **Default**: <code>1.00</code>  
-<a name="Colour.cyanMin"></a>
+<a name="cyanMin"></a>
 
-### Colour.cyanMin : <code>number</code>
-**Kind**: static constant of [<code>Colour</code>](#Colour)  
+## cyanMin : <code>number</code>
+**Kind**: global constant  
 **Default**: <code>0.00</code>  
-<a name="Colour.magentaMax"></a>
+<a name="magentaMax"></a>
 
-### Colour.magentaMax : <code>number</code>
-**Kind**: static constant of [<code>Colour</code>](#Colour)  
+## magentaMax : <code>number</code>
+**Kind**: global constant  
 **Default**: <code>1.00</code>  
-<a name="Colour.magentaMin"></a>
+<a name="magentaMin"></a>
 
-### Colour.magentaMin : <code>number</code>
-**Kind**: static constant of [<code>Colour</code>](#Colour)  
+## magentaMin : <code>number</code>
+**Kind**: global constant  
 **Default**: <code>0.00</code>  
-<a name="Colour.yellowMax"></a>
+<a name="yellowMax"></a>
 
-### Colour.yellowMax : <code>number</code>
-**Kind**: static constant of [<code>Colour</code>](#Colour)  
+## yellowMax : <code>number</code>
+**Kind**: global constant  
 **Default**: <code>1.00</code>  
-<a name="Colour.yellowMin"></a>
+<a name="yellowMin"></a>
 
-### Colour.yellowMin : <code>number</code>
-**Kind**: static constant of [<code>Colour</code>](#Colour)  
+## yellowMin : <code>number</code>
+**Kind**: global constant  
 **Default**: <code>0.00</code>  
-<a name="Colour.saturationlMax"></a>
+<a name="saturationlMax"></a>
 
-### Colour.saturationlMax : <code>number</code>
-**Kind**: static constant of [<code>Colour</code>](#Colour)  
+## saturationlMax : <code>number</code>
+**Kind**: global constant  
 **Default**: <code>1.00</code>  
-<a name="Colour.saturationlMin"></a>
+<a name="saturationlMin"></a>
 
-### Colour.saturationlMin : <code>number</code>
-**Kind**: static constant of [<code>Colour</code>](#Colour)  
+## saturationlMin : <code>number</code>
+**Kind**: global constant  
 **Default**: <code>0.00</code>  
-<a name="Colour.lightMax"></a>
+<a name="lightMax"></a>
 
-### Colour.lightMax : <code>number</code>
-**Kind**: static constant of [<code>Colour</code>](#Colour)  
+## lightMax : <code>number</code>
+**Kind**: global constant  
 **Default**: <code>1.00</code>  
-<a name="Colour.lightMin"></a>
+<a name="lightMin"></a>
 
-### Colour.lightMin : <code>number</code>
-**Kind**: static constant of [<code>Colour</code>](#Colour)  
+## lightMin : <code>number</code>
+**Kind**: global constant  
 **Default**: <code>0.00</code>  
-<a name="Colour.whiteMax"></a>
+<a name="whiteMax"></a>
 
-### Colour.whiteMax : <code>number</code>
-**Kind**: static constant of [<code>Colour</code>](#Colour)  
+## whiteMax : <code>number</code>
+**Kind**: global constant  
 **Default**: <code>1.00</code>  
-<a name="Colour.whiteMin"></a>
+<a name="whiteMin"></a>
 
-### Colour.whiteMin : <code>number</code>
-**Kind**: static constant of [<code>Colour</code>](#Colour)  
+## whiteMin : <code>number</code>
+**Kind**: global constant  
 **Default**: <code>0.00</code>  
-<a name="Colour.blackMax"></a>
+<a name="blackMax"></a>
 
-### Colour.blackMax : <code>number</code>
-**Kind**: static constant of [<code>Colour</code>](#Colour)  
+## blackMax : <code>number</code>
+**Kind**: global constant  
 **Default**: <code>1.00</code>  
-<a name="Colour.blackMin"></a>
+<a name="blackMin"></a>
 
-### Colour.blackMin : <code>number</code>
-**Kind**: static constant of [<code>Colour</code>](#Colour)  
+## blackMin : <code>number</code>
+**Kind**: global constant  
 **Default**: <code>0.00</code>  
-<a name="Colour.alphaMax"></a>
+<a name="alphaMax"></a>
 
-### Colour.alphaMax : <code>number</code>
-**Kind**: static constant of [<code>Colour</code>](#Colour)  
+## alphaMax : <code>number</code>
+**Kind**: global constant  
 **Default**: <code>1.00</code>  
-<a name="Colour.alphaMin"></a>
+<a name="alphaMin"></a>
 
-### Colour.alphaMin : <code>number</code>
-**Kind**: static constant of [<code>Colour</code>](#Colour)  
+## alphaMin : <code>number</code>
+**Kind**: global constant  
 **Default**: <code>0.00</code>  
-<a name="Colour.RGB"></a>
+<a name="RGB"></a>
 
-### Colour.RGB(red, green, blue, [alpha]) ⇒ [<code>Colour</code>](#Colour)
+## RGB(red, green, blue, [alpha]) ⇒ [<code>Colour</code>](#Colour)
 Initialize a new Colour instance from RGB colour attributes
 
-**Kind**: static method of [<code>Colour</code>](#Colour)  
+**Kind**: global function  
 **Returns**: [<code>Colour</code>](#Colour) - A new Colour instance generated from the RGB colour attributes.  
 
 | Param | Type | Default | Description |
@@ -426,12 +456,12 @@ Initialize a new Colour instance from RGB colour attributes
 | blue | <code>number</code> |  | The value of the B channel [0, 255] |
 | [alpha] | <code>number</code> | <code>1.00</code> | The percentage of transparency or opacity channel [0, 1] |
 
-<a name="Colour.HSV"></a>
+<a name="HSV"></a>
 
-### Colour.HSV(hue, saturationv, value, [alpha]) ⇒ [<code>Colour</code>](#Colour)
+## HSV(hue, saturationv, value, [alpha]) ⇒ [<code>Colour</code>](#Colour)
 Initialize a new Colour instance from HSV colour attributes
 
-**Kind**: static method of [<code>Colour</code>](#Colour)  
+**Kind**: global function  
 **Returns**: [<code>Colour</code>](#Colour) - A new Colour instance generated from the HSV colour attributes.  
 
 | Param | Type | Default | Description |
@@ -441,12 +471,12 @@ Initialize a new Colour instance from HSV colour attributes
 | value | <code>number</code> |  | The percentage of the V channel [0, 1] |
 | [alpha] | <code>number</code> | <code>1.00</code> | The percentage of transparency or opacity channel [0, 1] |
 
-<a name="Colour.CMYK"></a>
+<a name="CMYK"></a>
 
-### Colour.CMYK(cyan, magenta, yellow, black, [alpha]) ⇒ [<code>Colour</code>](#Colour)
+## CMYK(cyan, magenta, yellow, black, [alpha]) ⇒ [<code>Colour</code>](#Colour)
 Initialize a new Colour instance from CMYK colour attributes
 
-**Kind**: static method of [<code>Colour</code>](#Colour)  
+**Kind**: global function  
 **Returns**: [<code>Colour</code>](#Colour) - A new Colour instance generated from the CMYK colour attributes.  
 
 | Param | Type | Default | Description |
@@ -457,12 +487,12 @@ Initialize a new Colour instance from CMYK colour attributes
 | black | <code>number</code> |  | The value of the K channel [0, 1] |
 | [alpha] | <code>number</code> | <code>1.00</code> | The percentage of transparency or opacity channel [0, 1] |
 
-<a name="Colour.HSL"></a>
+<a name="HSL"></a>
 
-### Colour.HSL(hue, saturationl, light, [alpha]) ⇒ [<code>Colour</code>](#Colour)
+## HSL(hue, saturationl, light, [alpha]) ⇒ [<code>Colour</code>](#Colour)
 Initialize a new Colour instance from HSL colour attributes
 
-**Kind**: static method of [<code>Colour</code>](#Colour)  
+**Kind**: global function  
 **Returns**: [<code>Colour</code>](#Colour) - A new Colour instance generated from the HSL colour attributes.  
 
 | Param | Type | Default | Description |
@@ -472,10 +502,10 @@ Initialize a new Colour instance from HSL colour attributes
 | light | <code>number</code> |  | The value of the L channel [0, 1] |
 | [alpha] | <code>number</code> | <code>1.00</code> | The percentage of transparency or opacity channel [0, 1] |
 
-<a name="Colour.HWB"></a>
+<a name="HWB"></a>
 
-### Colour.HWB(hue, white, black, [alpha]) ⇒ [<code>Colour</code>](#Colour)
-**Kind**: static method of [<code>Colour</code>](#Colour)  
+## HWB(hue, white, black, [alpha]) ⇒ [<code>Colour</code>](#Colour)
+**Kind**: global function  
 **Returns**: [<code>Colour</code>](#Colour) - A new Colour instance generated from the HWB colour attributes.  
 
 | Param | Type | Default | Description |
@@ -485,6 +515,32 @@ Initialize a new Colour instance from HSL colour attributes
 | black | <code>number</code> |  | The value of the B channel [0, 360] |
 | [alpha] | <code>number</code> | <code>1.00</code> | The percentage of transparency or opacity channel [0, 1] |
 
+<a name="equals"></a>
+
+## equals(colour) ⇒
+Check if another Colour instance is equivalent
+
+**Kind**: global function  
+**Returns**: True if both colours have the same red, green, blue, and alpha values.  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| colour | [<code>Colour</code>](#Colour) | Another Colour instance to compare equality with. |
+
+<a name="copy"></a>
+
+## copy() ⇒ [<code>Colour</code>](#Colour)
+Returns a copy of the Colour instance.
+
+**Kind**: global function  
+**Returns**: [<code>Colour</code>](#Colour) - An identical Colour object  
+<a name="toHEX"></a>
+
+## toHEX() ⇒ [<code>Colour</code>](#Colour)
+Return a valid hexadecimal colour code that represents the colour.
+
+**Kind**: global function  
+**Returns**: [<code>Colour</code>](#Colour) - A HEX code representing the colour.  
 <a name="negate"></a>
 
 ## negate(colour) ⇒ [<code>Colour</code>](#Colour)
@@ -554,7 +610,7 @@ Calculate the [colourfulness index](https://infoscience.epfl.ch/record/33994/fil
 Calculate the [temperature](https://ams.com/documents/20143/80162/TCS34xx_AN000517_1-00.pdf) of a given colour.
 
 **Kind**: global function  
-**Returns**: <code>number</code> - The resulting temperature grading  
+**Returns**: <code>number</code> - The resulting temperature grading in degrees Kelvin (K)  
 
 | Param | Type | Description |
 | --- | --- | --- |

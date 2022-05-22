@@ -800,36 +800,36 @@ export function colourfulness(colour) {
     let rg = Math.abs(colour.red - colour.green);
     let yb = Math.abs(0.5 * (colour.red + colour.green) - colour.blue);
 
+    // compute the mean and standard deviation of both `rg` and `yb`.
     let rg_mean = mean(rg);
     let rg_std = std(rg);
     let yb_mean = mean(yb);
     let yb_std = std(yb);
 
+    // combine the mean and standard deviations.
     let std_root = sqrt((rg_std ** 2) + (yb_std ** 2));
     let mean_root = sqrt((rg_mean ** 2) + (yb_mean ** 2));
-
     return std_root + (0.3 * mean_root);
 }
 
 /**
  * Calculate the [temperature](https://ams.com/documents/20143/80162/TCS34xx_AN000517_1-00.pdf) of a given colour.
  * @param {Colour} colour - The colour to calculate temperature of.
- * @returns {number} The resulting temperature grading
+ * @returns {number} The resulting temperature grading in degrees Kelvin (K)
  */
 export function temperature(colour) {
-    // Get XYZ values (CIE tristimulus values)
+    // get XYZ values (CIE tristimulus values)
     let X = -0.14282 * colour.red + 1.54924 * colour.green + -0.95641 * colour.blue;
     let Y = -0.32466 * colour.red + 1.57837 * colour.green + -0.73191 * colour.blue;
     let Z = -0.68202 * colour.red + 0.77073 * colour.green + 0.56332 * colour.blue;
 
-    // Normalize values
+    // normalize values
     let x = X / (X + Y + Z);
     let y = Y / (X + Y + Z);
 
-    // CCT - correlated colour temperature
+    // calculate correlated colour temperature
     let n = (x - 0.3320) / (0.1858 - y);
     let CCT = 449 * (n ** 3) + 3525 * (n ** 2) + 6823.3 * n + 5520.33;
-
     return CCT;
 }
 
