@@ -572,6 +572,20 @@ export default class Colour {
     }
 
     /**
+     * Check if another Colour instance is equivalent
+     * @param {Colour} colour - Another Colour instance to compare equality with.
+     * @returns True if both colours have the same red, green, blue, and alpha values.
+     */
+    equals(colour) {
+        return (
+            this.red == colour.red && 
+            this.green == colour.green &&
+            this.blue == colour.blue &&
+            this.alpha == colour.alpha
+        );
+    }
+
+    /**
      * Returns a copy of the Colour instance.
      * @returns {Colour} An identical Colour object
      */

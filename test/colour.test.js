@@ -1059,3 +1059,15 @@ test("alpha setter B", () => {
     expect(colourB.black).toBe(0.50);
     expect(colourB.alpha).toBe(0.69);
 });
+
+test("equals true", () => {
+    const colour1 = new Colour("rgba(32, 122, 166, 0.5)");
+    const colour2 = new Colour("#207AA680");
+    expect(colour1.equals(colour2)).toBe(true);
+});
+
+test("equals false", () => {
+    const colour1 = Colour.CMYK(0.00, 0.95, 0.86, 0.38); // #9E0816
+    const colour2 = Colour.HWB(285, 0.32, 0.65); // #58525A
+    expect(colour1.equals(colour2)).toBe(false);
+});
