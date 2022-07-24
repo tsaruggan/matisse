@@ -3,6 +3,8 @@
 
 This project was originally developed as a team project for McMaster University's SFWRENG 3XA3: Software Project Management course in collaboration with [Isra Zahid](https://github.com/israzahid) and [Samia Anwar](https://github.com/SamiaAnwar).  
 
+> Check out [matisse-palette](https://github.com/tsaruggan/matisse-palette) which extends matisse to allow for colour palettes to be generated from images using K-means clustering.
+
 
 ## Installation
 ```
@@ -106,6 +108,8 @@ You can also generate a palette of random colours.
 ```javascript
 matisse.randoms(10);
 ```
+
+To generate colour palettes from an image, use the [matisse-palette](https://github.com/tsaruggan/matisse-palette) library. This extension uses K-means clustering to intelligently extract a colour palette given the image's pixel data. 
 
 ### Accessibility
 matisse has the ability to check if a pair of colours have sufficient contrast according to the [WCAG](http://www.w3.org/TR/WCAG20/#contrast-ratiodef) standards. It can also be configured to compare enhanced and large text colours.
