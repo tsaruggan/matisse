@@ -4,6 +4,9 @@
 This project was originally developed as a team project for McMaster University's SFWRENG 3XA3: Software Project Management course in collaboration with [Isra Zahid](https://github.com/israzahid) and [Samia Anwar](https://github.com/SamiaAnwar).  
 
 > Check out [matisse-palette](https://github.com/tsaruggan/matisse-palette) which extends matisse to allow for colour palettes to be generated from images using K-means clustering.
+> 
+> <img src="https://github.com/user-attachments/assets/d3553964-25cf-4900-a143-b5aa739f921f" width="300">
+
 
 
 ## Installation
