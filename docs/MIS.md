@@ -163,7 +163,7 @@ between two colours. (Note: The order of the colours does not matter!)</p>
 <dd><p>Interpolate a given colour with gray to create a tone.</p>
 </dd>
 <dt><a href="#normal">normal(baseColour, blendColour)</a> ⇒ <code><a href="#Colour">Colour</a></code></dt>
-<dd><p>This is the blend mode which specifies no blending. The blending formula simply selects the blend color.</p>
+<dd><p>This is the blend mode which specifies no blending. The blending formula simply selects the blend colour.</p>
 </dd>
 <dt><a href="#multiply">multiply(baseColour, blendColour)</a> ⇒ <code><a href="#Colour">Colour</a></code></dt>
 <dd><p>Looks at the colour information in each channel and multiplies the base colour by the blend colour. The result colour is always a darker colour. Multiplying any colour with black produces black. Multiplying any colour with white leaves the colour unchanged.</p>
@@ -172,7 +172,7 @@ between two colours. (Note: The order of the colours does not matter!)</p>
 <dd><p>Looks at each channel’s colour information and multiplies the inverse of the blend and base colours. The result colour is always a lighter colour. Screening with black leaves the colour unchanged. Screening with white produces white. The effect is similar to projecting multiple photographic slides on top of each other.</p>
 </dd>
 <dt><a href="#overlay">overlay(baseColour, blendColour)</a> ⇒ <code><a href="#Colour">Colour</a></code></dt>
-<dd><p>Multiplies or screens the colors, depending on the base color. The base color is not replaced, but mixed with the blend color to reflect the lightness or darkness of the original color.</p>
+<dd><p>Multiplies or screens the colours, depending on the base colour. The base colour is not replaced, but mixed with the blend colour to reflect the lightness or darkness of the original colour.</p>
 </dd>
 <dt><a href="#darken">darken(baseColour, blendColour)</a> ⇒ <code><a href="#Colour">Colour</a></code></dt>
 <dd><p>Looks at the colour information in each channel and selects the base or blend colour—whichever is darker—as the result colour.</p>
@@ -181,7 +181,7 @@ between two colours. (Note: The order of the colours does not matter!)</p>
 <dd><p>Looks at the colour information in each channel and selects the base or blend colour—whichever is lighter—as the result colour.</p>
 </dd>
 <dt><a href="#colourDodge">colourDodge(baseColour, blendColour)</a> ⇒ <code><a href="#Colour">Colour</a></code></dt>
-<dd><p>Looks at the color information in each channel and brightens the base color to reflect the blend color by decreasing contrast between the two. Blending with black produces no change.</p>
+<dd><p>Looks at the colour information in each channel and brightens the base colour to reflect the blend colour by decreasing contrast between the two. Blending with black produces no change.</p>
 </dd>
 <dt><a href="#colourBurn">colourBurn(baseColour, blendColour)</a> ⇒ <code><a href="#Colour">Colour</a></code></dt>
 <dd><p>Looks at the colour information in each channel and darkens the base colour to reflect the blend colour by increasing the contrast between the two. Blending with white produces no change.</p>
@@ -517,11 +517,11 @@ Initialize a new Colour instance from HSL colour attributes
 
 <a name="equals"></a>
 
-## equals(colour) ⇒
+## equals(colour) ⇒ <code>boolean</code>
 Check if another Colour instance is equivalent
 
 **Kind**: global function  
-**Returns**: True if both colours have the same red, green, blue, and alpha values.  
+**Returns**: <code>boolean</code> - True if both colours have the same red, green, blue, and alpha values.  
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -536,11 +536,11 @@ Returns a copy of the Colour instance.
 **Returns**: [<code>Colour</code>](#Colour) - An identical Colour object  
 <a name="toHEX"></a>
 
-## toHEX() ⇒ [<code>Colour</code>](#Colour)
+## toHEX() ⇒ <code>string</code>
 Return a valid hexadecimal colour code that represents the colour.
 
 **Kind**: global function  
-**Returns**: [<code>Colour</code>](#Colour) - A HEX code representing the colour.  
+**Returns**: <code>string</code> - A HEX code representing the colour.  
 <a name="negate"></a>
 
 ## negate(colour) ⇒ [<code>Colour</code>](#Colour)
@@ -684,7 +684,7 @@ Interpolate a given colour with gray to create a tone.
 <a name="normal"></a>
 
 ## normal(baseColour, blendColour) ⇒ [<code>Colour</code>](#Colour)
-This is the blend mode which specifies no blending. The blending formula simply selects the blend color.
+This is the blend mode which specifies no blending. The blending formula simply selects the blend colour.
 
 **Kind**: global function  
 **Returns**: [<code>Colour</code>](#Colour) - The colour resulting from the blend  
@@ -723,7 +723,7 @@ Looks at each channel’s colour information and multiplies the inverse of the b
 <a name="overlay"></a>
 
 ## overlay(baseColour, blendColour) ⇒ [<code>Colour</code>](#Colour)
-Multiplies or screens the colors, depending on the base color. The base color is not replaced, but mixed with the blend color to reflect the lightness or darkness of the original color.
+Multiplies or screens the colours, depending on the base colour. The base colour is not replaced, but mixed with the blend colour to reflect the lightness or darkness of the original colour.
 
 **Kind**: global function  
 **Returns**: [<code>Colour</code>](#Colour) - The colour resulting from the blend  
@@ -762,7 +762,7 @@ Looks at the colour information in each channel and selects the base or blend co
 <a name="colourDodge"></a>
 
 ## colourDodge(baseColour, blendColour) ⇒ [<code>Colour</code>](#Colour)
-Looks at the color information in each channel and brightens the base color to reflect the blend color by decreasing contrast between the two. Blending with black produces no change.
+Looks at the colour information in each channel and brightens the base colour to reflect the blend colour by decreasing contrast between the two. Blending with black produces no change.
 
 **Kind**: global function  
 **Returns**: [<code>Colour</code>](#Colour) - The colour resulting from the blend  

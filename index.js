@@ -574,7 +574,7 @@ export default class Colour {
     /**
      * Check if another Colour instance is equivalent
      * @param {Colour} colour - Another Colour instance to compare equality with.
-     * @returns True if both colours have the same red, green, blue, and alpha values.
+     * @returns {boolean} True if both colours have the same red, green, blue, and alpha values.
      */
     equals(colour) {
         return (
@@ -595,7 +595,7 @@ export default class Colour {
 
     /**
      * Return a valid hexadecimal colour code that represents the colour.
-     * @returns {Colour} A HEX code representing the colour.
+     * @returns {string} A HEX code representing the colour.
      */
     toHEX() {
         return colorString.to.hex(this.red, this.green, this.blue, this.alpha);
@@ -914,7 +914,7 @@ export function tone(colour, percent) {
 }
 
 /**
- * This is the blend mode which specifies no blending. The blending formula simply selects the blend color.
+ * This is the blend mode which specifies no blending. The blending formula simply selects the blend colour.
  * @param {Colour} baseColour - The base colour being blended
  * @param {Colour} blendColour - The colour being applied with the designated blend mode
  * @returns {Colour} The colour resulting from the blend
@@ -959,7 +959,7 @@ export function screen(baseColour, blendColour) {
 }
 
 /**
- * Multiplies or screens the colors, depending on the base color. The base color is not replaced, but mixed with the blend color to reflect the lightness or darkness of the original color.
+ * Multiplies or screens the colours, depending on the base colour. The base colour is not replaced, but mixed with the blend colour to reflect the lightness or darkness of the original colour.
  * @param {Colour} baseColour - The base colour being blended
  * @param {Colour} blendColour - The colour being applied with the designated blend mode
  * @returns {Colour} The colour resulting from the blend
@@ -1004,7 +1004,7 @@ export function lighten(baseColour, blendColour) {
 }
 
 /**
- * Looks at the color information in each channel and brightens the base color to reflect the blend color by decreasing contrast between the two. Blending with black produces no change.
+ * Looks at the colour information in each channel and brightens the base colour to reflect the blend colour by decreasing contrast between the two. Blending with black produces no change.
  * @param {Colour} baseColour - The base colour being blended
  * @param {Colour} blendColour - The colour being applied with the designated blend mode
  * @returns {Colour} The colour resulting from the blend
