@@ -1,133 +1,15 @@
-# matisse: Module Interface Specification
-May 22, 2022
-
 ## Classes
 
 <dl>
 <dt><a href="#Colour">Colour</a></dt>
 <dd></dd>
-</dl>
-
-## Members
-
-<dl>
-<dt><a href="#red">red</a> : <code>number</code></dt>
-<dd></dd>
-<dt><a href="#green">green</a> : <code>number</code></dt>
-<dd></dd>
-<dt><a href="#blue">blue</a> : <code>number</code></dt>
-<dd></dd>
-<dt><a href="#hue">hue</a> : <code>number</code></dt>
-<dd></dd>
-<dt><a href="#saturationv">saturationv</a> : <code>number</code></dt>
-<dd></dd>
-<dt><a href="#value">value</a> : <code>number</code></dt>
-<dd></dd>
-<dt><a href="#cyan">cyan</a> : <code>number</code></dt>
-<dd></dd>
-<dt><a href="#magenta">magenta</a> : <code>number</code></dt>
-<dd></dd>
-<dt><a href="#yellow">yellow</a> : <code>number</code></dt>
-<dd></dd>
-<dt><a href="#saturationl">saturationl</a> : <code>number</code></dt>
-<dd></dd>
-<dt><a href="#light">light</a> : <code>number</code></dt>
-<dd></dd>
-<dt><a href="#white">white</a> : <code>number</code></dt>
-<dd></dd>
-<dt><a href="#black">black</a> : <code>number</code></dt>
-<dd></dd>
-<dt><a href="#alpha">alpha</a> : <code>number</code></dt>
-<dd></dd>
-</dl>
-
-## Constants
-
-<dl>
-<dt><a href="#redMax">redMax</a> : <code>number</code></dt>
-<dd></dd>
-<dt><a href="#redMin">redMin</a> : <code>number</code></dt>
-<dd></dd>
-<dt><a href="#greenMax">greenMax</a> : <code>number</code></dt>
-<dd></dd>
-<dt><a href="#greenMin">greenMin</a> : <code>number</code></dt>
-<dd></dd>
-<dt><a href="#blueMax">blueMax</a> : <code>number</code></dt>
-<dd></dd>
-<dt><a href="#blueMin">blueMin</a> : <code>number</code></dt>
-<dd></dd>
-<dt><a href="#hueMax">hueMax</a> : <code>number</code></dt>
-<dd></dd>
-<dt><a href="#hueMin">hueMin</a> : <code>number</code></dt>
-<dd></dd>
-<dt><a href="#saturationvMax">saturationvMax</a> : <code>number</code></dt>
-<dd></dd>
-<dt><a href="#saturationvMin">saturationvMin</a> : <code>number</code></dt>
-<dd></dd>
-<dt><a href="#valueMax">valueMax</a> : <code>number</code></dt>
-<dd></dd>
-<dt><a href="#valueMin">valueMin</a> : <code>number</code></dt>
-<dd></dd>
-<dt><a href="#cyanMax">cyanMax</a> : <code>number</code></dt>
-<dd></dd>
-<dt><a href="#cyanMin">cyanMin</a> : <code>number</code></dt>
-<dd></dd>
-<dt><a href="#magentaMax">magentaMax</a> : <code>number</code></dt>
-<dd></dd>
-<dt><a href="#magentaMin">magentaMin</a> : <code>number</code></dt>
-<dd></dd>
-<dt><a href="#yellowMax">yellowMax</a> : <code>number</code></dt>
-<dd></dd>
-<dt><a href="#yellowMin">yellowMin</a> : <code>number</code></dt>
-<dd></dd>
-<dt><a href="#saturationlMax">saturationlMax</a> : <code>number</code></dt>
-<dd></dd>
-<dt><a href="#saturationlMin">saturationlMin</a> : <code>number</code></dt>
-<dd></dd>
-<dt><a href="#lightMax">lightMax</a> : <code>number</code></dt>
-<dd></dd>
-<dt><a href="#lightMin">lightMin</a> : <code>number</code></dt>
-<dd></dd>
-<dt><a href="#whiteMax">whiteMax</a> : <code>number</code></dt>
-<dd></dd>
-<dt><a href="#whiteMin">whiteMin</a> : <code>number</code></dt>
-<dd></dd>
-<dt><a href="#blackMax">blackMax</a> : <code>number</code></dt>
-<dd></dd>
-<dt><a href="#blackMin">blackMin</a> : <code>number</code></dt>
-<dd></dd>
-<dt><a href="#alphaMax">alphaMax</a> : <code>number</code></dt>
-<dd></dd>
-<dt><a href="#alphaMin">alphaMin</a> : <code>number</code></dt>
+<dt><a href="#Colour">Colour</a></dt>
 <dd></dd>
 </dl>
 
 ## Functions
 
 <dl>
-<dt><a href="#RGB">RGB(red, green, blue, [alpha])</a> ⇒ <code><a href="#Colour">Colour</a></code></dt>
-<dd><p>Initialize a new Colour instance from RGB colour attributes</p>
-</dd>
-<dt><a href="#HSV">HSV(hue, saturationv, value, [alpha])</a> ⇒ <code><a href="#Colour">Colour</a></code></dt>
-<dd><p>Initialize a new Colour instance from HSV colour attributes</p>
-</dd>
-<dt><a href="#CMYK">CMYK(cyan, magenta, yellow, black, [alpha])</a> ⇒ <code><a href="#Colour">Colour</a></code></dt>
-<dd><p>Initialize a new Colour instance from CMYK colour attributes</p>
-</dd>
-<dt><a href="#HSL">HSL(hue, saturationl, light, [alpha])</a> ⇒ <code><a href="#Colour">Colour</a></code></dt>
-<dd><p>Initialize a new Colour instance from HSL colour attributes</p>
-</dd>
-<dt><a href="#HWB">HWB(hue, white, black, [alpha])</a> ⇒ <code><a href="#Colour">Colour</a></code></dt>
-<dd></dd>
-<dt><a href="#equals">equals(colour)</a> ⇒</dt>
-<dd><p>Check if another Colour instance is equivalent</p>
-</dd>
-<dt><a href="#copy">copy()</a> ⇒ <code><a href="#Colour">Colour</a></code></dt>
-<dd><p>Returns a copy of the Colour instance.</p>
-</dd>
-<dt><a href="#toHEX">toHEX()</a> ⇒ <code><a href="#Colour">Colour</a></code></dt>
-<dd><p>Return a valid hexadecimal colour code that represents the colour.</p>
-</dd>
 <dt><a href="#negate">negate(colour)</a> ⇒ <code><a href="#Colour">Colour</a></code></dt>
 <dd><p>Determine the inverse colour or the colour on the opposite side of the colour wheel.</p>
 </dd>
@@ -139,7 +21,7 @@ May 22, 2022
 </dd>
 <dt><a href="#contrast">contrast(colour1, colour2)</a> ⇒ <code>number</code></dt>
 <dd><p>Calculate the <a href="http://www.w3.org/TR/WCAG20/#contrast-ratiodef">WCAG contrast ratio</a>
-between two colours. (Note: The order of the colours does not matter!)</p>
+between two colours. (Note: The order of the colours does not matter!).</p>
 </dd>
 <dt><a href="#colourfulness">colourfulness(colour)</a> ⇒ <code>number</code></dt>
 <dd><p>Calculate the <a href="https://infoscience.epfl.ch/record/33994/files/HaslerS03.pdf">colourfulness index</a> of a given colour as defined by Hasler and Süsstrunk (2003).</p>
@@ -240,318 +122,764 @@ between two colours. (Note: The order of the colours does not matter!)</p>
 
 ## Colour
 **Kind**: global class  
+
+* [Colour](#Colour)
+    * [new Colour()](#new_Colour_new)
+    * [new Colour([colourString])](#new_Colour_new)
+    * _instance_
+        * [.red](#Colour+red) : <code>number</code>
+        * [.green](#Colour+green) : <code>number</code>
+        * [.blue](#Colour+blue) : <code>number</code>
+        * [.hue](#Colour+hue) : <code>number</code>
+        * [.saturationv](#Colour+saturationv) : <code>number</code>
+        * [.value](#Colour+value) : <code>number</code>
+        * [.cyan](#Colour+cyan) : <code>number</code>
+        * [.magenta](#Colour+magenta) : <code>number</code>
+        * [.yellow](#Colour+yellow) : <code>number</code>
+        * [.saturationl](#Colour+saturationl) : <code>number</code>
+        * [.light](#Colour+light) : <code>number</code>
+        * [.white](#Colour+white) : <code>number</code>
+        * [.black](#Colour+black) : <code>number</code>
+        * [.alpha](#Colour+alpha) : <code>number</code>
+        * [.equals(colour)](#Colour+equals) ⇒ <code>boolean</code>
+        * [.copy()](#Colour+copy) ⇒ [<code>Colour</code>](#Colour)
+        * [.toHEX()](#Colour+toHEX) ⇒ <code>string</code>
+    * _static_
+        * [.redMax](#Colour.redMax) : <code>number</code>
+        * [.redMin](#Colour.redMin) : <code>number</code>
+        * [.greenMax](#Colour.greenMax) : <code>number</code>
+        * [.greenMin](#Colour.greenMin) : <code>number</code>
+        * [.blueMax](#Colour.blueMax) : <code>number</code>
+        * [.blueMin](#Colour.blueMin) : <code>number</code>
+        * [.hueMax](#Colour.hueMax) : <code>number</code>
+        * [.hueMin](#Colour.hueMin) : <code>number</code>
+        * [.saturationvMax](#Colour.saturationvMax) : <code>number</code>
+        * [.saturationvMin](#Colour.saturationvMin) : <code>number</code>
+        * [.valueMax](#Colour.valueMax) : <code>number</code>
+        * [.valueMin](#Colour.valueMin) : <code>number</code>
+        * [.cyanMax](#Colour.cyanMax) : <code>number</code>
+        * [.cyanMin](#Colour.cyanMin) : <code>number</code>
+        * [.magentaMax](#Colour.magentaMax) : <code>number</code>
+        * [.magentaMin](#Colour.magentaMin) : <code>number</code>
+        * [.yellowMax](#Colour.yellowMax) : <code>number</code>
+        * [.yellowMin](#Colour.yellowMin) : <code>number</code>
+        * [.saturationlMax](#Colour.saturationlMax) : <code>number</code>
+        * [.saturationlMin](#Colour.saturationlMin) : <code>number</code>
+        * [.lightMax](#Colour.lightMax) : <code>number</code>
+        * [.lightMin](#Colour.lightMin) : <code>number</code>
+        * [.whiteMax](#Colour.whiteMax) : <code>number</code>
+        * [.whiteMin](#Colour.whiteMin) : <code>number</code>
+        * [.blackMax](#Colour.blackMax) : <code>number</code>
+        * [.blackMin](#Colour.blackMin) : <code>number</code>
+        * [.alphaMax](#Colour.alphaMax) : <code>number</code>
+        * [.alphaMin](#Colour.alphaMin) : <code>number</code>
+        * [.RGB(red, green, blue, [alpha])](#Colour.RGB) ⇒ [<code>Colour</code>](#Colour)
+        * [.HSV(hue, saturationv, value, [alpha])](#Colour.HSV) ⇒ [<code>Colour</code>](#Colour)
+        * [.CMYK(cyan, magenta, yellow, black, [alpha])](#Colour.CMYK) ⇒ [<code>Colour</code>](#Colour)
+        * [.HSL(hue, saturationl, light, [alpha])](#Colour.HSL) ⇒ [<code>Colour</code>](#Colour)
+        * [.HWB(hue, white, black, [alpha])](#Colour.HWB) ⇒ [<code>Colour</code>](#Colour)
+
 <a name="new_Colour_new"></a>
 
 ### new Colour()
 An abstract data type representating mutable colour entities for RGB, HSV, HSL, CMYK, and HWB colour models.
 
-<a name="red"></a>
+<a name="new_Colour_new"></a>
 
-## red : <code>number</code>
-**Kind**: global variable  
-<a name="green"></a>
+### new Colour([colourString])
+Initialize a new Colour instance given a valid CSS colour string or HEX code.
 
-## green : <code>number</code>
-**Kind**: global variable  
-<a name="blue"></a>
+**Returns**: [<code>Colour</code>](#Colour) - A new Colour instance generated from the CSS colour string.  
 
-## blue : <code>number</code>
-**Kind**: global variable  
-<a name="hue"></a>
+| Param | Type | Description |
+| --- | --- | --- |
+| [colourString] | <code>string</code> | A valid CSS colour string or HEX code to parse. |
 
-## hue : <code>number</code>
-**Kind**: global variable  
-<a name="saturationv"></a>
+<a name="Colour+red"></a>
 
-## saturationv : <code>number</code>
-**Kind**: global variable  
-<a name="value"></a>
+### colour.red : <code>number</code>
+**Kind**: instance property of [<code>Colour</code>](#Colour)  
+<a name="Colour+green"></a>
 
-## value : <code>number</code>
-**Kind**: global variable  
-<a name="cyan"></a>
+### colour.green : <code>number</code>
+**Kind**: instance property of [<code>Colour</code>](#Colour)  
+<a name="Colour+blue"></a>
 
-## cyan : <code>number</code>
-**Kind**: global variable  
-<a name="magenta"></a>
+### colour.blue : <code>number</code>
+**Kind**: instance property of [<code>Colour</code>](#Colour)  
+<a name="Colour+hue"></a>
 
-## magenta : <code>number</code>
-**Kind**: global variable  
-<a name="yellow"></a>
+### colour.hue : <code>number</code>
+**Kind**: instance property of [<code>Colour</code>](#Colour)  
+<a name="Colour+saturationv"></a>
 
-## yellow : <code>number</code>
-**Kind**: global variable  
-<a name="saturationl"></a>
+### colour.saturationv : <code>number</code>
+**Kind**: instance property of [<code>Colour</code>](#Colour)  
+<a name="Colour+value"></a>
 
-## saturationl : <code>number</code>
-**Kind**: global variable  
-<a name="light"></a>
+### colour.value : <code>number</code>
+**Kind**: instance property of [<code>Colour</code>](#Colour)  
+<a name="Colour+cyan"></a>
 
-## light : <code>number</code>
-**Kind**: global variable  
-<a name="white"></a>
+### colour.cyan : <code>number</code>
+**Kind**: instance property of [<code>Colour</code>](#Colour)  
+<a name="Colour+magenta"></a>
 
-## white : <code>number</code>
-**Kind**: global variable  
-<a name="black"></a>
+### colour.magenta : <code>number</code>
+**Kind**: instance property of [<code>Colour</code>](#Colour)  
+<a name="Colour+yellow"></a>
 
-## black : <code>number</code>
-**Kind**: global variable  
-<a name="alpha"></a>
+### colour.yellow : <code>number</code>
+**Kind**: instance property of [<code>Colour</code>](#Colour)  
+<a name="Colour+saturationl"></a>
 
-## alpha : <code>number</code>
-**Kind**: global variable  
-<a name="redMax"></a>
+### colour.saturationl : <code>number</code>
+**Kind**: instance property of [<code>Colour</code>](#Colour)  
+<a name="Colour+light"></a>
 
-## redMax : <code>number</code>
-**Kind**: global constant  
-**Default**: <code>255</code>  
-<a name="redMin"></a>
+### colour.light : <code>number</code>
+**Kind**: instance property of [<code>Colour</code>](#Colour)  
+<a name="Colour+white"></a>
 
-## redMin : <code>number</code>
-**Kind**: global constant  
-**Default**: <code>0</code>  
-<a name="greenMax"></a>
+### colour.white : <code>number</code>
+**Kind**: instance property of [<code>Colour</code>](#Colour)  
+<a name="Colour+black"></a>
 
-## greenMax : <code>number</code>
-**Kind**: global constant  
-**Default**: <code>255</code>  
-<a name="greenMin"></a>
+### colour.black : <code>number</code>
+**Kind**: instance property of [<code>Colour</code>](#Colour)  
+<a name="Colour+alpha"></a>
 
-## greenMin : <code>number</code>
-**Kind**: global constant  
-**Default**: <code>0</code>  
-<a name="blueMax"></a>
+### colour.alpha : <code>number</code>
+**Kind**: instance property of [<code>Colour</code>](#Colour)  
+<a name="Colour+equals"></a>
 
-## blueMax : <code>number</code>
-**Kind**: global constant  
-**Default**: <code>255</code>  
-<a name="blueMin"></a>
+### colour.equals(colour) ⇒ <code>boolean</code>
+Check if another Colour instance is equivalent.
 
-## blueMin : <code>number</code>
-**Kind**: global constant  
-**Default**: <code>0</code>  
-<a name="hueMax"></a>
-
-## hueMax : <code>number</code>
-**Kind**: global constant  
-**Default**: <code>360</code>  
-<a name="hueMin"></a>
-
-## hueMin : <code>number</code>
-**Kind**: global constant  
-**Default**: <code>0</code>  
-<a name="saturationvMax"></a>
-
-## saturationvMax : <code>number</code>
-**Kind**: global constant  
-**Default**: <code>1.00</code>  
-<a name="saturationvMin"></a>
-
-## saturationvMin : <code>number</code>
-**Kind**: global constant  
-**Default**: <code>0.00</code>  
-<a name="valueMax"></a>
-
-## valueMax : <code>number</code>
-**Kind**: global constant  
-**Default**: <code>1.00</code>  
-<a name="valueMin"></a>
-
-## valueMin : <code>number</code>
-**Kind**: global constant  
-**Default**: <code>0.00</code>  
-<a name="cyanMax"></a>
-
-## cyanMax : <code>number</code>
-**Kind**: global constant  
-**Default**: <code>1.00</code>  
-<a name="cyanMin"></a>
-
-## cyanMin : <code>number</code>
-**Kind**: global constant  
-**Default**: <code>0.00</code>  
-<a name="magentaMax"></a>
-
-## magentaMax : <code>number</code>
-**Kind**: global constant  
-**Default**: <code>1.00</code>  
-<a name="magentaMin"></a>
-
-## magentaMin : <code>number</code>
-**Kind**: global constant  
-**Default**: <code>0.00</code>  
-<a name="yellowMax"></a>
-
-## yellowMax : <code>number</code>
-**Kind**: global constant  
-**Default**: <code>1.00</code>  
-<a name="yellowMin"></a>
-
-## yellowMin : <code>number</code>
-**Kind**: global constant  
-**Default**: <code>0.00</code>  
-<a name="saturationlMax"></a>
-
-## saturationlMax : <code>number</code>
-**Kind**: global constant  
-**Default**: <code>1.00</code>  
-<a name="saturationlMin"></a>
-
-## saturationlMin : <code>number</code>
-**Kind**: global constant  
-**Default**: <code>0.00</code>  
-<a name="lightMax"></a>
-
-## lightMax : <code>number</code>
-**Kind**: global constant  
-**Default**: <code>1.00</code>  
-<a name="lightMin"></a>
-
-## lightMin : <code>number</code>
-**Kind**: global constant  
-**Default**: <code>0.00</code>  
-<a name="whiteMax"></a>
-
-## whiteMax : <code>number</code>
-**Kind**: global constant  
-**Default**: <code>1.00</code>  
-<a name="whiteMin"></a>
-
-## whiteMin : <code>number</code>
-**Kind**: global constant  
-**Default**: <code>0.00</code>  
-<a name="blackMax"></a>
-
-## blackMax : <code>number</code>
-**Kind**: global constant  
-**Default**: <code>1.00</code>  
-<a name="blackMin"></a>
-
-## blackMin : <code>number</code>
-**Kind**: global constant  
-**Default**: <code>0.00</code>  
-<a name="alphaMax"></a>
-
-## alphaMax : <code>number</code>
-**Kind**: global constant  
-**Default**: <code>1.00</code>  
-<a name="alphaMin"></a>
-
-## alphaMin : <code>number</code>
-**Kind**: global constant  
-**Default**: <code>0.00</code>  
-<a name="RGB"></a>
-
-## RGB(red, green, blue, [alpha]) ⇒ [<code>Colour</code>](#Colour)
-Initialize a new Colour instance from RGB colour attributes
-
-**Kind**: global function  
-**Returns**: [<code>Colour</code>](#Colour) - A new Colour instance generated from the RGB colour attributes.  
-
-| Param | Type | Default | Description |
-| --- | --- | --- | --- |
-| red | <code>number</code> |  | The value of the R channel [0, 255] |
-| green | <code>number</code> |  | The value of the G channel [0, 255] |
-| blue | <code>number</code> |  | The value of the B channel [0, 255] |
-| [alpha] | <code>number</code> | <code>1.00</code> | The percentage of transparency or opacity channel [0, 1] |
-
-<a name="HSV"></a>
-
-## HSV(hue, saturationv, value, [alpha]) ⇒ [<code>Colour</code>](#Colour)
-Initialize a new Colour instance from HSV colour attributes
-
-**Kind**: global function  
-**Returns**: [<code>Colour</code>](#Colour) - A new Colour instance generated from the HSV colour attributes.  
-
-| Param | Type | Default | Description |
-| --- | --- | --- | --- |
-| hue | <code>number</code> |  | The value of the H channel [0, 360] |
-| saturationv | <code>number</code> |  | The percentage of the S channel [0, 1] |
-| value | <code>number</code> |  | The percentage of the V channel [0, 1] |
-| [alpha] | <code>number</code> | <code>1.00</code> | The percentage of transparency or opacity channel [0, 1] |
-
-<a name="CMYK"></a>
-
-## CMYK(cyan, magenta, yellow, black, [alpha]) ⇒ [<code>Colour</code>](#Colour)
-Initialize a new Colour instance from CMYK colour attributes
-
-**Kind**: global function  
-**Returns**: [<code>Colour</code>](#Colour) - A new Colour instance generated from the CMYK colour attributes.  
-
-| Param | Type | Default | Description |
-| --- | --- | --- | --- |
-| cyan | <code>number</code> |  | The value of the C channel [0, 1] |
-| magenta | <code>number</code> |  | The value of the M channel [0, 1] |
-| yellow | <code>number</code> |  | The value of the Y channel [0, 1] |
-| black | <code>number</code> |  | The value of the K channel [0, 1] |
-| [alpha] | <code>number</code> | <code>1.00</code> | The percentage of transparency or opacity channel [0, 1] |
-
-<a name="HSL"></a>
-
-## HSL(hue, saturationl, light, [alpha]) ⇒ [<code>Colour</code>](#Colour)
-Initialize a new Colour instance from HSL colour attributes
-
-**Kind**: global function  
-**Returns**: [<code>Colour</code>](#Colour) - A new Colour instance generated from the HSL colour attributes.  
-
-| Param | Type | Default | Description |
-| --- | --- | --- | --- |
-| hue | <code>number</code> |  | The value of the H channel [0, 360] |
-| saturationl | <code>number</code> |  | The value of the S channel [0, 1] |
-| light | <code>number</code> |  | The value of the L channel [0, 1] |
-| [alpha] | <code>number</code> | <code>1.00</code> | The percentage of transparency or opacity channel [0, 1] |
-
-<a name="HWB"></a>
-
-## HWB(hue, white, black, [alpha]) ⇒ [<code>Colour</code>](#Colour)
-**Kind**: global function  
-**Returns**: [<code>Colour</code>](#Colour) - A new Colour instance generated from the HWB colour attributes.  
-
-| Param | Type | Default | Description |
-| --- | --- | --- | --- |
-| hue | <code>number</code> |  | The value of the H channel [0, 360] |
-| white | <code>number</code> |  | The value of the W channel [0, 1] |
-| black | <code>number</code> |  | The value of the B channel [0, 360] |
-| [alpha] | <code>number</code> | <code>1.00</code> | The percentage of transparency or opacity channel [0, 1] |
-
-<a name="equals"></a>
-
-## equals(colour) ⇒ <code>boolean</code>
-Check if another Colour instance is equivalent
-
-**Kind**: global function  
+**Kind**: instance method of [<code>Colour</code>](#Colour)  
 **Returns**: <code>boolean</code> - True if both colours have the same red, green, blue, and alpha values.  
 
 | Param | Type | Description |
 | --- | --- | --- |
 | colour | [<code>Colour</code>](#Colour) | Another Colour instance to compare equality with. |
 
-<a name="copy"></a>
+<a name="Colour+copy"></a>
 
-## copy() ⇒ [<code>Colour</code>](#Colour)
+### colour.copy() ⇒ [<code>Colour</code>](#Colour)
 Returns a copy of the Colour instance.
 
-**Kind**: global function  
-**Returns**: [<code>Colour</code>](#Colour) - An identical Colour object  
-<a name="toHEX"></a>
+**Kind**: instance method of [<code>Colour</code>](#Colour)  
+**Returns**: [<code>Colour</code>](#Colour) - An identical Colour object.  
+<a name="Colour+toHEX"></a>
 
-## toHEX() ⇒ <code>string</code>
+### colour.toHEX() ⇒ <code>string</code>
 Return a valid hexadecimal colour code that represents the colour.
 
-**Kind**: global function  
+**Kind**: instance method of [<code>Colour</code>](#Colour)  
 **Returns**: <code>string</code> - A HEX code representing the colour.  
+<a name="Colour.redMax"></a>
+
+### Colour.redMax : <code>number</code>
+**Kind**: static constant of [<code>Colour</code>](#Colour)  
+**Default**: <code>255</code>  
+<a name="Colour.redMin"></a>
+
+### Colour.redMin : <code>number</code>
+**Kind**: static constant of [<code>Colour</code>](#Colour)  
+**Default**: <code>0</code>  
+<a name="Colour.greenMax"></a>
+
+### Colour.greenMax : <code>number</code>
+**Kind**: static constant of [<code>Colour</code>](#Colour)  
+**Default**: <code>255</code>  
+<a name="Colour.greenMin"></a>
+
+### Colour.greenMin : <code>number</code>
+**Kind**: static constant of [<code>Colour</code>](#Colour)  
+**Default**: <code>0</code>  
+<a name="Colour.blueMax"></a>
+
+### Colour.blueMax : <code>number</code>
+**Kind**: static constant of [<code>Colour</code>](#Colour)  
+**Default**: <code>255</code>  
+<a name="Colour.blueMin"></a>
+
+### Colour.blueMin : <code>number</code>
+**Kind**: static constant of [<code>Colour</code>](#Colour)  
+**Default**: <code>0</code>  
+<a name="Colour.hueMax"></a>
+
+### Colour.hueMax : <code>number</code>
+**Kind**: static constant of [<code>Colour</code>](#Colour)  
+**Default**: <code>360</code>  
+<a name="Colour.hueMin"></a>
+
+### Colour.hueMin : <code>number</code>
+**Kind**: static constant of [<code>Colour</code>](#Colour)  
+**Default**: <code>0</code>  
+<a name="Colour.saturationvMax"></a>
+
+### Colour.saturationvMax : <code>number</code>
+**Kind**: static constant of [<code>Colour</code>](#Colour)  
+**Default**: <code>1.00</code>  
+<a name="Colour.saturationvMin"></a>
+
+### Colour.saturationvMin : <code>number</code>
+**Kind**: static constant of [<code>Colour</code>](#Colour)  
+**Default**: <code>0.00</code>  
+<a name="Colour.valueMax"></a>
+
+### Colour.valueMax : <code>number</code>
+**Kind**: static constant of [<code>Colour</code>](#Colour)  
+**Default**: <code>1.00</code>  
+<a name="Colour.valueMin"></a>
+
+### Colour.valueMin : <code>number</code>
+**Kind**: static constant of [<code>Colour</code>](#Colour)  
+**Default**: <code>0.00</code>  
+<a name="Colour.cyanMax"></a>
+
+### Colour.cyanMax : <code>number</code>
+**Kind**: static constant of [<code>Colour</code>](#Colour)  
+**Default**: <code>1.00</code>  
+<a name="Colour.cyanMin"></a>
+
+### Colour.cyanMin : <code>number</code>
+**Kind**: static constant of [<code>Colour</code>](#Colour)  
+**Default**: <code>0.00</code>  
+<a name="Colour.magentaMax"></a>
+
+### Colour.magentaMax : <code>number</code>
+**Kind**: static constant of [<code>Colour</code>](#Colour)  
+**Default**: <code>1.00</code>  
+<a name="Colour.magentaMin"></a>
+
+### Colour.magentaMin : <code>number</code>
+**Kind**: static constant of [<code>Colour</code>](#Colour)  
+**Default**: <code>0.00</code>  
+<a name="Colour.yellowMax"></a>
+
+### Colour.yellowMax : <code>number</code>
+**Kind**: static constant of [<code>Colour</code>](#Colour)  
+**Default**: <code>1.00</code>  
+<a name="Colour.yellowMin"></a>
+
+### Colour.yellowMin : <code>number</code>
+**Kind**: static constant of [<code>Colour</code>](#Colour)  
+**Default**: <code>0.00</code>  
+<a name="Colour.saturationlMax"></a>
+
+### Colour.saturationlMax : <code>number</code>
+**Kind**: static constant of [<code>Colour</code>](#Colour)  
+**Default**: <code>1.00</code>  
+<a name="Colour.saturationlMin"></a>
+
+### Colour.saturationlMin : <code>number</code>
+**Kind**: static constant of [<code>Colour</code>](#Colour)  
+**Default**: <code>0.00</code>  
+<a name="Colour.lightMax"></a>
+
+### Colour.lightMax : <code>number</code>
+**Kind**: static constant of [<code>Colour</code>](#Colour)  
+**Default**: <code>1.00</code>  
+<a name="Colour.lightMin"></a>
+
+### Colour.lightMin : <code>number</code>
+**Kind**: static constant of [<code>Colour</code>](#Colour)  
+**Default**: <code>0.00</code>  
+<a name="Colour.whiteMax"></a>
+
+### Colour.whiteMax : <code>number</code>
+**Kind**: static constant of [<code>Colour</code>](#Colour)  
+**Default**: <code>1.00</code>  
+<a name="Colour.whiteMin"></a>
+
+### Colour.whiteMin : <code>number</code>
+**Kind**: static constant of [<code>Colour</code>](#Colour)  
+**Default**: <code>0.00</code>  
+<a name="Colour.blackMax"></a>
+
+### Colour.blackMax : <code>number</code>
+**Kind**: static constant of [<code>Colour</code>](#Colour)  
+**Default**: <code>1.00</code>  
+<a name="Colour.blackMin"></a>
+
+### Colour.blackMin : <code>number</code>
+**Kind**: static constant of [<code>Colour</code>](#Colour)  
+**Default**: <code>0.00</code>  
+<a name="Colour.alphaMax"></a>
+
+### Colour.alphaMax : <code>number</code>
+**Kind**: static constant of [<code>Colour</code>](#Colour)  
+**Default**: <code>1.00</code>  
+<a name="Colour.alphaMin"></a>
+
+### Colour.alphaMin : <code>number</code>
+**Kind**: static constant of [<code>Colour</code>](#Colour)  
+**Default**: <code>0.00</code>  
+<a name="Colour.RGB"></a>
+
+### Colour.RGB(red, green, blue, [alpha]) ⇒ [<code>Colour</code>](#Colour)
+Initialize a new Colour instance from RGB colour attributes.
+
+**Kind**: static method of [<code>Colour</code>](#Colour)  
+**Returns**: [<code>Colour</code>](#Colour) - A new Colour instance generated from the RGB colour attributes.  
+
+| Param | Type | Default | Description |
+| --- | --- | --- | --- |
+| red | <code>number</code> |  | The value of the R channel [0, 255]. |
+| green | <code>number</code> |  | The value of the G channel [0, 255]. |
+| blue | <code>number</code> |  | The value of the B channel [0, 255]. |
+| [alpha] | <code>number</code> | <code>1.00</code> | The percentage of transparency or opacity channel [0, 1]. Defaults to [alphaMax](#Colour.alphaMax). |
+
+<a name="Colour.HSV"></a>
+
+### Colour.HSV(hue, saturationv, value, [alpha]) ⇒ [<code>Colour</code>](#Colour)
+Initialize a new Colour instance from HSV colour attributes.
+
+**Kind**: static method of [<code>Colour</code>](#Colour)  
+**Returns**: [<code>Colour</code>](#Colour) - A new Colour instance generated from the HSV colour attributes.  
+
+| Param | Type | Default | Description |
+| --- | --- | --- | --- |
+| hue | <code>number</code> |  | The value of the H channel [0, 360]. |
+| saturationv | <code>number</code> |  | The percentage of the S channel [0, 1]. |
+| value | <code>number</code> |  | The percentage of the V channel [0, 1]. |
+| [alpha] | <code>number</code> | <code>1.00</code> | The percentage of transparency or opacity channel [0, 1]. Defaults to [alphaMax](#Colour.alphaMax). |
+
+<a name="Colour.CMYK"></a>
+
+### Colour.CMYK(cyan, magenta, yellow, black, [alpha]) ⇒ [<code>Colour</code>](#Colour)
+Initialize a new Colour instance from CMYK colour attributes.
+
+**Kind**: static method of [<code>Colour</code>](#Colour)  
+**Returns**: [<code>Colour</code>](#Colour) - A new Colour instance generated from the CMYK colour attributes.  
+
+| Param | Type | Default | Description |
+| --- | --- | --- | --- |
+| cyan | <code>number</code> |  | The value of the C channel [0, 1]. |
+| magenta | <code>number</code> |  | The value of the M channel [0, 1]. |
+| yellow | <code>number</code> |  | The value of the Y channel [0, 1]. |
+| black | <code>number</code> |  | The value of the K channel [0, 1]. |
+| [alpha] | <code>number</code> | <code>1.00</code> | The percentage of transparency or opacity channel [0, 1]. Defaults to [alphaMax](#Colour.alphaMax). |
+
+<a name="Colour.HSL"></a>
+
+### Colour.HSL(hue, saturationl, light, [alpha]) ⇒ [<code>Colour</code>](#Colour)
+Initialize a new Colour instance from HSL colour attributes.
+
+**Kind**: static method of [<code>Colour</code>](#Colour)  
+**Returns**: [<code>Colour</code>](#Colour) - A new Colour instance generated from the HSL colour attributes.  
+
+| Param | Type | Default | Description |
+| --- | --- | --- | --- |
+| hue | <code>number</code> |  | The value of the H channel [0, 360]. |
+| saturationl | <code>number</code> |  | The value of the S channel [0, 1]. |
+| light | <code>number</code> |  | The value of the L channel [0, 1]. |
+| [alpha] | <code>number</code> | <code>1.00</code> | The percentage of transparency or opacity channel [0, 1]. Defaults to [alphaMax](#Colour.alphaMax). |
+
+<a name="Colour.HWB"></a>
+
+### Colour.HWB(hue, white, black, [alpha]) ⇒ [<code>Colour</code>](#Colour)
+Initialize a new Colour instance from HWB colour attributes.
+
+**Kind**: static method of [<code>Colour</code>](#Colour)  
+**Returns**: [<code>Colour</code>](#Colour) - A new Colour instance generated from the HWB colour attributes.  
+
+| Param | Type | Default | Description |
+| --- | --- | --- | --- |
+| hue | <code>number</code> |  | The value of the H channel [0, 360]. |
+| white | <code>number</code> |  | The value of the W channel [0, 1]. |
+| black | <code>number</code> |  | The value of the B channel [0, 1]. |
+| [alpha] | <code>number</code> | <code>1.00</code> | The percentage of transparency or opacity channel [0, 1]. Defaults to [alphaMax](#Colour.alphaMax). |
+
+<a name="Colour"></a>
+
+## Colour
+**Kind**: global class  
+**See**: [color-string](https://github.com/Qix-/color-string) handles all parsing of CSS colour strings.  
+
+* [Colour](#Colour)
+    * [new Colour()](#new_Colour_new)
+    * [new Colour([colourString])](#new_Colour_new)
+    * _instance_
+        * [.red](#Colour+red) : <code>number</code>
+        * [.green](#Colour+green) : <code>number</code>
+        * [.blue](#Colour+blue) : <code>number</code>
+        * [.hue](#Colour+hue) : <code>number</code>
+        * [.saturationv](#Colour+saturationv) : <code>number</code>
+        * [.value](#Colour+value) : <code>number</code>
+        * [.cyan](#Colour+cyan) : <code>number</code>
+        * [.magenta](#Colour+magenta) : <code>number</code>
+        * [.yellow](#Colour+yellow) : <code>number</code>
+        * [.saturationl](#Colour+saturationl) : <code>number</code>
+        * [.light](#Colour+light) : <code>number</code>
+        * [.white](#Colour+white) : <code>number</code>
+        * [.black](#Colour+black) : <code>number</code>
+        * [.alpha](#Colour+alpha) : <code>number</code>
+        * [.equals(colour)](#Colour+equals) ⇒ <code>boolean</code>
+        * [.copy()](#Colour+copy) ⇒ [<code>Colour</code>](#Colour)
+        * [.toHEX()](#Colour+toHEX) ⇒ <code>string</code>
+    * _static_
+        * [.redMax](#Colour.redMax) : <code>number</code>
+        * [.redMin](#Colour.redMin) : <code>number</code>
+        * [.greenMax](#Colour.greenMax) : <code>number</code>
+        * [.greenMin](#Colour.greenMin) : <code>number</code>
+        * [.blueMax](#Colour.blueMax) : <code>number</code>
+        * [.blueMin](#Colour.blueMin) : <code>number</code>
+        * [.hueMax](#Colour.hueMax) : <code>number</code>
+        * [.hueMin](#Colour.hueMin) : <code>number</code>
+        * [.saturationvMax](#Colour.saturationvMax) : <code>number</code>
+        * [.saturationvMin](#Colour.saturationvMin) : <code>number</code>
+        * [.valueMax](#Colour.valueMax) : <code>number</code>
+        * [.valueMin](#Colour.valueMin) : <code>number</code>
+        * [.cyanMax](#Colour.cyanMax) : <code>number</code>
+        * [.cyanMin](#Colour.cyanMin) : <code>number</code>
+        * [.magentaMax](#Colour.magentaMax) : <code>number</code>
+        * [.magentaMin](#Colour.magentaMin) : <code>number</code>
+        * [.yellowMax](#Colour.yellowMax) : <code>number</code>
+        * [.yellowMin](#Colour.yellowMin) : <code>number</code>
+        * [.saturationlMax](#Colour.saturationlMax) : <code>number</code>
+        * [.saturationlMin](#Colour.saturationlMin) : <code>number</code>
+        * [.lightMax](#Colour.lightMax) : <code>number</code>
+        * [.lightMin](#Colour.lightMin) : <code>number</code>
+        * [.whiteMax](#Colour.whiteMax) : <code>number</code>
+        * [.whiteMin](#Colour.whiteMin) : <code>number</code>
+        * [.blackMax](#Colour.blackMax) : <code>number</code>
+        * [.blackMin](#Colour.blackMin) : <code>number</code>
+        * [.alphaMax](#Colour.alphaMax) : <code>number</code>
+        * [.alphaMin](#Colour.alphaMin) : <code>number</code>
+        * [.RGB(red, green, blue, [alpha])](#Colour.RGB) ⇒ [<code>Colour</code>](#Colour)
+        * [.HSV(hue, saturationv, value, [alpha])](#Colour.HSV) ⇒ [<code>Colour</code>](#Colour)
+        * [.CMYK(cyan, magenta, yellow, black, [alpha])](#Colour.CMYK) ⇒ [<code>Colour</code>](#Colour)
+        * [.HSL(hue, saturationl, light, [alpha])](#Colour.HSL) ⇒ [<code>Colour</code>](#Colour)
+        * [.HWB(hue, white, black, [alpha])](#Colour.HWB) ⇒ [<code>Colour</code>](#Colour)
+
+<a name="new_Colour_new"></a>
+
+### new Colour()
+An abstract data type representating mutable colour entities for RGB, HSV, HSL, CMYK, and HWB colour models.
+
+<a name="new_Colour_new"></a>
+
+### new Colour([colourString])
+Initialize a new Colour instance given a valid CSS colour string or HEX code.
+
+**Returns**: [<code>Colour</code>](#Colour) - A new Colour instance generated from the CSS colour string.  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| [colourString] | <code>string</code> | A valid CSS colour string or HEX code to parse. |
+
+<a name="Colour+red"></a>
+
+### colour.red : <code>number</code>
+**Kind**: instance property of [<code>Colour</code>](#Colour)  
+<a name="Colour+green"></a>
+
+### colour.green : <code>number</code>
+**Kind**: instance property of [<code>Colour</code>](#Colour)  
+<a name="Colour+blue"></a>
+
+### colour.blue : <code>number</code>
+**Kind**: instance property of [<code>Colour</code>](#Colour)  
+<a name="Colour+hue"></a>
+
+### colour.hue : <code>number</code>
+**Kind**: instance property of [<code>Colour</code>](#Colour)  
+<a name="Colour+saturationv"></a>
+
+### colour.saturationv : <code>number</code>
+**Kind**: instance property of [<code>Colour</code>](#Colour)  
+<a name="Colour+value"></a>
+
+### colour.value : <code>number</code>
+**Kind**: instance property of [<code>Colour</code>](#Colour)  
+<a name="Colour+cyan"></a>
+
+### colour.cyan : <code>number</code>
+**Kind**: instance property of [<code>Colour</code>](#Colour)  
+<a name="Colour+magenta"></a>
+
+### colour.magenta : <code>number</code>
+**Kind**: instance property of [<code>Colour</code>](#Colour)  
+<a name="Colour+yellow"></a>
+
+### colour.yellow : <code>number</code>
+**Kind**: instance property of [<code>Colour</code>](#Colour)  
+<a name="Colour+saturationl"></a>
+
+### colour.saturationl : <code>number</code>
+**Kind**: instance property of [<code>Colour</code>](#Colour)  
+<a name="Colour+light"></a>
+
+### colour.light : <code>number</code>
+**Kind**: instance property of [<code>Colour</code>](#Colour)  
+<a name="Colour+white"></a>
+
+### colour.white : <code>number</code>
+**Kind**: instance property of [<code>Colour</code>](#Colour)  
+<a name="Colour+black"></a>
+
+### colour.black : <code>number</code>
+**Kind**: instance property of [<code>Colour</code>](#Colour)  
+<a name="Colour+alpha"></a>
+
+### colour.alpha : <code>number</code>
+**Kind**: instance property of [<code>Colour</code>](#Colour)  
+<a name="Colour+equals"></a>
+
+### colour.equals(colour) ⇒ <code>boolean</code>
+Check if another Colour instance is equivalent.
+
+**Kind**: instance method of [<code>Colour</code>](#Colour)  
+**Returns**: <code>boolean</code> - True if both colours have the same red, green, blue, and alpha values.  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| colour | [<code>Colour</code>](#Colour) | Another Colour instance to compare equality with. |
+
+<a name="Colour+copy"></a>
+
+### colour.copy() ⇒ [<code>Colour</code>](#Colour)
+Returns a copy of the Colour instance.
+
+**Kind**: instance method of [<code>Colour</code>](#Colour)  
+**Returns**: [<code>Colour</code>](#Colour) - An identical Colour object.  
+<a name="Colour+toHEX"></a>
+
+### colour.toHEX() ⇒ <code>string</code>
+Return a valid hexadecimal colour code that represents the colour.
+
+**Kind**: instance method of [<code>Colour</code>](#Colour)  
+**Returns**: <code>string</code> - A HEX code representing the colour.  
+<a name="Colour.redMax"></a>
+
+### Colour.redMax : <code>number</code>
+**Kind**: static constant of [<code>Colour</code>](#Colour)  
+**Default**: <code>255</code>  
+<a name="Colour.redMin"></a>
+
+### Colour.redMin : <code>number</code>
+**Kind**: static constant of [<code>Colour</code>](#Colour)  
+**Default**: <code>0</code>  
+<a name="Colour.greenMax"></a>
+
+### Colour.greenMax : <code>number</code>
+**Kind**: static constant of [<code>Colour</code>](#Colour)  
+**Default**: <code>255</code>  
+<a name="Colour.greenMin"></a>
+
+### Colour.greenMin : <code>number</code>
+**Kind**: static constant of [<code>Colour</code>](#Colour)  
+**Default**: <code>0</code>  
+<a name="Colour.blueMax"></a>
+
+### Colour.blueMax : <code>number</code>
+**Kind**: static constant of [<code>Colour</code>](#Colour)  
+**Default**: <code>255</code>  
+<a name="Colour.blueMin"></a>
+
+### Colour.blueMin : <code>number</code>
+**Kind**: static constant of [<code>Colour</code>](#Colour)  
+**Default**: <code>0</code>  
+<a name="Colour.hueMax"></a>
+
+### Colour.hueMax : <code>number</code>
+**Kind**: static constant of [<code>Colour</code>](#Colour)  
+**Default**: <code>360</code>  
+<a name="Colour.hueMin"></a>
+
+### Colour.hueMin : <code>number</code>
+**Kind**: static constant of [<code>Colour</code>](#Colour)  
+**Default**: <code>0</code>  
+<a name="Colour.saturationvMax"></a>
+
+### Colour.saturationvMax : <code>number</code>
+**Kind**: static constant of [<code>Colour</code>](#Colour)  
+**Default**: <code>1.00</code>  
+<a name="Colour.saturationvMin"></a>
+
+### Colour.saturationvMin : <code>number</code>
+**Kind**: static constant of [<code>Colour</code>](#Colour)  
+**Default**: <code>0.00</code>  
+<a name="Colour.valueMax"></a>
+
+### Colour.valueMax : <code>number</code>
+**Kind**: static constant of [<code>Colour</code>](#Colour)  
+**Default**: <code>1.00</code>  
+<a name="Colour.valueMin"></a>
+
+### Colour.valueMin : <code>number</code>
+**Kind**: static constant of [<code>Colour</code>](#Colour)  
+**Default**: <code>0.00</code>  
+<a name="Colour.cyanMax"></a>
+
+### Colour.cyanMax : <code>number</code>
+**Kind**: static constant of [<code>Colour</code>](#Colour)  
+**Default**: <code>1.00</code>  
+<a name="Colour.cyanMin"></a>
+
+### Colour.cyanMin : <code>number</code>
+**Kind**: static constant of [<code>Colour</code>](#Colour)  
+**Default**: <code>0.00</code>  
+<a name="Colour.magentaMax"></a>
+
+### Colour.magentaMax : <code>number</code>
+**Kind**: static constant of [<code>Colour</code>](#Colour)  
+**Default**: <code>1.00</code>  
+<a name="Colour.magentaMin"></a>
+
+### Colour.magentaMin : <code>number</code>
+**Kind**: static constant of [<code>Colour</code>](#Colour)  
+**Default**: <code>0.00</code>  
+<a name="Colour.yellowMax"></a>
+
+### Colour.yellowMax : <code>number</code>
+**Kind**: static constant of [<code>Colour</code>](#Colour)  
+**Default**: <code>1.00</code>  
+<a name="Colour.yellowMin"></a>
+
+### Colour.yellowMin : <code>number</code>
+**Kind**: static constant of [<code>Colour</code>](#Colour)  
+**Default**: <code>0.00</code>  
+<a name="Colour.saturationlMax"></a>
+
+### Colour.saturationlMax : <code>number</code>
+**Kind**: static constant of [<code>Colour</code>](#Colour)  
+**Default**: <code>1.00</code>  
+<a name="Colour.saturationlMin"></a>
+
+### Colour.saturationlMin : <code>number</code>
+**Kind**: static constant of [<code>Colour</code>](#Colour)  
+**Default**: <code>0.00</code>  
+<a name="Colour.lightMax"></a>
+
+### Colour.lightMax : <code>number</code>
+**Kind**: static constant of [<code>Colour</code>](#Colour)  
+**Default**: <code>1.00</code>  
+<a name="Colour.lightMin"></a>
+
+### Colour.lightMin : <code>number</code>
+**Kind**: static constant of [<code>Colour</code>](#Colour)  
+**Default**: <code>0.00</code>  
+<a name="Colour.whiteMax"></a>
+
+### Colour.whiteMax : <code>number</code>
+**Kind**: static constant of [<code>Colour</code>](#Colour)  
+**Default**: <code>1.00</code>  
+<a name="Colour.whiteMin"></a>
+
+### Colour.whiteMin : <code>number</code>
+**Kind**: static constant of [<code>Colour</code>](#Colour)  
+**Default**: <code>0.00</code>  
+<a name="Colour.blackMax"></a>
+
+### Colour.blackMax : <code>number</code>
+**Kind**: static constant of [<code>Colour</code>](#Colour)  
+**Default**: <code>1.00</code>  
+<a name="Colour.blackMin"></a>
+
+### Colour.blackMin : <code>number</code>
+**Kind**: static constant of [<code>Colour</code>](#Colour)  
+**Default**: <code>0.00</code>  
+<a name="Colour.alphaMax"></a>
+
+### Colour.alphaMax : <code>number</code>
+**Kind**: static constant of [<code>Colour</code>](#Colour)  
+**Default**: <code>1.00</code>  
+<a name="Colour.alphaMin"></a>
+
+### Colour.alphaMin : <code>number</code>
+**Kind**: static constant of [<code>Colour</code>](#Colour)  
+**Default**: <code>0.00</code>  
+<a name="Colour.RGB"></a>
+
+### Colour.RGB(red, green, blue, [alpha]) ⇒ [<code>Colour</code>](#Colour)
+Initialize a new Colour instance from RGB colour attributes.
+
+**Kind**: static method of [<code>Colour</code>](#Colour)  
+**Returns**: [<code>Colour</code>](#Colour) - A new Colour instance generated from the RGB colour attributes.  
+
+| Param | Type | Default | Description |
+| --- | --- | --- | --- |
+| red | <code>number</code> |  | The value of the R channel [0, 255]. |
+| green | <code>number</code> |  | The value of the G channel [0, 255]. |
+| blue | <code>number</code> |  | The value of the B channel [0, 255]. |
+| [alpha] | <code>number</code> | <code>1.00</code> | The percentage of transparency or opacity channel [0, 1]. Defaults to [alphaMax](#Colour.alphaMax). |
+
+<a name="Colour.HSV"></a>
+
+### Colour.HSV(hue, saturationv, value, [alpha]) ⇒ [<code>Colour</code>](#Colour)
+Initialize a new Colour instance from HSV colour attributes.
+
+**Kind**: static method of [<code>Colour</code>](#Colour)  
+**Returns**: [<code>Colour</code>](#Colour) - A new Colour instance generated from the HSV colour attributes.  
+
+| Param | Type | Default | Description |
+| --- | --- | --- | --- |
+| hue | <code>number</code> |  | The value of the H channel [0, 360]. |
+| saturationv | <code>number</code> |  | The percentage of the S channel [0, 1]. |
+| value | <code>number</code> |  | The percentage of the V channel [0, 1]. |
+| [alpha] | <code>number</code> | <code>1.00</code> | The percentage of transparency or opacity channel [0, 1]. Defaults to [alphaMax](#Colour.alphaMax). |
+
+<a name="Colour.CMYK"></a>
+
+### Colour.CMYK(cyan, magenta, yellow, black, [alpha]) ⇒ [<code>Colour</code>](#Colour)
+Initialize a new Colour instance from CMYK colour attributes.
+
+**Kind**: static method of [<code>Colour</code>](#Colour)  
+**Returns**: [<code>Colour</code>](#Colour) - A new Colour instance generated from the CMYK colour attributes.  
+
+| Param | Type | Default | Description |
+| --- | --- | --- | --- |
+| cyan | <code>number</code> |  | The value of the C channel [0, 1]. |
+| magenta | <code>number</code> |  | The value of the M channel [0, 1]. |
+| yellow | <code>number</code> |  | The value of the Y channel [0, 1]. |
+| black | <code>number</code> |  | The value of the K channel [0, 1]. |
+| [alpha] | <code>number</code> | <code>1.00</code> | The percentage of transparency or opacity channel [0, 1]. Defaults to [alphaMax](#Colour.alphaMax). |
+
+<a name="Colour.HSL"></a>
+
+### Colour.HSL(hue, saturationl, light, [alpha]) ⇒ [<code>Colour</code>](#Colour)
+Initialize a new Colour instance from HSL colour attributes.
+
+**Kind**: static method of [<code>Colour</code>](#Colour)  
+**Returns**: [<code>Colour</code>](#Colour) - A new Colour instance generated from the HSL colour attributes.  
+
+| Param | Type | Default | Description |
+| --- | --- | --- | --- |
+| hue | <code>number</code> |  | The value of the H channel [0, 360]. |
+| saturationl | <code>number</code> |  | The value of the S channel [0, 1]. |
+| light | <code>number</code> |  | The value of the L channel [0, 1]. |
+| [alpha] | <code>number</code> | <code>1.00</code> | The percentage of transparency or opacity channel [0, 1]. Defaults to [alphaMax](#Colour.alphaMax). |
+
+<a name="Colour.HWB"></a>
+
+### Colour.HWB(hue, white, black, [alpha]) ⇒ [<code>Colour</code>](#Colour)
+Initialize a new Colour instance from HWB colour attributes.
+
+**Kind**: static method of [<code>Colour</code>](#Colour)  
+**Returns**: [<code>Colour</code>](#Colour) - A new Colour instance generated from the HWB colour attributes.  
+
+| Param | Type | Default | Description |
+| --- | --- | --- | --- |
+| hue | <code>number</code> |  | The value of the H channel [0, 360]. |
+| white | <code>number</code> |  | The value of the W channel [0, 1]. |
+| black | <code>number</code> |  | The value of the B channel [0, 1]. |
+| [alpha] | <code>number</code> | <code>1.00</code> | The percentage of transparency or opacity channel [0, 1]. Defaults to [alphaMax](#Colour.alphaMax). |
+
 <a name="negate"></a>
 
 ## negate(colour) ⇒ [<code>Colour</code>](#Colour)
 Determine the inverse colour or the colour on the opposite side of the colour wheel.
 
 **Kind**: global function  
-**Returns**: [<code>Colour</code>](#Colour) - The colour resulting from the negation  
+**Returns**: [<code>Colour</code>](#Colour) - The colour resulting from the negation.  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| colour | [<code>Colour</code>](#Colour) | The colour to invert |
+| colour | [<code>Colour</code>](#Colour) | The colour to invert. |
 
 <a name="rotate"></a>
 
@@ -559,12 +887,12 @@ Determine the inverse colour or the colour on the opposite side of the colour wh
 Rotate a given colour a certain number of degrees in 3-dimensional space.
 
 **Kind**: global function  
-**Returns**: [<code>Colour</code>](#Colour) - - The colour resulting from the rotation  
+**Returns**: [<code>Colour</code>](#Colour) - The colour resulting from the rotation.  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| colour | [<code>Colour</code>](#Colour) | The colour to rotate |
-| degrees | <code>number</code> | The number of degrees to rotate the colour |
+| colour | [<code>Colour</code>](#Colour) | The colour to rotate. |
+| degrees | <code>number</code> | The number of degrees to rotate the colour. |
 
 <a name="grayscale"></a>
 
@@ -572,25 +900,25 @@ Rotate a given colour a certain number of degrees in 3-dimensional space.
 Determine the equivalent [grayscale colour of a given colour](https://www.tutorialspoint.com/dip/grayscale_to_rgb_conversion.htm).
 
 **Kind**: global function  
-**Returns**: [<code>Colour</code>](#Colour) - The resulting colour from the grayscale transformation  
+**Returns**: [<code>Colour</code>](#Colour) - The resulting colour from the grayscale transformation.  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| colour | [<code>Colour</code>](#Colour) | The colour to grayscale |
+| colour | [<code>Colour</code>](#Colour) | The colour to grayscale. |
 
 <a name="contrast"></a>
 
 ## contrast(colour1, colour2) ⇒ <code>number</code>
 Calculate the [WCAG contrast ratio](http://www.w3.org/TR/WCAG20/#contrast-ratiodef)
-between two colours. (Note: The order of the colours does not matter!)
+between two colours. (Note: The order of the colours does not matter!).
 
 **Kind**: global function  
-**Returns**: <code>number</code> - The WCAG contrast ratio of the two colours (values ranging between 1 and 21)  
+**Returns**: <code>number</code> - The WCAG contrast ratio of the two colours (values ranging between 1 and 21).  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| colour1 | [<code>Colour</code>](#Colour) | The first colour to be compared |
-| colour2 | [<code>Colour</code>](#Colour) | The second colour to be compared |
+| colour1 | [<code>Colour</code>](#Colour) | The first colour to be compared. |
+| colour2 | [<code>Colour</code>](#Colour) | The second colour to be compared. |
 
 <a name="colourfulness"></a>
 
@@ -598,7 +926,7 @@ between two colours. (Note: The order of the colours does not matter!)
 Calculate the [colourfulness index](https://infoscience.epfl.ch/record/33994/files/HaslerS03.pdf) of a given colour as defined by Hasler and Süsstrunk (2003).
 
 **Kind**: global function  
-**Returns**: <code>number</code> - The resulting colourfulness grading  
+**Returns**: <code>number</code> - The resulting colourfulness grading.  
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -610,7 +938,7 @@ Calculate the [colourfulness index](https://infoscience.epfl.ch/record/33994/fil
 Calculate the [temperature](https://ams.com/documents/20143/80162/TCS34xx_AN000517_1-00.pdf) of a given colour.
 
 **Kind**: global function  
-**Returns**: <code>number</code> - The resulting temperature grading in degrees Kelvin (K)  
+**Returns**: <code>number</code> - The resulting temperature grading in degrees Kelvin (K).  
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -622,7 +950,7 @@ Calculate the [temperature](https://ams.com/documents/20143/80162/TCS34xx_AN0005
 Calculate the [relative luminance](https://www.w3.org/WAI/GL/wiki/Relative_luminance) of a given colour as defined by the WCAG.
 
 **Kind**: global function  
-**Returns**: <code>number</code> - The resulting luminence grading  
+**Returns**: <code>number</code> - The resulting luminence grading.  
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -634,13 +962,13 @@ Calculate the [relative luminance](https://www.w3.org/WAI/GL/wiki/Relative_lumin
 Evenly interpolate two colours and produce the resulting midpoint colour.
 
 **Kind**: global function  
-**Returns**: [<code>Colour</code>](#Colour) - The colour resulting from the mix  
+**Returns**: [<code>Colour</code>](#Colour) - The colour resulting from the mix.  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| colour1 | [<code>Colour</code>](#Colour) | The first colour to include in the mix |
-| colour2 | [<code>Colour</code>](#Colour) | The second colour to include in the mix |
-| percent | <code>number</code> | The percentage of the blend colour to mix |
+| colour1 | [<code>Colour</code>](#Colour) | The first colour to include in the mix. |
+| colour2 | [<code>Colour</code>](#Colour) | The second colour to include in the mix. |
+| percent | <code>number</code> | The percentage of the blend colour to mix. |
 
 <a name="tint"></a>
 
@@ -648,12 +976,12 @@ Evenly interpolate two colours and produce the resulting midpoint colour.
 Interpolate a given colour with white to create a tint.
 
 **Kind**: global function  
-**Returns**: [<code>Colour</code>](#Colour) - The colour resulting from tinting the original colour  
+**Returns**: [<code>Colour</code>](#Colour) - The colour resulting from tinting the original colour.  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| colour | [<code>Colour</code>](#Colour) | A colour to tint |
-| percent | <code>number</code> | The percentage of white to mix; setting 100% results in #FFFFFF |
+| colour | [<code>Colour</code>](#Colour) | A colour to tint. |
+| percent | <code>number</code> | The percentage of white to mix; setting 100% results in #FFFFFF. |
 
 <a name="shade"></a>
 
@@ -661,12 +989,12 @@ Interpolate a given colour with white to create a tint.
 Interpolate a given colour with black to create a shade.
 
 **Kind**: global function  
-**Returns**: [<code>Colour</code>](#Colour) - The colour resulting from shading the original colour  
+**Returns**: [<code>Colour</code>](#Colour) - The colour resulting from shading the original colour.  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| colour | [<code>Colour</code>](#Colour) | A colour to shade |
-| percent | <code>number</code> | The percentage of black to mix; setting 100% results in #000000 |
+| colour | [<code>Colour</code>](#Colour) | A colour to shade. |
+| percent | <code>number</code> | The percentage of black to mix; setting 100% results in #000000. |
 
 <a name="tone"></a>
 
@@ -674,12 +1002,12 @@ Interpolate a given colour with black to create a shade.
 Interpolate a given colour with gray to create a tone.
 
 **Kind**: global function  
-**Returns**: [<code>Colour</code>](#Colour) - The colour resulting from toning the original colour  
+**Returns**: [<code>Colour</code>](#Colour) - The colour resulting from toning the original colour.  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| colour | [<code>Colour</code>](#Colour) | A colour to tone |
-| percent | <code>number</code> | The percentage of gray to mix; setting 100% results in #808080 |
+| colour | [<code>Colour</code>](#Colour) | A colour to tone. |
+| percent | <code>number</code> | The percentage of gray to mix; setting 100% results in #808080. |
 
 <a name="normal"></a>
 
@@ -687,12 +1015,12 @@ Interpolate a given colour with gray to create a tone.
 This is the blend mode which specifies no blending. The blending formula simply selects the blend colour.
 
 **Kind**: global function  
-**Returns**: [<code>Colour</code>](#Colour) - The colour resulting from the blend  
+**Returns**: [<code>Colour</code>](#Colour) - The colour resulting from the blend.  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| baseColour | [<code>Colour</code>](#Colour) | The base colour being blended |
-| blendColour | [<code>Colour</code>](#Colour) | The colour being applied with the designated blend mode |
+| baseColour | [<code>Colour</code>](#Colour) | The base colour being blended. |
+| blendColour | [<code>Colour</code>](#Colour) | The colour being applied with the designated blend mode. |
 
 <a name="multiply"></a>
 
@@ -700,12 +1028,12 @@ This is the blend mode which specifies no blending. The blending formula simply 
 Looks at the colour information in each channel and multiplies the base colour by the blend colour. The result colour is always a darker colour. Multiplying any colour with black produces black. Multiplying any colour with white leaves the colour unchanged.
 
 **Kind**: global function  
-**Returns**: [<code>Colour</code>](#Colour) - The colour resulting from the blend  
+**Returns**: [<code>Colour</code>](#Colour) - The colour resulting from the blend.  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| baseColour | [<code>Colour</code>](#Colour) | The base colour being blended |
-| blendColour | [<code>Colour</code>](#Colour) | The colour being applied with the designated blend mode |
+| baseColour | [<code>Colour</code>](#Colour) | The base colour being blended. |
+| blendColour | [<code>Colour</code>](#Colour) | The colour being applied with the designated blend mode. |
 
 <a name="screen"></a>
 
@@ -713,12 +1041,12 @@ Looks at the colour information in each channel and multiplies the base colour b
 Looks at each channel’s colour information and multiplies the inverse of the blend and base colours. The result colour is always a lighter colour. Screening with black leaves the colour unchanged. Screening with white produces white. The effect is similar to projecting multiple photographic slides on top of each other.
 
 **Kind**: global function  
-**Returns**: [<code>Colour</code>](#Colour) - The colour resulting from the blend  
+**Returns**: [<code>Colour</code>](#Colour) - The colour resulting from the blend.  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| baseColour | [<code>Colour</code>](#Colour) | The base colour being blended |
-| blendColour | [<code>Colour</code>](#Colour) | The colour being applied with the designated blend mode |
+| baseColour | [<code>Colour</code>](#Colour) | The base colour being blended. |
+| blendColour | [<code>Colour</code>](#Colour) | The colour being applied with the designated blend mode. |
 
 <a name="overlay"></a>
 
@@ -726,12 +1054,12 @@ Looks at each channel’s colour information and multiplies the inverse of the b
 Multiplies or screens the colours, depending on the base colour. The base colour is not replaced, but mixed with the blend colour to reflect the lightness or darkness of the original colour.
 
 **Kind**: global function  
-**Returns**: [<code>Colour</code>](#Colour) - The colour resulting from the blend  
+**Returns**: [<code>Colour</code>](#Colour) - The colour resulting from the blend.  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| baseColour | [<code>Colour</code>](#Colour) | The base colour being blended |
-| blendColour | [<code>Colour</code>](#Colour) | The colour being applied with the designated blend mode |
+| baseColour | [<code>Colour</code>](#Colour) | The base colour being blended. |
+| blendColour | [<code>Colour</code>](#Colour) | The colour being applied with the designated blend mode. |
 
 <a name="darken"></a>
 
@@ -739,12 +1067,12 @@ Multiplies or screens the colours, depending on the base colour. The base colour
 Looks at the colour information in each channel and selects the base or blend colour—whichever is darker—as the result colour.
 
 **Kind**: global function  
-**Returns**: [<code>Colour</code>](#Colour) - The colour resulting from the blend  
+**Returns**: [<code>Colour</code>](#Colour) - The colour resulting from the blend.  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| baseColour | [<code>Colour</code>](#Colour) | The base colour being blended |
-| blendColour | [<code>Colour</code>](#Colour) | The colour being applied with the designated blend mode |
+| baseColour | [<code>Colour</code>](#Colour) | The base colour being blended. |
+| blendColour | [<code>Colour</code>](#Colour) | The colour being applied with the designated blend mode. |
 
 <a name="lighten"></a>
 
@@ -752,12 +1080,12 @@ Looks at the colour information in each channel and selects the base or blend co
 Looks at the colour information in each channel and selects the base or blend colour—whichever is lighter—as the result colour.
 
 **Kind**: global function  
-**Returns**: [<code>Colour</code>](#Colour) - The colour resulting from the blend  
+**Returns**: [<code>Colour</code>](#Colour) - The colour resulting from the blend.  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| baseColour | [<code>Colour</code>](#Colour) | The base colour being blended |
-| blendColour | [<code>Colour</code>](#Colour) | The colour being applied with the designated blend mode |
+| baseColour | [<code>Colour</code>](#Colour) | The base colour being blended. |
+| blendColour | [<code>Colour</code>](#Colour) | The colour being applied with the designated blend mode. |
 
 <a name="colourDodge"></a>
 
@@ -765,12 +1093,12 @@ Looks at the colour information in each channel and selects the base or blend co
 Looks at the colour information in each channel and brightens the base colour to reflect the blend colour by decreasing contrast between the two. Blending with black produces no change.
 
 **Kind**: global function  
-**Returns**: [<code>Colour</code>](#Colour) - The colour resulting from the blend  
+**Returns**: [<code>Colour</code>](#Colour) - The colour resulting from the blend.  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| baseColour | [<code>Colour</code>](#Colour) | The base colour being blended |
-| blendColour | [<code>Colour</code>](#Colour) | The colour being applied with the designated blend mode |
+| baseColour | [<code>Colour</code>](#Colour) | The base colour being blended. |
+| blendColour | [<code>Colour</code>](#Colour) | The colour being applied with the designated blend mode. |
 
 <a name="colourBurn"></a>
 
@@ -778,12 +1106,12 @@ Looks at the colour information in each channel and brightens the base colour to
 Looks at the colour information in each channel and darkens the base colour to reflect the blend colour by increasing the contrast between the two. Blending with white produces no change.
 
 **Kind**: global function  
-**Returns**: [<code>Colour</code>](#Colour) - The colour resulting from the blend  
+**Returns**: [<code>Colour</code>](#Colour) - The colour resulting from the blend.  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| baseColour | [<code>Colour</code>](#Colour) | The base colour being blended |
-| blendColour | [<code>Colour</code>](#Colour) | The colour being applied with the designated blend mode |
+| baseColour | [<code>Colour</code>](#Colour) | The base colour being blended. |
+| blendColour | [<code>Colour</code>](#Colour) | The colour being applied with the designated blend mode. |
 
 <a name="hardLight"></a>
 
@@ -791,12 +1119,12 @@ Looks at the colour information in each channel and darkens the base colour to r
 Multiplies or screens the colours, depending on the blend colour. The effect is similar to shining a harsh spotlight on the colour. If the blend colour (light source) is lighter than 50% gray, the colour is lightened, as if it were screened. This is useful for adding highlights to an colour. If the blend colour is darker than 50% gray, the colour is darkened, as if it were multiplied. This is useful for adding shadows to an colour. Painting with pure black or white results in pure black or white.
 
 **Kind**: global function  
-**Returns**: [<code>Colour</code>](#Colour) - The colour resulting from the blend  
+**Returns**: [<code>Colour</code>](#Colour) - The colour resulting from the blend.  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| baseColour | [<code>Colour</code>](#Colour) | The base colour being blended |
-| blendColour | [<code>Colour</code>](#Colour) | The colour being applied with the designated blend mode |
+| baseColour | [<code>Colour</code>](#Colour) | The base colour being blended. |
+| blendColour | [<code>Colour</code>](#Colour) | The colour being applied with the designated blend mode. |
 
 <a name="softLight"></a>
 
@@ -804,12 +1132,12 @@ Multiplies or screens the colours, depending on the blend colour. The effect is 
 Darkens or lightens the colours, depending on the blend colour. The effect is similar to shining a diffused spotlight on the colour. If the blend colour (light source) is lighter than 50% gray, the colour is lightened as if it were dodged. If the blend colour is darker than 50% gray, the colour is darkened as if it were burned in. Painting with pure black or white produces a distinctly darker or lighter area, but does not result in pure black or white.
 
 **Kind**: global function  
-**Returns**: [<code>Colour</code>](#Colour) - The colour resulting from the blend  
+**Returns**: [<code>Colour</code>](#Colour) - The colour resulting from the blend.  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| baseColour | [<code>Colour</code>](#Colour) | The base colour being blended |
-| blendColour | [<code>Colour</code>](#Colour) | The colour being applied with the designated blend mode |
+| baseColour | [<code>Colour</code>](#Colour) | The base colour being blended. |
+| blendColour | [<code>Colour</code>](#Colour) | The colour being applied with the designated blend mode. |
 
 <a name="difference"></a>
 
@@ -817,12 +1145,12 @@ Darkens or lightens the colours, depending on the blend colour. The effect is si
 Looks at the colour information in each channel and subtracts either the blend colour from the base colour or the base colour from the blend colour, depending on which has the greater brightness value. Blending with white inverts the base colour values; blending with black produces no change.
 
 **Kind**: global function  
-**Returns**: [<code>Colour</code>](#Colour) - The colour resulting from the blend  
+**Returns**: [<code>Colour</code>](#Colour) - The colour resulting from the blend.  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| baseColour | [<code>Colour</code>](#Colour) | The base colour being blended |
-| blendColour | [<code>Colour</code>](#Colour) | The colour being applied with the designated blend mode |
+| baseColour | [<code>Colour</code>](#Colour) | The base colour being blended. |
+| blendColour | [<code>Colour</code>](#Colour) | The colour being applied with the designated blend mode. |
 
 <a name="exclusion"></a>
 
@@ -830,12 +1158,12 @@ Looks at the colour information in each channel and subtracts either the blend c
 Creates an effect similar to but lower in contrast than the Difference mode. Blending with white inverts the base colour values. Blending with black produces no change.
 
 **Kind**: global function  
-**Returns**: [<code>Colour</code>](#Colour) - The colour resulting from the blend  
+**Returns**: [<code>Colour</code>](#Colour) - The colour resulting from the blend.  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| baseColour | [<code>Colour</code>](#Colour) | The base colour being blended |
-| blendColour | [<code>Colour</code>](#Colour) | The colour being applied with the designated blend mode |
+| baseColour | [<code>Colour</code>](#Colour) | The base colour being blended. |
+| blendColour | [<code>Colour</code>](#Colour) | The colour being applied with the designated blend mode. |
 
 <a name="shades"></a>
 
@@ -843,7 +1171,7 @@ Creates an effect similar to but lower in contrast than the Difference mode. Ble
 Generate a colour palette containing all shades of the provided colour.
 
 **Kind**: global function  
-**Returns**: [<code>Array.&lt;Colour&gt;</code>](#Colour) - The resulting colour palette  
+**Returns**: [<code>Array.&lt;Colour&gt;</code>](#Colour) - The resulting colour palette.  
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -856,7 +1184,7 @@ Generate a colour palette containing all shades of the provided colour.
 Generate a colour palette containing all tints of the provided colour.
 
 **Kind**: global function  
-**Returns**: [<code>Array.&lt;Colour&gt;</code>](#Colour) - The resulting colour palette  
+**Returns**: [<code>Array.&lt;Colour&gt;</code>](#Colour) - The resulting colour palette.  
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -869,7 +1197,7 @@ Generate a colour palette containing all tints of the provided colour.
 Generate a colour palette containing all tones of the provided colour.
 
 **Kind**: global function  
-**Returns**: [<code>Array.&lt;Colour&gt;</code>](#Colour) - The resulting colour palette  
+**Returns**: [<code>Array.&lt;Colour&gt;</code>](#Colour) - The resulting colour palette.  
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -882,11 +1210,11 @@ Generate a colour palette containing all tones of the provided colour.
 Generate a colour palette containing the analogous colours of the provided colour. Analogous colours are next to each other on the colour wheel.
 
 **Kind**: global function  
-**Returns**: [<code>Array.&lt;Colour&gt;</code>](#Colour) - The resulting colour palette  
+**Returns**: [<code>Array.&lt;Colour&gt;</code>](#Colour) - The resulting colour palette.  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| colour | [<code>Colour</code>](#Colour) | The colour to generate a palette for |
+| colour | [<code>Colour</code>](#Colour) | The colour to generate a palette for. |
 
 <a name="complementary"></a>
 
@@ -894,11 +1222,11 @@ Generate a colour palette containing the analogous colours of the provided colou
 Generate a colour palette containing the complementary colours of the provided colour. Complementary colours are opposite on the colour wheel.
 
 **Kind**: global function  
-**Returns**: [<code>Array.&lt;Colour&gt;</code>](#Colour) - The resulting colour palette  
+**Returns**: [<code>Array.&lt;Colour&gt;</code>](#Colour) - The resulting colour palette.  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| colour | [<code>Colour</code>](#Colour) | The colour to generate a palette for |
+| colour | [<code>Colour</code>](#Colour) | The colour to generate a palette for. |
 
 <a name="splitComplementary"></a>
 
@@ -906,11 +1234,11 @@ Generate a colour palette containing the complementary colours of the provided c
 Generate a colour palette containing the split complementary colours of the provided colour. Split complementary colours contain the two adjacent colours of the complement.
 
 **Kind**: global function  
-**Returns**: [<code>Array.&lt;Colour&gt;</code>](#Colour) - The resulting colour palette  
+**Returns**: [<code>Array.&lt;Colour&gt;</code>](#Colour) - The resulting colour palette.  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| colour | [<code>Colour</code>](#Colour) | The colour to generate a palette for |
+| colour | [<code>Colour</code>](#Colour) | The colour to generate a palette for. |
 
 <a name="triadic"></a>
 
@@ -918,11 +1246,11 @@ Generate a colour palette containing the split complementary colours of the prov
 Generate a colour palette containing the triadic colours of the provided colour. Triadic colours a three equally spaced colours on the colour wheel.
 
 **Kind**: global function  
-**Returns**: [<code>Array.&lt;Colour&gt;</code>](#Colour) - The resulting colour palette  
+**Returns**: [<code>Array.&lt;Colour&gt;</code>](#Colour) - The resulting colour palette.  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| colour | [<code>Colour</code>](#Colour) | The colour to generate a palette for |
+| colour | [<code>Colour</code>](#Colour) | The colour to generate a palette for. |
 
 <a name="tetradic"></a>
 
@@ -930,11 +1258,11 @@ Generate a colour palette containing the triadic colours of the provided colour.
 Generate a colour palette containing the tetradic colours of the provided colour.
 
 **Kind**: global function  
-**Returns**: [<code>Array.&lt;Colour&gt;</code>](#Colour) - The resulting colour palette  
+**Returns**: [<code>Array.&lt;Colour&gt;</code>](#Colour) - The resulting colour palette.  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| colour | [<code>Colour</code>](#Colour) | The colour to generate a palette for |
+| colour | [<code>Colour</code>](#Colour) | The colour to generate a palette for. |
 
 <a name="square"></a>
 
@@ -942,11 +1270,11 @@ Generate a colour palette containing the tetradic colours of the provided colour
 Generate a colour palette containing the square colours of the provided colour.
 
 **Kind**: global function  
-**Returns**: [<code>Array.&lt;Colour&gt;</code>](#Colour) - The resulting colour palette  
+**Returns**: [<code>Array.&lt;Colour&gt;</code>](#Colour) - The resulting colour palette.  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| colour | [<code>Colour</code>](#Colour) | The colour to generate a palette for |
+| colour | [<code>Colour</code>](#Colour) | The colour to generate a palette for. |
 
 <a name="randoms"></a>
 
@@ -954,11 +1282,11 @@ Generate a colour palette containing the square colours of the provided colour.
 Generate a palette containing random colours.
 
 **Kind**: global function  
-**Returns**: [<code>Array.&lt;Colour&gt;</code>](#Colour) - The resulting colour palette  
+**Returns**: [<code>Array.&lt;Colour&gt;</code>](#Colour) - The resulting colour palette.  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| num | <code>number</code> | The length of the palette |
+| num | <code>number</code> | The length of the palette. |
 
 <a name="validateContrast"></a>
 
@@ -970,8 +1298,8 @@ Validate that the contrast between the provided text colour and background colou
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
-| textColour | [<code>Colour</code>](#Colour) |  | The colour of the text |
-| backgroundColour | [<code>Colour</code>](#Colour) |  | The colour of the background |
+| textColour | [<code>Colour</code>](#Colour) |  | The colour of the text. |
+| backgroundColour | [<code>Colour</code>](#Colour) |  | The colour of the background. |
 | [largeText] | <code>boolean</code> | <code>false</code> | True if text size is large. By default, text is assumed to be regular size. |
 | [enhanced] | <code>boolean</code> | <code>false</code> | True if the enhanced contrast ratio is to be used. By default, the minimum contrast ratio is used. |
 
@@ -985,8 +1313,8 @@ Check if the provided text colour and background colour meet the [WCAG contrast 
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
-| textColour | [<code>Colour</code>](#Colour) |  | The colour of the text |
-| backgroundColour | [<code>Colour</code>](#Colour) |  | The colour of the background |
+| textColour | [<code>Colour</code>](#Colour) |  | The colour of the text. |
+| backgroundColour | [<code>Colour</code>](#Colour) |  | The colour of the background. |
 | [largeText] | <code>boolean</code> | <code>false</code> | True if text size is large. By default, text is assumed to be regular size. |
 | [enhanced] | <code>boolean</code> | <code>false</code> | True if the enhanced contrast ratio is to be used. By default, the minimum contrast ratio is used. |
 
