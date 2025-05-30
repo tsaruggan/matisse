@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "strict": true,
+    "esModuleInterop": true,
+    "outDir": "./dist",
+    "declaration": true,
+    "sourceMap": true,
+    "rootDir": "./",
+    "baseUrl": "./",
+    "paths": {
+      "*": ["node_modules/*"]
+    },
+    "types": ["jest", "node"], // Explicitly specify types
+    "allowSyntheticDefaultImports": true, // Add this for better CJS interop
+    "skipLibCheck": true // Skip type checking of declaration files
+  },
+  "include": ["**/*.ts"],
+  "exclude": ["node_modules", "dist"]
+}

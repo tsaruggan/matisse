@@ -1,15 +1,15 @@
-import Colour, { validateContrast, fixContrast } from "../index.js";
+import Colour, { validateContrast, fixContrast } from "../index";
 
-var black;
-var white;
-var textColour1;
-var backgroundColour1;
-var textColour2;
-var backgroundColour2;
-var textColour3;
-var backgroundColour3;
-var textColour4;
-var backgroundColour4;
+var black: Colour;
+var white: Colour;
+var textColour1: Colour;
+var backgroundColour1: Colour;
+var textColour2: Colour;
+var backgroundColour2: Colour;
+var textColour3: Colour;
+var backgroundColour3: Colour;
+var textColour4: Colour;
+var backgroundColour4: Colour;
 
 beforeEach(() => {
     black = new Colour("#000000");
@@ -53,28 +53,28 @@ test('validate contrast 3', () => {
 });
 
 test('fix contrast 1', () => {
-    const fixed = fixContrast(textColour1, backgroundColour1);
+    const fixed: Colour[] = fixContrast(textColour1, backgroundColour1);
     expect(fixed[0].toHEX()).toBe("#112A46");
     expect(fixed[1].toHEX()).toBe("#ACC8E5");
     expect(validateContrast(fixed[0], fixed[1])).toBe(true);
 });
 
 test('fix contrast 2', () => {
-    const fixed = fixContrast(textColour2, backgroundColour2);
+    const fixed: Colour[] = fixContrast(textColour2, backgroundColour2);
     expect(fixed[0].toHEX()).toBe("#656061");
     expect(fixed[1].toHEX()).toBe("#FFD87C");
     expect(validateContrast(fixed[0], fixed[1])).toBe(true);
 });
 
 test('fix contrast 3', () => {
-    const fixed = fixContrast(textColour3, backgroundColour3);
+    const fixed: Colour[] = fixContrast(textColour3, backgroundColour3);
     expect(fixed[0].toHEX()).toBe("#430404");
     expect(fixed[1].toHEX()).toBe("#D83CF2");
     expect(validateContrast(fixed[0], fixed[1])).toBe(true);
 });
 
 test('fix contrast 4', () => {
-    const fixed = fixContrast(textColour4, backgroundColour4);
+    const fixed: Colour[] = fixContrast(textColour4, backgroundColour4);
     expect(fixed[0].toHEX()).toBe("#F7FF23");
     expect(fixed[1].toHEX()).toBe("#686D74");
     expect(validateContrast(fixed[0], fixed[1])).toBe(true);

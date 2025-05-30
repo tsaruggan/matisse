@@ -1,10 +1,10 @@
-import Colour, { mix, tint, shade, tone, normal, multiply, screen, overlay, darken, lighten, colourDodge, colourBurn, hardLight, softLight, difference, exclusion } from "../index.js";
+import Colour, { mix, tint, shade, tone, normal, multiply, screen, overlay, darken, lighten, colourDodge, colourBurn, hardLight, softLight, difference, exclusion } from "../index";
 
-var colour1;
-var colour2;
-var colour3;
-var black;
-var white;
+var colour1: Colour;
+var colour2: Colour;
+var colour3: Colour;
+var black: Colour;
+var white: Colour;
 
 beforeEach(() => {
     colour1 = Colour.RGB(250, 200, 0, 0.6);
@@ -15,8 +15,8 @@ beforeEach(() => {
 });
 
 test('normal blend', () => {
-    let actual = normal(colour1, colour2);
-    let expected = Colour.RGB(145, 174, 39, 0.76);
+    let actual: Colour = normal(colour1, colour2);
+    let expected: Colour = Colour.RGB(145, 174, 39, 0.76);
 
     expect(actual.red).toBe(expected.red);
     expect(actual.green).toBe(expected.green);
@@ -24,8 +24,8 @@ test('normal blend', () => {
 });
 
 test('multiply blend', () => {
-    let actual = multiply(colour1, colour2);
-    let expected = Colour.RGB(144, 164, 16, 0.76);
+    let actual: Colour = multiply(colour1, colour2);
+    let expected: Colour = Colour.RGB(144, 164, 16, 0.76);
 
     expect(actual.red).toBe(expected.red);
     expect(actual.green).toBe(expected.green);
@@ -33,8 +33,8 @@ test('multiply blend', () => {
 });
 
 test('screen blend', () => {
-    let actual = screen(colour1, colour2);
-    let expected = Colour.RGB(208, 199, 39, 0.76);
+    let actual: Colour = screen(colour1, colour2);
+    let expected: Colour = Colour.RGB(208, 199, 39, 0.76);
 
     expect(actual.red).toBe(expected.red);
     expect(actual.green).toBe(expected.green);
@@ -42,8 +42,8 @@ test('screen blend', () => {
 });
 
 test('overlay blend', () => {
-    let actual = overlay(colour1, colour2);
-    let expected = Colour.RGB(207, 193, 16, 0.76);
+    let actual: Colour = overlay(colour1, colour2);
+    let expected: Colour = Colour.RGB(207, 193, 16, 0.76);
 
     expect(actual.red).toBe(expected.red);
     expect(actual.green).toBe(expected.green);
@@ -51,8 +51,8 @@ test('overlay blend', () => {
 });
 
 test('darken blend', () => {
-    let actual = darken(colour1, colour2);
-    let expected = Colour.RGB(145, 174, 16, 0.76);
+    let actual: Colour = darken(colour1, colour2);
+    let expected: Colour = Colour.RGB(145, 174, 16, 0.76);
 
     expect(actual.red).toBe(expected.red);
     expect(actual.green).toBe(expected.green);
@@ -60,8 +60,8 @@ test('darken blend', () => {
 });
 
 test('lighten blend', () => {
-    let actual = lighten(colour1, colour2);
-    let expected = Colour.RGB(208, 189, 39, 0.76);
+    let actual: Colour = lighten(colour1, colour2);
+    let expected: Colour = Colour.RGB(208, 189, 39, 0.76);
 
     expect(actual.red).toBe(expected.red);
     expect(actual.green).toBe(expected.green);
@@ -69,8 +69,8 @@ test('lighten blend', () => {
 });
 
 test('colourDodge blend', () => {
-    let actual = colourDodge(colour1, colour2);
-    let expected = Colour.RGB(209, 207, 16, 0.76);
+    let actual: Colour = colourDodge(colour1, colour2);
+    let expected: Colour = Colour.RGB(209, 207, 16, 0.76);
 
     expect(actual.red).toBe(expected.red);
     expect(actual.green).toBe(expected.green);
@@ -78,8 +78,8 @@ test('colourDodge blend', () => {
 });
 
 test('colourBurn blend', () => {
-    let actual = colourBurn(colour1, colour2);
-    let expected = Colour.RGB(201, 177, 16, 0.76);
+    let actual: Colour = colourBurn(colour1, colour2);
+    let expected: Colour = Colour.RGB(201, 177, 16, 0.76);
 
     expect(actual.red).toBeCloseTo(expected.red, 2);
     expect(actual.green).toBe(expected.green);
@@ -87,8 +87,8 @@ test('colourBurn blend', () => {
 });
 
 test('hardLight blend', () => {
-    let actual = hardLight(colour1, colour2);
-    let expected = Colour.RGB(160, 193, 16, 0.76);
+    let actual: Colour = hardLight(colour1, colour2);
+    let expected: Colour = Colour.RGB(160, 193, 16, 0.76);
 
     expect(actual.red).toBe(expected.red);
     expect(actual.green).toBe(expected.green);
@@ -96,8 +96,8 @@ test('hardLight blend', () => {
 });
 
 test('softLight blend', () => {
-    let actual = softLight(colour1, colour2);
-    let expected = Colour.RGB(207, 191, 16, 0.76);
+    let actual: Colour = softLight(colour1, colour2);
+    let expected: Colour = Colour.RGB(207, 191, 16, 0.76);
 
     expect(actual.red).toBe(expected.red);
     expect(actual.green).toBe(expected.green);
@@ -105,8 +105,8 @@ test('softLight blend', () => {
 });
 
 test('difference blend', () => {
-    let actual = difference(colour1, colour2);
-    let expected = Colour.RGB(192, 142, 39, 0.76);
+    let actual: Colour = difference(colour1, colour2);
+    let expected: Colour = Colour.RGB(192, 142, 39, 0.76);
 
     expect(actual.red).toBe(expected.red);
     expect(actual.green).toBe(expected.green);
@@ -114,8 +114,8 @@ test('difference blend', () => {
 });
 
 test('exclusion blend', () => {
-    let actual = exclusion(colour1, colour2);
-    let expected = Colour.RGB(193, 163, 39, 0.76);
+    let actual: Colour = exclusion(colour1, colour2);
+    let expected: Colour = Colour.RGB(193, 163, 39, 0.76);
 
     expect(actual.red).toBe(expected.red);
     expect(actual.green).toBe(expected.green);
@@ -123,8 +123,8 @@ test('exclusion blend', () => {
 });
 
 test('mix', () => {
-  let actual = mix(new Colour("cyan"), new Colour("yellow"), 0.3);
-  let expected = Colour.RGB(77, 255, 179);
+  let actual: Colour = mix(new Colour("cyan"), new Colour("yellow"), 0.3);
+  let expected: Colour = Colour.RGB(77, 255, 179);
 
   expect(actual.red).toBe(expected.red);
   expect(actual.green).toBe(expected.green);
@@ -132,8 +132,8 @@ test('mix', () => {
 });
 
 test('tint', () => {
-  let actual = tint(colour3, 1);
-  let expected = new Colour("#FFFFFF");
+  let actual: Colour = tint(colour3, 1);
+  let expected: Colour = new Colour("#FFFFFF");
 
   expect(actual.red).toBe(expected.red);
   expect(actual.green).toBe(expected.green);
@@ -141,8 +141,8 @@ test('tint', () => {
 });
 
 test('shade', () => {
-  let actual = shade(colour3, 1);
-  let expected = new Colour("#000000");
+  let actual: Colour = shade(colour3, 1);
+  let expected: Colour = new Colour("#000000");
 
   expect(actual.red).toBe(expected.red);
   expect(actual.green).toBe(expected.green);
@@ -150,8 +150,8 @@ test('shade', () => {
 });
 
 test('tone', () => {
-  let actual = tone(colour3, 1);
-  let expected = new Colour("#808080");
+  let actual: Colour = tone(colour3, 1);
+  let expected: Colour = new Colour("#808080");
 
   expect(actual.red).toBe(expected.red);
   expect(actual.green).toBe(expected.green);
@@ -159,8 +159,8 @@ test('tone', () => {
 });
 
 test('colourDodge white', () => {
-    let actual = colourDodge(colour2, white);
-    let expected = white;
+    let actual: Colour = colourDodge(colour2, white);
+    let expected: Colour = white;
 
     expect(actual.red).toBe(expected.red);
     expect(actual.green).toBe(expected.green);
@@ -168,8 +168,8 @@ test('colourDodge white', () => {
 });
 
 test('colourBurn white', () => {
-    let actual = colourBurn(white, colour2);
-    let expected = white;
+    let actual: Colour = colourBurn(white, colour2);
+    let expected: Colour = white;
 
     expect(actual.red).toBe(expected.red);
     expect(actual.green).toBe(expected.green);
@@ -177,8 +177,8 @@ test('colourBurn white', () => {
 });
 
 test('colourBurn black', () => {
-    let actual = colourBurn(colour2, black);
-    let expected = black;
+    let actual: Colour = colourBurn(colour2, black);
+    let expected: Colour = black;
 
     expect(actual.red).toBe(expected.red);
     expect(actual.green).toBe(expected.green);
@@ -186,8 +186,8 @@ test('colourBurn black', () => {
 });
 
 test('softLight blargh', () => {
-    let actual = softLight(black, white);
-    let expected = black;
+    let actual: Colour = softLight(black, white);
+    let expected: Colour = black;
 
     expect(actual.red).toBe(expected.red);
     expect(actual.green).toBe(expected.green);

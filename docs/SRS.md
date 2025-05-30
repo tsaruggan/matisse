@@ -3,7 +3,7 @@ May 5, 2022
 
 ## 1 Project Drivers
 ### 1.1 The Purpose of the Project
-The purpose of this project is to provide JavaScript developers with an intuitive and easy-to-use tool for generating and manipulating colours. The goal of this project is to improve the functionalities of preexisting solutions and combine key features into one cohesive API. Of these functionalities, this library will include functionality allowing developers to validate colour combinations against WCAG standards, support creation of colour palettes, mixing/blending of colours, measurements, manipulations, and basic conversions between different colour spaces including RGB, HSL, HSV, CMYK, HWB, as well as CSS colour strings and HEX codes.
+The purpose of this project is to provide TypeScript and JavaScript developers with an intuitive and easy-to-use tool for generating and manipulating colours. The library is written in TypeScript, offering strong typing and improved developer experience. The goal of this project is to improve the functionalities of preexisting solutions and combine key features into one cohesive API. Of these functionalities, this library will include functionality allowing developers to validate colour combinations against WCAG standards, support creation of colour palettes, mixing/blending of colours, measurements, manipulations, and basic conversions between different colour spaces including RGB, HSL, HSV, CMYK, HWB, as well as CSS colour strings and HEX codes.
 ### 1.2 The Stakeholders
 #### 1.2.1 The Client
 The clients for this project are the SFWRENG 3XA3 Course Administrators. This includes the course instructor, Dr. Asghar Bokhari, and the teaching assistants, Abdul Rab Mohammad, Oluwaseun Owojaiyo, and Veerash Palanichamy. They are responsible for overseeing the completion of the project deliverables and evaluation of the project.
@@ -16,9 +16,9 @@ Additionally, the developers and maintainers of this project (L03 Group 15) are 
 
 ### 1.3 Mandated Constraints
 #### 1.3.1 Programming Language
-The scripting language used to develop the proposed project will be JavaScript (ES6).
+The scripting language used to develop the proposed project will be TypeScript.
 #### 1.3.2 Project Distribution
-The library will be distributed as an NPM package for Node.js applications.
+The library will be distributed as an NPM package for Node.js applications, providing JavaScript files compiled from TypeScript and corresponding type definition files.
 #### 1.3.3 Operating System Requirements
 This project is operating system independent and will be supported on all mainstream internet browsers.
 #### 1.3.4 Software Requirements

@@ -1,13 +1,13 @@
-import Colour from "../index.js";
+import Colour from "../index";
 
-var white;
-var black;
-var colour1;
-var colour2;
-var colour3;
-var colour4;
-var colourA;
-var colourB;
+var white: Colour;
+var black: Colour;
+var colour1: Colour;
+var colour2: Colour;
+var colour3: Colour;
+var colour4: Colour;
+var colourA: Colour;
+var colourB: Colour;
 
 beforeEach(() => {
     white = new Colour("#FFFFFF");
@@ -189,7 +189,7 @@ test("alpha 4", () => {
 });
 
 test("css constructor rgb 1", () => {
-    const colour = new Colour('rgba(200, 60, 100, 0.3)');
+    const colour: Colour = new Colour('rgba(200, 60, 100, 0.3)');
     expect(colour.red).toBe(200);
     expect(colour.green).toBe(60);
     expect(colour.blue).toBe(100);
@@ -201,7 +201,7 @@ test("css constructor rgb 1", () => {
 
 
 test("css constructor rgb 2", () => {
-    const colour = new Colour('rgb(176 176 176)');
+    const colour: Colour = new Colour('rgb(176 176 176)');
     expect(colour.red).toBe(176);
     expect(colour.green).toBe(176);
     expect(colour.blue).toBe(176);
@@ -210,7 +210,7 @@ test("css constructor rgb 2", () => {
 });
 
 test("css constructor hsl 1", () => {
-    const colour = new Colour('hsla(360, 60%, 50%, 0.4)');
+    const colour: Colour = new Colour('hsla(360, 60%, 50%, 0.4)');
     expect(colour.red).toBe(204);
     expect(colour.green).toBe(51);
     expect(colour.blue).toBe(51);
@@ -221,7 +221,7 @@ test("css constructor hsl 1", () => {
 });
 
 test("css constructor hwb 1", () => {
-    const colour = new Colour('hwb(60, 3%, 60%, 0.6)');
+    const colour: Colour = new Colour('hwb(60, 3%, 60%, 0.6)');
     expect(colour.red).toBe(102);
     expect(colour.green).toBe(102);
     expect(colour.blue).toBe(7);
@@ -232,7 +232,7 @@ test("css constructor hwb 1", () => {
 });
 
 test("css constructor hex 1", () => {
-    const colour = new Colour("#3B2B0B");
+    const colour: Colour = new Colour("#3B2B0B");
     expect(colour.red).toBe(59);
     expect(colour.green).toBe(43);
     expect(colour.blue).toBe(11);
@@ -243,7 +243,7 @@ test("css constructor hex 1", () => {
 });
 
 test("css constructor hex 2", () => {
-    const colour = new Colour('#FFFA');
+    const colour: Colour = new Colour('#FFFA');
     expect(colour.red).toBe(255);
     expect(colour.green).toBe(255);
     expect(colour.blue).toBe(255);
@@ -252,7 +252,7 @@ test("css constructor hex 2", () => {
 });
 
 test("css constructor colour names 1", () => {
-    const colour = new Colour("crimson");
+    const colour: Colour = new Colour("crimson");
     expect(colour.red).toBe(220);
     expect(colour.green).toBe(20);
     expect(colour.blue).toBe(60);
@@ -263,7 +263,7 @@ test("css constructor colour names 1", () => {
 });
 
 test("css constructor colour names 2", () => {
-    const colour = new Colour('black');
+    const colour: Colour = new Colour('black');
     expect(colour.red).toBe(0);
     expect(colour.green).toBe(0);
     expect(colour.blue).toBe(0);
@@ -276,7 +276,7 @@ test("css constructor invalid", () => {
 });
 
 test("RGB constructor 1", () => {
-    const colour = Colour.RGB(31, 33, 36, 0.39);
+    const colour: Colour = Colour.RGB(31, 33, 36, 0.39);
     expect(colour.red).toBe(31);
     expect(colour.green).toBe(33);
     expect(colour.blue).toBe(36);
@@ -287,7 +287,7 @@ test("RGB constructor 1", () => {
 });
 
 test("RGB constructor 2", () => {
-    const colour = Colour.RGB(194, 255, 153);
+    const colour: Colour = Colour.RGB(194, 255, 153);
     expect(colour.red).toBe(194);
     expect(colour.green).toBe(255);
     expect(colour.blue).toBe(153);
@@ -298,7 +298,7 @@ test("RGB constructor 2", () => {
 });
 
 test("RGB constructor 3", () => {
-    const colour = Colour.RGB(255, 5, 0, 0.1);
+    const colour: Colour = Colour.RGB(255, 5, 0, 0.1);
     expect(colour.red).toBe(255);
     expect(colour.green).toBe(5);
     expect(colour.blue).toBe(0);
@@ -309,7 +309,7 @@ test("RGB constructor 3", () => {
 });
 
 test("RGB constructor 4", () => {
-    const colour = Colour.RGB(129, 65, 133);
+    const colour: Colour = Colour.RGB(129, 65, 133);
     expect(colour.red).toBe(129);
     expect(colour.green).toBe(65);
     expect(colour.blue).toBe(133);
@@ -320,7 +320,7 @@ test("RGB constructor 4", () => {
 });
 
 test("RGB constructor 5", () => {
-    const colour = Colour.RGB(0, 0, 0, 0);
+    const colour: Colour = Colour.RGB(0, 0, 0, 0);
     expect(colour.red).toBe(0);
     expect(colour.green).toBe(0);
     expect(colour.blue).toBe(0);
@@ -329,7 +329,7 @@ test("RGB constructor 5", () => {
 });
 
 test("HSV constructor 1", () => {
-    const colour = Colour.HSV(243, 1, 1, 0.5)
+    const colour: Colour = Colour.HSV(243, 1, 1, 0.5)
     expect(colour.red).toBe(13);
     expect(colour.green).toBe(0);
     expect(colour.blue).toBe(255);
@@ -340,7 +340,7 @@ test("HSV constructor 1", () => {
 });
 
 test("HSV constructor 2", () => {
-    const colour = Colour.HSV(52, 0.96, 0.07)
+    const colour: Colour = Colour.HSV(52, 0.96, 0.07)
     expect(colour.red).toBe(18);
     expect(colour.green).toBe(16);
     expect(colour.blue).toBe(1);
@@ -351,7 +351,7 @@ test("HSV constructor 2", () => {
 });
 
 test("HSV constructor 3", () => {
-    const colour = Colour.HSV(100, 0.03, 0.05, 0.08)
+    const colour: Colour = Colour.HSV(100, 0.03, 0.05, 0.08)
     expect(colour.red).toBe(12);
     expect(colour.green).toBe(13);
     expect(colour.blue).toBe(12);
@@ -362,7 +362,7 @@ test("HSV constructor 3", () => {
 });
 
 test("HSV constructor 4", () => {
-    const colour = Colour.HSV(237, 0, 1, 0)
+    const colour: Colour = Colour.HSV(237, 0, 1, 0)
     expect(colour.red).toBe(255);
     expect(colour.green).toBe(255);
     expect(colour.blue).toBe(255);
@@ -373,7 +373,7 @@ test("HSV constructor 4", () => {
 });
 
 test("HSV constructor 5", () => {
-    const colour = Colour.HSV(0, 1, 0, 0)
+    const colour: Colour = Colour.HSV(0, 1, 0, 0)
     expect(colour.red).toBe(0);
     expect(colour.green).toBe(0);
     expect(colour.blue).toBe(0);
@@ -1061,13 +1061,13 @@ test("alpha setter B", () => {
 });
 
 test("equals true", () => {
-    const colour1 = new Colour("rgba(32, 122, 166, 0.5)");
-    const colour2 = new Colour("#207AA680");
-    expect(colour1.equals(colour2)).toBe(true);
+    const colour1Local: Colour = new Colour("rgba(32, 122, 166, 0.5)"); // Renamed to avoid conflict
+    const colour2Local: Colour = new Colour("#207AA680"); // Renamed to avoid conflict
+    expect(colour1Local.equals(colour2Local)).toBe(true);
 });
 
 test("equals false", () => {
-    const colour1 = Colour.CMYK(0.00, 0.95, 0.86, 0.38); // #9E0816
-    const colour2 = Colour.HWB(285, 0.32, 0.65); // #58525A
-    expect(colour1.equals(colour2)).toBe(false);
+    const colour1Local: Colour = Colour.CMYK(0.00, 0.95, 0.86, 0.38); // #9E0816
+    const colour2Local: Colour = Colour.HWB(285, 0.32, 0.65); // #58525A
+    expect(colour1Local.equals(colour2Local)).toBe(false);
 });
