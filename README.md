@@ -136,7 +136,7 @@ A colour combination with insufficient contrast can be fixed as well. This works
 const textToFix: Colour = new Colour("#FFDD00"); // #FFDD00
 const backgroundToFix: Colour = new Colour("#1F8BFF"); // #1F8BFF
 
-const fixedColours: Colour[] = matisse.fixContrast(textToFix, backgroundToFix); 
+const fixedColours: Colour[] = matisse.fixContrast(textToFix, backgroundToFix);
 // fixedColours will be [#FFE644, #1866BC]
 ```
 
