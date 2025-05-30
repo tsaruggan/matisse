@@ -41,67 +41,179 @@ export default class Colour {
         alpha: 0
     };
 
-    /** @constant */
+    /**
+     * @type {number}
+     * @default 255
+     * @constant
+     */
     static get redMax(): number { return 255; }
-    /** @constant */
+    /**
+     * @type {number}
+     * @default 0
+     * @constant
+     */
     static get redMin(): number { return 0; }
-    /** @constant */
+    /**
+     * @type {number}
+     * @default 255
+     * @constant
+     */
     static get greenMax(): number { return 255; }
-    /** @constant */
+    /**
+     * @type {number}
+     * @default 0
+     * @constant
+     */
     static get greenMin(): number { return 0; }
-    /** @constant */
+    /**
+     * @type {number}
+     * @default 255
+     * @constant
+     */
     static get blueMax(): number { return 255; }
-    /** @constant */
+    /**
+     * @type {number}
+     * @default 0
+     * @constant
+     */
     static get blueMin(): number { return 0; }
-    /** @constant */
+    /**
+     * @type {number}
+     * @default 360
+     * @constant
+     */
     static get hueMax(): number { return 360; }
-    /** @constant */
+    /**
+     * @type {number}
+     * @default 0
+     * @constant
+     */
     static get hueMin(): number { return 0; }
-    /** @constant */
+    /**
+     * @type {number}
+     * @default 1.00
+     * @constant
+     */
     static get saturationvMax(): number { return 1.00; }
-    /** @constant */
+    /**
+     * @type {number}
+     * @default 0.00
+     * @constant
+     */
     static get saturationvMin(): number { return 0.00; }
-    /** @constant */
+    /**
+     * @type {number}
+     * @default 1.00
+     * @constant
+     */
     static get valueMax(): number { return 1.00; }
-    /** @constant */
+    /**
+     * @type {number}
+     * @default 0.00
+     * @constant
+     */
     static get valueMin(): number { return 0.00; }
-    /** @constant */
+    /**
+     * @type {number}
+     * @default 1.00
+     * @constant
+     */
     static get cyanMax(): number { return 1.00; }
-    /** @constant */
+    /**
+     * @type {number}
+     * @default 0.00
+     * @constant
+     */
     static get cyanMin(): number { return 0.00; }
-    /** @constant */
+    /**
+     * @type {number}
+     * @default 1.00
+     * @constant
+     */
     static get magentaMax(): number { return 1.00; }
-    /** @constant */
+    /**
+     * @type {number}
+     * @default 0.00
+     * @constant
+     */
     static get magentaMin(): number { return 0.00; }
-    /** @constant */
+    /**
+     * @type {number}
+     * @default 1.00
+     * @constant
+     */
     static get yellowMax(): number { return 1.00; }
-    /** @constant */
+    /**
+     * @type {number}
+     * @default 0.00
+     * @constant
+     */
     static get yellowMin(): number { return 0.00; }
-    /** @constant */
+    /**
+     * @type {number}
+     * @default 1.00
+     * @constant
+     */
     static get saturationlMax(): number { return 1.00; }
-    /** @constant */
+    /**
+     * @type {number}
+     * @default 0.00
+     * @constant
+     */
     static get saturationlMin(): number { return 0.00; }
-    /** @constant */
+    /**
+     * @type {number}
+     * @default 1.00
+     * @constant
+     */
     static get lightMax(): number { return 1.00; }
-    /** @constant */
+    /**
+     * @type {number}
+     * @default 0.00
+     * @constant
+     */
     static get lightMin(): number { return 0.00; }
-    /** @constant */
+    /**
+     * @type {number}
+     * @default 1.00
+     * @constant
+     */
     static get whiteMax(): number { return 1.00; }
-    /** @constant */
+    /**
+     * @type {number}
+     * @default 0.00
+     * @constant
+     */
     static get whiteMin(): number { return 0.00; }
-    /** @constant */
+    /**
+     * @type {number}
+     * @default 1.00
+     * @constant
+     */
     static get blackMax(): number { return 1.00; }
-    /** @constant */
+    /**
+     * @type {number}
+     * @default 0.00
+     * @constant
+     */
     static get blackMin(): number { return 0.00; }
-    /** @constant */
+    /**
+     * @type {number}
+     * @default 1.00
+     * @constant
+     */
     static get alphaMax(): number { return 1.00; }
-    /** @constant */
+    /**
+     * @type {number}
+     * @default 0.00
+     * @constant
+     */
     static get alphaMin(): number { return 0.00; }
 
     /**
      * Initialize a new Colour instance given a valid CSS colour string or HEX code.
-     * @param colourString - A valid CSS colour string or HEX code to parse.
-     * @returns A new Colour instance generated from the CSS colour string. 
+     * @param {string} [colourString] - A valid CSS colour string or HEX code to parse.
+     * @returns {Colour} A new Colour instance generated from the CSS colour string. 
      * @see [color-string](https://github.com/Qix-/color-string) handles all parsing of CSS colour strings.
      */
     constructor(colourString?: string) { // Made colourString optional to allow for internal instantiation
@@ -128,11 +240,11 @@ export default class Colour {
 
     /**
     * Initialize a new Colour instance from RGB colour attributes.
-    * @param red - The value of the R channel [0, 255].
-    * @param green - The value of the G channel [0, 255].
-    * @param blue - The value of the B channel [0, 255].
-    * @param alpha - The percentage of transparency or opacity channel [0, 1]. Defaults to {@link Colour.alphaMax}.
-    * @returns A new Colour instance generated from the RGB colour attributes.
+    * @param {number} red - The value of the R channel [0, 255].
+    * @param {number} green - The value of the G channel [0, 255].
+    * @param {number} blue - The value of the B channel [0, 255].
+    * @param {number} [alpha=1.00] - The percentage of transparency or opacity channel [0, 1]. Defaults to {@link Colour.alphaMax}.
+    * @returns {Colour} A new Colour instance generated from the RGB colour attributes.
     */
     static RGB(red: number, green: number, blue: number, alpha: number = Colour.alphaMax): Colour {
         if (red > Colour.redMax || green > Colour.greenMax || blue > Colour.blueMax || alpha > Colour.alphaMax) {
@@ -154,11 +266,11 @@ export default class Colour {
 
     /**
      * Initialize a new Colour instance from HSV colour attributes.
-     * @param hue - The value of the H channel [0, 360].
-     * @param saturationv - The percentage of the S channel [0, 1].
-     * @param value - The percentage of the V channel [0, 1].
-     * @param alpha - The percentage of transparency or opacity channel [0, 1]. Defaults to {@link Colour.alphaMax}.
-     * @returns A new Colour instance generated from the HSV colour attributes.
+     * @param {number} hue - The value of the H channel [0, 360].
+     * @param {number} saturationv - The percentage of the S channel [0, 1].
+     * @param {number} value - The percentage of the V channel [0, 1].
+     * @param {number} [alpha=1.00] - The percentage of transparency or opacity channel [0, 1]. Defaults to {@link Colour.alphaMax}.
+     * @returns {Colour} A new Colour instance generated from the HSV colour attributes.
      */
     static HSV(hue: number, saturationv: number, value: number, alpha: number = Colour.alphaMax): Colour {
         if (hue > Colour.hueMax || saturationv > Colour.saturationvMax || value > Colour.valueMax || alpha > Colour.alphaMax) {
@@ -180,12 +292,12 @@ export default class Colour {
 
     /**
      * Initialize a new Colour instance from CMYK colour attributes.
-     * @param cyan - The value of the C channel [0, 1].
-     * @param magenta - The value of the M channel [0, 1].
-     * @param yellow - The value of the Y channel [0, 1].
-     * @param black - The value of the K channel [0, 1].
-     * @param alpha - The percentage of transparency or opacity channel [0, 1]. Defaults to {@link Colour.alphaMax}.
-     * @returns A new Colour instance generated from the CMYK colour attributes.
+     * @param {number} cyan - The value of the C channel [0, 1].
+     * @param {number} magenta - The value of the M channel [0, 1].
+     * @param {number} yellow - The value of the Y channel [0, 1].
+     * @param {number} black - The value of the K channel [0, 1].
+     * @param {number} [alpha=1.00] - The percentage of transparency or opacity channel [0, 1]. Defaults to {@link Colour.alphaMax}.
+     * @returns {Colour} A new Colour instance generated from the CMYK colour attributes.
      */
     static CMYK(cyan: number, magenta: number, yellow: number, black: number, alpha: number = Colour.alphaMax): Colour {
         if (cyan > Colour.cyanMax || magenta > Colour.magentaMax || yellow > Colour.yellowMax || black > Colour.blackMax || alpha > Colour.alphaMax) {
@@ -209,11 +321,11 @@ export default class Colour {
 
     /**
      * Initialize a new Colour instance from HSL colour attributes.
-     * @param hue - The value of the H channel [0, 360].
-     * @param saturationl - The value of the S channel [0, 1].
-     * @param light - The value of the L channel [0, 1].
-     * @param alpha - The percentage of transparency or opacity channel [0, 1]. Defaults to {@link Colour.alphaMax}.
-     * @returns A new Colour instance generated from the HSL colour attributes.
+     * @param {number} hue - The value of the H channel [0, 360].
+     * @param {number} saturationl - The value of the S channel [0, 1].
+     * @param {number} light - The value of the L channel [0, 1].
+     * @param {number} [alpha=1.00] - The percentage of transparency or opacity channel [0, 1]. Defaults to {@link Colour.alphaMax}.
+     * @returns {Colour} A new Colour instance generated from the HSL colour attributes.
      */
     static HSL(hue: number, saturationl: number, light: number, alpha: number = Colour.alphaMax): Colour {
         if (hue > Colour.hueMax || saturationl > Colour.saturationlMax || light > Colour.lightMax || alpha > Colour.alphaMax) {
@@ -236,11 +348,11 @@ export default class Colour {
 
     /**
      * Initialize a new Colour instance from HWB colour attributes.
-     * @param hue - The value of the H channel [0, 360].
-     * @param white - The value of the W channel [0, 1].
-     * @param black - The value of the B channel [0, 1]. <!-- Corrected range for black -->
-     * @param alpha - The percentage of transparency or opacity channel [0, 1]. Defaults to {@link Colour.alphaMax}.
-     * @returns A new Colour instance generated from the HWB colour attributes.
+     * @param {number} hue - The value of the H channel [0, 360].
+     * @param {number} white - The value of the W channel [0, 1].
+     * @param {number} black - The value of the B channel [0, 1].
+     * @param {number} [alpha=1.00] - The percentage of transparency or opacity channel [0, 1]. Defaults to {@link Colour.alphaMax}.
+     * @returns {Colour} A new Colour instance generated from the HWB colour attributes.
      */
     static HWB(hue: number, white: number, black: number, alpha: number = Colour.alphaMax): Colour {
         if (hue > Colour.hueMax || white > Colour.whiteMax || black > Colour.blackMax || alpha > Colour.alphaMax) {
@@ -261,7 +373,7 @@ export default class Colour {
         return colour;
     }
 
-    /** The red channel (0-255). */
+    /** @type {number} */
     get red(): number { return this.attributes.red; }
 
     set red(newRed: number) {
@@ -276,7 +388,7 @@ export default class Colour {
 
     }
 
-    /** The green channel (0-255). */
+    /** @type {number} */
     get green(): number { return this.attributes.green; }
 
     set green(newGreen: number) {
@@ -290,7 +402,7 @@ export default class Colour {
         this.#updateHWB();
     }
 
-    /** The blue channel (0-255). */
+    /** @type {number} */
     get blue(): number { return this.attributes.blue; }
 
     set blue(newBlue: number) {
@@ -304,7 +416,7 @@ export default class Colour {
         this.#updateHWB();
     }
 
-    /** The hue channel (0-360). */
+    /** @type {number} */
     get hue(): number { return this.attributes.hue; }
 
     set hue(newHue: number) {
@@ -318,7 +430,7 @@ export default class Colour {
         this.#updateHWB();
     }
 
-    /** The saturation channel for HSV (0-1). */
+    /** @type {number} */
     get saturationv(): number { return this.attributes.saturationv; }
 
     set saturationv(newSaturationv: number) {
@@ -332,7 +444,7 @@ export default class Colour {
         this.#updateHWB();
     }
 
-    /** The value channel for HSV (0-1). */
+    /** @type {number} */
     get value(): number { return this.attributes.value; }
 
     set value(newValue: number) {
@@ -346,7 +458,7 @@ export default class Colour {
         this.#updateHWB();
     }
 
-    /** The cyan channel for CMYK (0-1). */
+    /** @type {number} */
     get cyan(): number { return this.attributes.cyan; }
 
     set cyan(newCyan: number) {
@@ -360,7 +472,7 @@ export default class Colour {
         this.#updateHWB();
     }
 
-    /** The magenta channel for CMYK (0-1). */
+    /** @type {number} */
     get magenta(): number { return this.attributes.magenta; }
 
     set magenta(newMagenta: number) {
@@ -374,7 +486,7 @@ export default class Colour {
         this.#updateHWB();
     }
 
-    /** The yellow channel for CMYK (0-1). */
+    /** @type {number} */
     get yellow(): number { return this.attributes.yellow; }
 
     set yellow(newYellow: number) {
@@ -388,7 +500,7 @@ export default class Colour {
         this.#updateHWB();
     }
 
-    /** The saturation channel for HSL (0-1). */
+    /** @type {number} */
     get saturationl(): number { return this.attributes.saturationl; }
 
     set saturationl(newSaturationl: number) {
@@ -402,7 +514,7 @@ export default class Colour {
         this.#updateHWB();
     }
 
-    /** The lightness channel for HSL (0-1). */
+    /** @type {number} */
     get light(): number { return this.attributes.light; }
 
     set light(newLight: number) {
@@ -416,7 +528,7 @@ export default class Colour {
         this.#updateHWB();
     }
 
-    /** The white channel for HWB (0-1). */
+    /** @type {number} */
     get white(): number { return this.attributes.white; }
 
     set white(newWhite: number) {
@@ -430,7 +542,7 @@ export default class Colour {
         this.#updateHSL();
     }
 
-    /** The black channel for HWB and CMYK (0-1). */
+    /** @type {number} */
     get black(): number { return this.attributes.black; }
 
     set black(newBlack: number) {
@@ -444,7 +556,7 @@ export default class Colour {
         this.#updateHSL();
     }
 
-    /** The alpha channel (0-1). */
+    /** @type {number} */
     get alpha(): number { return this.attributes.alpha; }
 
     set alpha(newAlpha: number) {
@@ -456,8 +568,8 @@ export default class Colour {
 
     /**
      * Check if another Colour instance is equivalent.
-     * @param colour - Another Colour instance to compare equality with.
-     * @returns True if both colours have the same red, green, blue, and alpha values.
+     * @param {Colour} colour - Another Colour instance to compare equality with.
+     * @returns {boolean} True if both colours have the same red, green, blue, and alpha values.
      */
     equals(colour: Colour): boolean {
         return (
@@ -470,7 +582,7 @@ export default class Colour {
 
     /**
      * Returns a copy of the Colour instance.
-     * @returns An identical Colour object.
+     * @returns {Colour} An identical Colour object.
      */
     copy(): Colour {
         return Colour.RGB(this.red, this.green, this.blue, this.alpha);
@@ -478,7 +590,7 @@ export default class Colour {
 
     /**
      * Return a valid hexadecimal colour code that represents the colour.
-     * @returns A HEX code representing the colour.
+     * @returns {string} A HEX code representing the colour.
      */
     toHEX(): string {
         return colorString.to.hex([this.red, this.green, this.blue, this.alpha]);
@@ -631,8 +743,8 @@ function roundFloat(num: number): number {
 
 /**
  * Determine the inverse colour or the colour on the opposite side of the colour wheel.
- * @param colour - The colour to invert.
- * @returns The colour resulting from the negation.
+ * @param {Colour} colour - The colour to invert.
+ * @returns {Colour} The colour resulting from the negation.
  */
 export function negate(colour: Colour): Colour {
     let red: number = 255 - colour.red;
@@ -644,9 +756,9 @@ export function negate(colour: Colour): Colour {
 
 /**
  * Rotate a given colour a certain number of degrees in 3-dimensional space.
- * @param colour - The colour to rotate.
- * @param degrees - The number of degrees to rotate the colour.
- * @returns The colour resulting from the rotation.
+ * @param {Colour} colour - The colour to rotate.
+ * @param {number} degrees - The number of degrees to rotate the colour.
+ * @returns {Colour} The colour resulting from the rotation.
  */
 export function rotate(colour: Colour, degrees: number): Colour {
     let hue: number = colour.hue;
@@ -657,8 +769,8 @@ export function rotate(colour: Colour, degrees: number): Colour {
 
 /**
  * Determine the equivalent [grayscale colour of a given colour](https://www.tutorialspoint.com/dip/grayscale_to_rgb_conversion.htm).
- * @param colour - The colour to grayscale.
- * @returns The resulting colour from the grayscale transformation.
+ * @param {Colour} colour - The colour to grayscale.
+ * @returns {Colour} The resulting colour from the grayscale transformation.
  */
 export function grayscale(colour: Colour): Colour {
     let weightedTotal: number = roundInt(0.3 * colour.red + 0.59 * colour.green + 0.11 * colour.blue);
@@ -668,9 +780,9 @@ export function grayscale(colour: Colour): Colour {
 /**
  * Calculate the [WCAG contrast ratio](http://www.w3.org/TR/WCAG20/#contrast-ratiodef)
  * between two colours. (Note: The order of the colours does not matter!).
- * @param colour1 - The first colour to be compared.
- * @param colour2 - The second colour to be compared.
- * @returns The WCAG contrast ratio of the two colours (values ranging between 1 and 21).
+ * @param {Colour} colour1 - The first colour to be compared.
+ * @param {Colour} colour2 - The second colour to be compared.
+ * @returns {number} The WCAG contrast ratio of the two colours (values ranging between 1 and 21).
  */
 export function contrast(colour1: Colour, colour2: Colour): number {
     const lum1: number = luminosity(colour1);
@@ -683,8 +795,8 @@ export function contrast(colour1: Colour, colour2: Colour): number {
 
 /**
  * Calculate the [colourfulness index](https://infoscience.epfl.ch/record/33994/files/HaslerS03.pdf) of a given colour as defined by Hasler and Süsstrunk (2003).
- * @param colour - The colour to calculate colourfulness of.
- * @returns The resulting colourfulness grading.
+ * @param {Colour} colour - The colour to calculate colourfulness of.
+ * @returns {number} The resulting colourfulness grading.
  */
 export function colourfulness(colour: Colour): number {
     let rg: number = Math.abs(colour.red - colour.green);
@@ -705,8 +817,8 @@ export function colourfulness(colour: Colour): number {
 
 /**
  * Calculate the [temperature](https://ams.com/documents/20143/80162/TCS34xx_AN000517_1-00.pdf) of a given colour.
- * @param colour - The colour to calculate temperature of.
- * @returns The resulting temperature grading in degrees Kelvin (K).
+ * @param {Colour} colour - The colour to calculate temperature of.
+ * @returns {number} The resulting temperature grading in degrees Kelvin (K).
  */
 export function temperature(colour: Colour): number {
     // get XYZ values (CIE tristimulus values)
@@ -726,8 +838,8 @@ export function temperature(colour: Colour): number {
 
 /**
  * Calculate the [relative luminance](https://www.w3.org/WAI/GL/wiki/Relative_luminance) of a given colour as defined by the WCAG.
- * @param colour - The colour to calculate luminence of.
- * @returns The resulting luminence grading.
+ * @param {Colour} colour - The colour to calculate luminence of.
+ * @returns {number} The resulting luminence grading.
  */
 export function luminosity(colour: Colour): number {
     const lum: number[] = [];
@@ -742,10 +854,10 @@ export function luminosity(colour: Colour): number {
 
 /**
  * Evenly interpolate two colours and produce the resulting midpoint colour.
- * @param colour1 - The first colour to include in the mix.
- * @param colour2 - The second colour to include in the mix.
- * @param percent - The percentage of the blend colour to mix.
- * @returns The colour resulting from the mix.
+ * @param {Colour} colour1 - The first colour to include in the mix.
+ * @param {Colour} colour2 - The second colour to include in the mix.
+ * @param {number} percent - The percentage of the blend colour to mix.
+ * @returns {Colour} The colour resulting from the mix.
  */
 export function mix(colour1: Colour, colour2: Colour, percent: number): Colour {
     const weight: number = 2 * percent - 1;
@@ -764,9 +876,9 @@ export function mix(colour1: Colour, colour2: Colour, percent: number): Colour {
 
 /**
  * Interpolate a given colour with white to create a tint.
- * @param colour - A colour to tint.
- * @param percent - The percentage of white to mix; setting 100% results in #FFFFFF.
- * @returns The colour resulting from tinting the original colour.
+ * @param {Colour} colour - A colour to tint.
+ * @param {number} percent - The percentage of white to mix; setting 100% results in #FFFFFF.
+ * @returns {Colour} The colour resulting from tinting the original colour.
  */
 export function tint(colour: Colour, percent: number): Colour {
     return mix(
@@ -778,9 +890,9 @@ export function tint(colour: Colour, percent: number): Colour {
 
 /**
  * Interpolate a given colour with black to create a shade.
- * @param colour - A colour to shade.
- * @param percent - The percentage of black to mix; setting 100% results in #000000.
- * @returns The colour resulting from shading the original colour.
+ * @param {Colour} colour - A colour to shade.
+ * @param {number} percent - The percentage of black to mix; setting 100% results in #000000.
+ * @returns {Colour} The colour resulting from shading the original colour.
  */
 export function shade(colour: Colour, percent: number): Colour {
     return mix(
@@ -792,9 +904,9 @@ export function shade(colour: Colour, percent: number): Colour {
 
 /**
  * Interpolate a given colour with gray to create a tone.
- * @param colour - A colour to tone.
- * @param percent - The percentage of gray to mix; setting 100% results in #808080.
- * @returns The colour resulting from toning the original colour.
+ * @param {Colour} colour - A colour to tone.
+ * @param {number} percent - The percentage of gray to mix; setting 100% results in #808080.
+ * @returns {Colour} The colour resulting from toning the original colour.
  */
 export function tone(colour: Colour, percent: number): Colour {
     return mix(
@@ -806,9 +918,9 @@ export function tone(colour: Colour, percent: number): Colour {
 
 /**
  * This is the blend mode which specifies no blending. The blending formula simply selects the blend colour.
- * @param baseColour - The base colour being blended.
- * @param blendColour - The colour being applied with the designated blend mode.
- * @returns The colour resulting from the blend.
+ * @param {Colour} baseColour - The base colour being blended.
+ * @param {Colour} blendColour - The colour being applied with the designated blend mode.
+ * @returns {Colour} The colour resulting from the blend.
  */
 export function normal(baseColour: Colour, blendColour: Colour): Colour {
     return _blend(
@@ -821,9 +933,9 @@ export function normal(baseColour: Colour, blendColour: Colour): Colour {
 
 /**
  * Looks at the colour information in each channel and multiplies the base colour by the blend colour. The result colour is always a darker colour. Multiplying any colour with black produces black. Multiplying any colour with white leaves the colour unchanged.
- * @param baseColour - The base colour being blended.
- * @param blendColour - The colour being applied with the designated blend mode.
- * @returns The colour resulting from the blend.
+ * @param {Colour} baseColour - The base colour being blended.
+ * @param {Colour} blendColour - The colour being applied with the designated blend mode.
+ * @returns {Colour} The colour resulting from the blend.
  */
 export function multiply(baseColour: Colour, blendColour: Colour): Colour {
     return _blend(
@@ -836,9 +948,9 @@ export function multiply(baseColour: Colour, blendColour: Colour): Colour {
 
 /**
  * Looks at each channel’s colour information and multiplies the inverse of the blend and base colours. The result colour is always a lighter colour. Screening with black leaves the colour unchanged. Screening with white produces white. The effect is similar to projecting multiple photographic slides on top of each other.
- * @param baseColour - The base colour being blended.
- * @param blendColour - The colour being applied with the designated blend mode.
- * @returns The colour resulting from the blend.
+ * @param {Colour} baseColour - The base colour being blended.
+ * @param {Colour} blendColour - The colour being applied with the designated blend mode.
+ * @returns {Colour} The colour resulting from the blend.
  */
 export function screen(baseColour: Colour, blendColour: Colour): Colour {
     return _blend(
@@ -851,9 +963,9 @@ export function screen(baseColour: Colour, blendColour: Colour): Colour {
 
 /**
  * Multiplies or screens the colours, depending on the base colour. The base colour is not replaced, but mixed with the blend colour to reflect the lightness or darkness of the original colour.
- * @param baseColour - The base colour being blended.
- * @param blendColour - The colour being applied with the designated blend mode.
- * @returns The colour resulting from the blend.
+ * @param {Colour} baseColour - The base colour being blended.
+ * @param {Colour} blendColour - The colour being applied with the designated blend mode.
+ * @returns {Colour} The colour resulting from the blend.
  */
 export function overlay(baseColour: Colour, blendColour: Colour): Colour {
     return _blend(
@@ -866,9 +978,9 @@ export function overlay(baseColour: Colour, blendColour: Colour): Colour {
 
 /**
  * Looks at the colour information in each channel and selects the base or blend colour—whichever is darker—as the result colour.
- * @param baseColour - The base colour being blended.
- * @param blendColour - The colour being applied with the designated blend mode.
- * @returns The colour resulting from the blend.
+ * @param {Colour} baseColour - The base colour being blended.
+ * @param {Colour} blendColour - The colour being applied with the designated blend mode.
+ * @returns {Colour} The colour resulting from the blend.
  */
 export function darken(baseColour: Colour, blendColour: Colour): Colour {
     return _blend(
@@ -881,9 +993,9 @@ export function darken(baseColour: Colour, blendColour: Colour): Colour {
 
 /**
  * Looks at the colour information in each channel and selects the base or blend colour—whichever is lighter—as the result colour.
- * @param baseColour - The base colour being blended.
- * @param blendColour - The colour being applied with the designated blend mode.
- * @returns The colour resulting from the blend.
+ * @param {Colour} baseColour - The base colour being blended.
+ * @param {Colour} blendColour - The colour being applied with the designated blend mode.
+ * @returns {Colour} The colour resulting from the blend.
  */
 export function lighten(baseColour: Colour, blendColour: Colour): Colour {
     return _blend(
@@ -896,9 +1008,9 @@ export function lighten(baseColour: Colour, blendColour: Colour): Colour {
 
 /**
  * Looks at the colour information in each channel and brightens the base colour to reflect the blend colour by decreasing contrast between the two. Blending with black produces no change.
- * @param baseColour - The base colour being blended.
- * @param blendColour - The colour being applied with the designated blend mode.
- * @returns The colour resulting from the blend.
+ * @param {Colour} baseColour - The base colour being blended.
+ * @param {Colour} blendColour - The colour being applied with the designated blend mode.
+ * @returns {Colour} The colour resulting from the blend.
  */
 export function colourDodge(baseColour: Colour, blendColour: Colour): Colour {
     return _blend(
@@ -911,9 +1023,9 @@ export function colourDodge(baseColour: Colour, blendColour: Colour): Colour {
 
 /**
  * Looks at the colour information in each channel and darkens the base colour to reflect the blend colour by increasing the contrast between the two. Blending with white produces no change.
- * @param baseColour - The base colour being blended.
- * @param blendColour - The colour being applied with the designated blend mode.
- * @returns The colour resulting from the blend.
+ * @param {Colour} baseColour - The base colour being blended.
+ * @param {Colour} blendColour - The colour being applied with the designated blend mode.
+ * @returns {Colour} The colour resulting from the blend.
  */
 export function colourBurn(baseColour: Colour, blendColour: Colour): Colour {
     return _blend(
@@ -926,9 +1038,9 @@ export function colourBurn(baseColour: Colour, blendColour: Colour): Colour {
 
 /**
  * Multiplies or screens the colours, depending on the blend colour. The effect is similar to shining a harsh spotlight on the colour. If the blend colour (light source) is lighter than 50% gray, the colour is lightened, as if it were screened. This is useful for adding highlights to an colour. If the blend colour is darker than 50% gray, the colour is darkened, as if it were multiplied. This is useful for adding shadows to an colour. Painting with pure black or white results in pure black or white.
- * @param baseColour - The base colour being blended.
- * @param blendColour - The colour being applied with the designated blend mode.
- * @returns The colour resulting from the blend.
+ * @param {Colour} baseColour - The base colour being blended.
+ * @param {Colour} blendColour - The colour being applied with the designated blend mode.
+ * @returns {Colour} The colour resulting from the blend.
  */
 export function hardLight(baseColour: Colour, blendColour: Colour): Colour {
     return _blend(
@@ -941,9 +1053,9 @@ export function hardLight(baseColour: Colour, blendColour: Colour): Colour {
 
 /**
  * Darkens or lightens the colours, depending on the blend colour. The effect is similar to shining a diffused spotlight on the colour. If the blend colour (light source) is lighter than 50% gray, the colour is lightened as if it were dodged. If the blend colour is darker than 50% gray, the colour is darkened as if it were burned in. Painting with pure black or white produces a distinctly darker or lighter area, but does not result in pure black or white.
- * @param baseColour - The base colour being blended.
- * @param blendColour - The colour being applied with the designated blend mode.
- * @returns The colour resulting from the blend.
+ * @param {Colour} baseColour - The base colour being blended.
+ * @param {Colour} blendColour - The colour being applied with the designated blend mode.
+ * @returns {Colour} The colour resulting from the blend.
  */
 export function softLight(baseColour: Colour, blendColour: Colour): Colour {
     return _blend(
@@ -956,9 +1068,9 @@ export function softLight(baseColour: Colour, blendColour: Colour): Colour {
 
 /**
  * Looks at the colour information in each channel and subtracts either the blend colour from the base colour or the base colour from the blend colour, depending on which has the greater brightness value. Blending with white inverts the base colour values; blending with black produces no change.
- * @param baseColour - The base colour being blended.
- * @param blendColour - The colour being applied with the designated blend mode.
- * @returns The colour resulting from the blend.
+ * @param {Colour} baseColour - The base colour being blended.
+ * @param {Colour} blendColour - The colour being applied with the designated blend mode.
+ * @returns {Colour} The colour resulting from the blend.
  */
 export function difference(baseColour: Colour, blendColour: Colour): Colour {
     return _blend(
@@ -971,9 +1083,9 @@ export function difference(baseColour: Colour, blendColour: Colour): Colour {
 
 /**
  * Creates an effect similar to but lower in contrast than the Difference mode. Blending with white inverts the base colour values. Blending with black produces no change.
- * @param baseColour - The base colour being blended.
- * @param blendColour - The colour being applied with the designated blend mode.
- * @returns The colour resulting from the blend.
+ * @param {Colour} baseColour - The base colour being blended.
+ * @param {Colour} blendColour - The colour being applied with the designated blend mode.
+ * @returns {Colour} The colour resulting from the blend.
  */
 export function exclusion(baseColour: Colour, blendColour: Colour): Colour {
     return _blend(
@@ -1174,9 +1286,9 @@ function _exclusion(baseChannel: number, blendChannel: number): number {
 
 /**
  * Generate a colour palette containing all shades of the provided colour.
- * @param colour - The colour to generate shades for.
- * @param num - The number of steps or intervals to produce colours for across the range of possible shades.
- * @returns The resulting colour palette.
+ * @param {Colour} colour - The colour to generate shades for.
+ * @param {number} num - The number of steps or intervals to produce colours for across the range of possible shades.
+ * @returns {Colour[]} The resulting colour palette.
  */
 export function shades(colour: Colour, num: number): Colour[] {
     return _monochromatic(colour, num, shade);
@@ -1184,9 +1296,9 @@ export function shades(colour: Colour, num: number): Colour[] {
 
 /**
  * Generate a colour palette containing all tints of the provided colour.
- * @param colour - The colour to generate tints for.
- * @param num - The number of steps or intervals to produce colours for across the range of possible tints.
- * @returns The resulting colour palette.
+ * @param {Colour} colour - The colour to generate tints for.
+ * @param {number} num - The number of steps or intervals to produce colours for across the range of possible tints.
+ * @returns {Colour[]} The resulting colour palette.
  */
 export function tints(colour: Colour, num: number): Colour[] {
     return _monochromatic(colour, num, tint);
@@ -1194,9 +1306,9 @@ export function tints(colour: Colour, num: number): Colour[] {
 
 /**
  * Generate a colour palette containing all tones of the provided colour.
- * @param colour - The colour to generate tones for.
- * @param num - The number of steps or intervals to produce colours for across the range of possible tones.
- * @returns The resulting colour palette.
+ * @param {Colour} colour - The colour to generate tones for.
+ * @param {number} num - The number of steps or intervals to produce colours for across the range of possible tones.
+ * @returns {Colour[]} The resulting colour palette.
  */
 export function tones(colour: Colour, num: number): Colour[] {
     return _monochromatic(colour, num, tone);
@@ -1204,8 +1316,8 @@ export function tones(colour: Colour, num: number): Colour[] {
 
 /**
  * Generate a colour palette containing the analogous colours of the provided colour. Analogous colours are next to each other on the colour wheel.
- * @param colour - The colour to generate a palette for.
- * @returns The resulting colour palette.
+ * @param {Colour} colour - The colour to generate a palette for.
+ * @returns {Colour[]} The resulting colour palette.
  */
 export function analogous(colour: Colour): Colour[] {
     const degSeparation: number = 40;
@@ -1216,8 +1328,8 @@ export function analogous(colour: Colour): Colour[] {
 
 /**
  * Generate a colour palette containing the complementary colours of the provided colour. Complementary colours are opposite on the colour wheel.
- * @param colour - The colour to generate a palette for.
- * @returns The resulting colour palette.
+ * @param {Colour} colour - The colour to generate a palette for.
+ * @returns {Colour[]} The resulting colour palette.
  */
 export function complementary(colour: Colour): Colour[] {
     const complement: Colour = rotate(colour, 180);
@@ -1226,8 +1338,8 @@ export function complementary(colour: Colour): Colour[] {
 
 /**
  * Generate a colour palette containing the split complementary colours of the provided colour. Split complementary colours contain the two adjacent colours of the complement.
- * @param colour - The colour to generate a palette for.
- * @returns The resulting colour palette.
+ * @param {Colour} colour - The colour to generate a palette for.
+ * @returns {Colour[]} The resulting colour palette.
  */
 export function splitComplementary(colour: Colour): Colour[] {
     const complement: Colour = rotate(colour, 180);
@@ -1239,8 +1351,8 @@ export function splitComplementary(colour: Colour): Colour[] {
 
 /**
  * Generate a colour palette containing the triadic colours of the provided colour. Triadic colours a three equally spaced colours on the colour wheel.
- * @param colour - The colour to generate a palette for.
- * @returns The resulting colour palette.
+ * @param {Colour} colour - The colour to generate a palette for.
+ * @returns {Colour[]} The resulting colour palette.
  */
 export function triadic(colour: Colour): Colour[] {
     const secondColour: Colour = rotate(colour, 360 / 3);
@@ -1250,8 +1362,8 @@ export function triadic(colour: Colour): Colour[] {
 
 /**
  * Generate a colour palette containing the tetradic colours of the provided colour.
- * @param colour - The colour to generate a palette for.
- * @returns The resulting colour palette.
+ * @param {Colour} colour - The colour to generate a palette for.
+ * @returns {Colour[]} The resulting colour palette.
  */
 export function tetradic(colour: Colour): Colour[] {
     const degSeparation: number = 60;
@@ -1263,8 +1375,8 @@ export function tetradic(colour: Colour): Colour[] {
 
 /**
  * Generate a colour palette containing the square colours of the provided colour.
- * @param colour - The colour to generate a palette for.
- * @returns The resulting colour palette.
+ * @param {Colour} colour - The colour to generate a palette for.
+ * @returns {Colour[]} The resulting colour palette.
  */
 export function square(colour: Colour): Colour[] {
     const secondColour: Colour = rotate(colour, 360 / 4);
@@ -1275,8 +1387,8 @@ export function square(colour: Colour): Colour[] {
 
 /**
  * Generate a palette containing random colours.
- * @param num - The length of the palette.
- * @returns The resulting colour palette.
+ * @param {number} num - The length of the palette.
+ * @returns {Colour[]} The resulting colour palette.
  */
 export function randoms(num: number): Colour[] {
     let colours: Colour[] = [];
@@ -1311,11 +1423,11 @@ function _monochromatic(colour: Colour, num: number, callback: MonochromaticCall
 
 /**
  * Validate that the contrast between the provided text colour and background colour meets the standard for the [WCAG contrast ratio](http://www.w3.org/TR/WCAG20/#contrast-ratiodef).
- * @param textColour - The colour of the text.
- * @param backgroundColour - The colour of the background.
- * @param largeText - True if text size is large. By default, text is assumed to be regular size.
- * @param enhanced - True if the enhanced contrast ratio is to be used. By default, the minimum contrast ratio is used.
- * @returns True if the provided text colour and background colour have sufficient contrast.
+ * @param {Colour} textColour - The colour of the text.
+ * @param {Colour} backgroundColour - The colour of the background.
+ * @param {boolean} [largeText=false] - True if text size is large. By default, text is assumed to be regular size.
+ * @param {boolean} [enhanced=false] - True if the enhanced contrast ratio is to be used. By default, the minimum contrast ratio is used.
+ * @returns {boolean} True if the provided text colour and background colour have sufficient contrast.
  */
 export function validateContrast(textColour: Colour, backgroundColour: Colour, largeText: boolean = false, enhanced: boolean = false): boolean {
     let contrastRatio: number = contrast(textColour, backgroundColour);
@@ -1335,11 +1447,11 @@ export function validateContrast(textColour: Colour, backgroundColour: Colour, l
 
 /**
  * Check if the provided text colour and background colour meet the [WCAG contrast ratio](http://www.w3.org/TR/WCAG20/#contrast-ratiodef) standards and if not, produce an equivalent text colour and background colour with sufficient contrast. The given text colour will be darkened and the given background colour will be lightened (and vice versa for dark mode).
- * @param textColour - The colour of the text.
- * @param backgroundColour - The colour of the background.
- * @param largeText - True if text size is large. By default, text is assumed to be regular size.
- * @param enhanced - True if the enhanced contrast ratio is to be used. By default, the minimum contrast ratio is used.
- * @returns An array of colours with the first item being the new text colour and the second item being the new background colour.
+ * @param {Colour} textColour - The colour of the text.
+ * @param {Colour} backgroundColour - The colour of the background.
+ * @param {boolean} [largeText=false] - True if text size is large. By default, text is assumed to be regular size.
+ * @param {boolean} [enhanced=false] - True if the enhanced contrast ratio is to be used. By default, the minimum contrast ratio is used.
+ * @returns {Colour[]} An array of colours with the first item being the new text colour and the second item being the new background colour.
  */
 export function fixContrast(textColour: Colour, backgroundColour: Colour, largeText: boolean = false, enhanced: boolean = false): Colour[] {
     const colours: Colour[] = [textColour.copy(), backgroundColour.copy()];
