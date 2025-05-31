@@ -239,6 +239,90 @@ export default class Colour {
     }
 
     /**
+     * Creates a new Colour object with the specified CMYK yellow value.
+     * This method is non-mutating and returns a new instance.
+     * @param {number} newYellow - The new CMYK yellow value [0, 1].
+     * @returns {Colour} A new Colour object with the updated CMYK yellow value.
+     */
+    withYellow(newYellow: number): Colour {
+        const newColour = this.copy();
+        newColour.yellow = newYellow;
+        return newColour;
+    }
+
+    /**
+     * Creates a new Colour object with the specified CMYK magenta value.
+     * This method is non-mutating and returns a new instance.
+     * @param {number} newMagenta - The new CMYK magenta value [0, 1].
+     * @returns {Colour} A new Colour object with the updated CMYK magenta value.
+     */
+    withMagenta(newMagenta: number): Colour {
+        const newColour = this.copy();
+        newColour.magenta = newMagenta;
+        return newColour;
+    }
+
+    /**
+     * Creates a new Colour object with the specified CMYK cyan value.
+     * This method is non-mutating and returns a new instance.
+     * @param {number} newCyan - The new CMYK cyan value [0, 1].
+     * @returns {Colour} A new Colour object with the updated CMYK cyan value.
+     */
+    withCyan(newCyan: number): Colour {
+        const newColour = this.copy();
+        newColour.cyan = newCyan;
+        return newColour;
+    }
+
+    /**
+     * Creates a new Colour object with the specified HSV value (brightness).
+     * This method is non-mutating and returns a new instance.
+     * @param {number} newValue - The new HSV value (brightness) [0, 1].
+     * @returns {Colour} A new Colour object with the updated HSV value.
+     */
+    withValue(newValue: number): Colour {
+        const newColour = this.copy();
+        newColour.value = newValue;
+        return newColour;
+    }
+
+    /**
+     * Creates a new Colour object with the specified HSV saturation value.
+     * This method is non-mutating and returns a new instance.
+     * @param {number} newSaturationv - The new HSV saturation value [0, 1].
+     * @returns {Colour} A new Colour object with the updated HSV saturation value.
+     */
+    withSaturationv(newSaturationv: number): Colour {
+        const newColour = this.copy();
+        newColour.saturationv = newSaturationv;
+        return newColour;
+    }
+
+    /**
+     * Creates a new Colour object with the specified hue value.
+     * This method is non-mutating and returns a new instance.
+     * @param {number} newHue - The new hue value [0, 360).
+     * @returns {Colour} A new Colour object with the updated hue value.
+     */
+    withHue(newHue: number): Colour {
+        const newColour = this.copy();
+        newColour.hue = newHue;
+        return newColour;
+    }
+
+    /**
+     * Creates a new Colour object with the specified blue value.
+     * This method is non-mutating and returns a new instance.
+     * @param {number} newBlue - The new blue value [0, 255].
+     * @returns {Colour} A new Colour object with the updated blue value.
+     */
+    withBlue(newBlue: number): Colour {
+        const newColour = this.copy();
+        newColour.blue = newBlue;
+        return newColour;
+    }
+
+    /**
     * Initialize a new Colour instance from RGB colour attributes.
     * @param {number} red - The value of the R channel [0, 255].
     * @param {number} green - The value of the G channel [0, 255].
